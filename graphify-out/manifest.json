@@ -24,16 +24,16 @@
     "semantic_hash": ""
   },
   "src/components/apps/ContactApp.tsx": {
-    "mtime": 1790766528.6162078,
-    "seen": 1790766568.4981477,
-    "ast_hash": "76850110a79a164f4117a04bf532fe28",
+    "mtime": 1790768814.7553935,
+    "seen": 1790770278.196771,
+    "ast_hash": "2c5071db3f8d0c7fdf6c37505193f583",
     "semantic_hash": ""
   },
   "src/components/apps/ProjectsApp.tsx": {
-    "mtime": 1790603578.0542111,
-    "seen": 1790696860.1536589,
-    "ast_hash": "6b670b243bf230a7539e4151dc02b9b5",
-    "semantic_hash": "6b670b243bf230a7539e4151dc02b9b5"
+    "mtime": 1790769157.0218778,
+    "seen": 1790770278.196771,
+    "ast_hash": "1513755f2d22f93b9f7df0de9064aceb",
+    "semantic_hash": ""
   },
   "src/components/apps/SkillsApp.tsx": {
     "mtime": 1790603548.7056146,
@@ -42,10 +42,10 @@
     "semantic_hash": "9125a224918c4ba12c0bd1558550cb0e"
   },
   "src/components/apps/SnakeApp.tsx": {
-    "mtime": 1790568010.566292,
-    "seen": 1790696860.1536589,
-    "ast_hash": "e16db658228e829c50b8d05c070956f6",
-    "semantic_hash": "e16db658228e829c50b8d05c070956f6"
+    "mtime": 1790775706.505344,
+    "seen": 1790775733.214471,
+    "ast_hash": "944e33e508605c114f9b507e3e342958",
+    "semantic_hash": ""
   },
   "src/components/apps/TaskManagerApp.tsx": {
     "mtime": 1790766547.2433794,
@@ -54,9 +54,9 @@
     "semantic_hash": ""
   },
   "src/components/apps/TerminalApp.tsx": {
-    "mtime": 1790766988.2177248,
-    "seen": 1790767010.9095616,
-    "ast_hash": "017a6def112ae1f77a27bb70577dd947",
+    "mtime": 1790769845.8544018,
+    "seen": 1790770278.196771,
+    "ast_hash": "cf0eccd40e469a8d4b8d976450932dbc",
     "semantic_hash": ""
   },
   "src/components/common/BrandIcons.tsx": {
@@ -66,10 +66,10 @@
     "semantic_hash": "c6e930c647bc910fddce80498460716c"
   },
   "src/components/desktop/AppearancePopover.tsx": {
-    "mtime": 1790694308.6240692,
-    "seen": 1790696860.1536589,
-    "ast_hash": "fd3adce05cdfa222ec32ce2bd9048531",
-    "semantic_hash": "fd3adce05cdfa222ec32ce2bd9048531"
+    "mtime": 1790770257.000368,
+    "seen": 1790770278.196771,
+    "ast_hash": "bfdd39b5c90a9f637f944f087dd782b9",
+    "semantic_hash": ""
   },
   "src/components/desktop/ContextMenu.tsx": {
     "mtime": 1790606144.6135473,
@@ -78,10 +78,10 @@
     "semantic_hash": "aa842e50b12f6bd9d52a6bbdb8816881"
   },
   "src/components/desktop/Desktop.tsx": {
-    "mtime": 1790693999.0373185,
-    "seen": 1790696860.1536589,
-    "ast_hash": "1ab3e85c5190fce18591d81db9a17d24",
-    "semantic_hash": "1ab3e85c5190fce18591d81db9a17d24"
+    "mtime": 1790773727.1167336,
+    "seen": 1790773913.5219703,
+    "ast_hash": "a87ab2ca4bdec4835fea3bf6c0aad372",
+    "semantic_hash": ""
   },
   "src/components/desktop/DesktopIcon.tsx": {
     "mtime": 1790693979.425359,
@@ -90,21 +90,21 @@
     "semantic_hash": "44e11a27a45aec9c01b03a4ab7dfd0dc"
   },
   "src/components/desktop/Dock.tsx": {
-    "mtime": 1790694337.29425,
-    "seen": 1790696860.1536589,
-    "ast_hash": "e39d16cfa61fb4b1b5d3536d44c771f8",
-    "semantic_hash": "e39d16cfa61fb4b1b5d3536d44c771f8"
+    "mtime": 1790773711.0652535,
+    "seen": 1790773913.5219703,
+    "ast_hash": "ca7b431fda8af622bde73431811037f8",
+    "semantic_hash": ""
   },
   "src/components/desktop/InteractiveBackground.tsx": {
-    "mtime": 1790694370.600852,
-    "seen": 1790696860.1536589,
-    "ast_hash": "3e0bfc7e01a63be7edbdc0a74ee5b161",
-    "semantic_hash": "3e0bfc7e01a63be7edbdc0a74ee5b161"
+    "mtime": 1790770224.0155313,
+    "seen": 1790770278.196771,
+    "ast_hash": "1251fb377984e18de1b2d92b36fd7855",
+    "semantic_hash": ""
   },
   "src/components/desktop/KeyboardShortcutsModal.tsx": {
-    "mtime": 1790730368.2211566,
-    "seen": 1790730443.0427432,
-    "ast_hash": "8d9c58e2f6c1de0a7d9926317f0755ae",
+    "mtime": 1790769665.5643854,
+    "seen": 1790770278.196771,
+    "ast_hash": "dcc5f62e72a8f3d2209cec40b7f5547e",
     "semantic_hash": ""
   },
   "src/components/desktop/MusicPopover.tsx": {
@@ -114,21 +114,21 @@
     "semantic_hash": "0a6f4806172baaf7c10444198cb9d5d7"
   },
   "src/components/desktop/TopBar.tsx": {
-    "mtime": 1790766152.980467,
-    "seen": 1790766365.689607,
-    "ast_hash": "dbb95cb183c66238021779b9ea8ff6f7",
+    "mtime": 1790773694.3427756,
+    "seen": 1790773913.5219703,
+    "ast_hash": "ccbf1a2ba1c3a41bb21443bc15b890a9",
     "semantic_hash": ""
   },
   "src/components/desktop/Window.tsx": {
-    "mtime": 1790730350.6951337,
-    "seen": 1790730443.0427432,
-    "ast_hash": "06c644131ab3ddc07b9b432a155df186",
+    "mtime": 1790773842.1415532,
+    "seen": 1790773913.5219703,
+    "ast_hash": "7510cb98ad7617b834ab3bcfbb95f08c",
     "semantic_hash": ""
   },
   "src/context/DesktopContext.tsx": {
-    "mtime": 1790766942.010372,
-    "seen": 1790767010.9095616,
-    "ast_hash": "7908df38b368123836510c6f752a5afb",
+    "mtime": 1790770065.0642407,
+    "seen": 1790770278.196771,
+    "ast_hash": "da1bae1fae0972de65ffd40f7db4fab4",
     "semantic_hash": ""
   },
   "src/data/portfolioData.ts": {
@@ -150,16 +150,16 @@
     "semantic_hash": "787e5a07efeb2bf6209d5937195f2f68"
   },
   "src/types/index.ts": {
-    "mtime": 1790604760.2980745,
-    "seen": 1790696860.1536589,
-    "ast_hash": "f6650def9a6f2a8e39728f87adb97727",
-    "semantic_hash": "f6650def9a6f2a8e39728f87adb97727"
+    "mtime": 1790769934.5077655,
+    "seen": 1790770278.196771,
+    "ast_hash": "9ebd8ad177d71f621dd3388da893831f",
+    "semantic_hash": ""
   },
   "src/utils/audio.ts": {
-    "mtime": 1790605045.0736985,
-    "seen": 1790696860.1536589,
-    "ast_hash": "3ebce4368b8a80ec3e662f7c09d9be0f",
-    "semantic_hash": "3ebce4368b8a80ec3e662f7c09d9be0f"
+    "mtime": 1790769974.8648176,
+    "seen": 1790770278.196771,
+    "ast_hash": "bb8074f3788efd9edee2f00e9a7f6810",
+    "semantic_hash": ""
   },
   "tsconfig.app.json": {
     "mtime": 1789314985.2131498,
@@ -309,6 +309,18 @@
     "mtime": 1790765937.5399835,
     "seen": 1790766365.689607,
     "ast_hash": "bc644111ca7156465cb5ac4926021038",
+    "semantic_hash": ""
+  },
+  "src/components/apps/ProjectSimulator.tsx": {
+    "mtime": 1790769203.004508,
+    "seen": 1790770278.196771,
+    "ast_hash": "628c11cacd874ef7a5f81b7f1f5a8baf",
+    "semantic_hash": ""
+  },
+  "src/components/apps/ResumeApp.tsx": {
+    "mtime": 1790776500.2702432,
+    "seen": 1790776522.0158482,
+    "ast_hash": "fa6c599c9057f73ee4380974fbde9432",
     "semantic_hash": ""
   }
 }

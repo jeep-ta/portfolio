@@ -7,9 +7,10 @@ import {
   Sparkles, 
   Activity,
   Palette, 
-  Check
+  Check,
+  Volume2
 } from 'lucide-react';
-import type { Theme, AnimationIntensity } from '../../types';
+import type { Theme, AnimationIntensity, SoundProfile } from '../../types';
 
 interface AppearancePopoverProps {
   onClose: () => void;
@@ -40,6 +41,13 @@ const EQ_COLOR_PRESETS = [
   { id: 'theme-sync', label: 'Sync', color: 'var(--accent)' },
 ];
 
+const SOUND_PROFILES: { id: SoundProfile; label: string; desc: string }[] = [
+  { id: 'mechanical', label: 'Tactile MX', desc: 'Crisp mechanical switch' },
+  { id: 'cyber', label: 'Cyber Synth', desc: 'Resonant sci-fi bandpass' },
+  { id: 'minimal', label: 'Soft Pop', desc: 'Warm modern UI blip' },
+  { id: 'silent', label: 'Muted', desc: 'Silent interaction sounds' },
+];
+
 export const AppearancePopover: React.FC<AppearancePopoverProps> = ({ onClose }) => {
   const {
     theme,
@@ -52,7 +60,9 @@ export const AppearancePopover: React.FC<AppearancePopoverProps> = ({ onClose })
     setAnimationIntensity,
     resetAppearance,
     visualizerColor,
-    setVisualizerColor
+    setVisualizerColor,
+    soundProfile,
+    setSoundProfile
   } = useDesktop();
 
   return (
@@ -253,6 +263,41 @@ export const AppearancePopover: React.FC<AppearancePopoverProps> = ({ onClose })
                     className="w-2.5 h-2.5 rounded-full shrink-0 shadow-sm"
                   />
                   <span className="truncate">{c.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Interaction Sound Profile */}
+        <div className="p-2.5 rounded-xl bg-black/40 border border-white/10">
+          <div className="flex items-center justify-between mb-1">
+            <span className="text-white font-medium text-[11px] flex items-center gap-1.5">
+              <Volume2 className="w-3 h-3 text-cyan-400" />
+              Sound Profile
+            </span>
+            <span className="text-[10px] text-cyan-400 font-mono capitalize">
+              {SOUND_PROFILES.find((p) => p.id === soundProfile)?.label || 'Tactile MX'}
+            </span>
+          </div>
+          <p className="text-[10px] text-gray-400 mb-2 font-sans">
+            Tactile Web Audio API feedback for clicks & typing.
+          </p>
+          <div className="grid grid-cols-2 gap-1.5">
+            {SOUND_PROFILES.map((p) => {
+              const isActive = soundProfile === p.id;
+              return (
+                <button
+                  key={p.id}
+                  onClick={() => setSoundProfile(p.id)}
+                  className={`flex flex-col items-start px-2 py-1.5 rounded-lg border text-[10px] transition-all text-left ${
+                    isActive
+                      ? 'bg-cyan-500/15 border-cyan-500/40 text-cyan-200 font-semibold shadow-sm'
+                      : 'bg-white/[0.02] border-white/5 hover:border-white/15 hover:bg-white/5 text-gray-400'
+                  }`}
+                >
+                  <span className={isActive ? 'text-white' : 'text-gray-300'}>{p.label}</span>
+                  <span className="text-[9px] text-gray-500 truncate w-full">{p.desc}</span>
                 </button>
               );
             })}

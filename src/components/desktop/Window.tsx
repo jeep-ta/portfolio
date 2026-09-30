@@ -20,6 +20,8 @@ export const Window: React.FC<WindowProps> = ({ id, children, icon }) => {
     closeWindow,
     minimizeWindow,
     maximizeWindow,
+    snapWindow,
+    minimizeOthers,
     updatePosition,
     updateSize,
   } = useDesktop();
@@ -28,7 +30,9 @@ export const Window: React.FC<WindowProps> = ({ id, children, icon }) => {
   const isActive = activeWindowId === id;
 
   const [isDragging, setIsDragging] = useState(false);
+  const [snapCandidate, setSnapCandidate] = useState<'top' | 'left' | 'right' | null>(null);
   const dragStartRef = useRef<{ mouseX: number; mouseY: number; startX: number; startY: number } | null>(null);
+  const shakeHistoryRef = useRef<{ time: number; x: number; dir: number }[]>([]);
 
   const [resizingDir, setResizingDir] = useState<ResizeDirection | null>(null);
   const resizeStartRef = useRef<{
@@ -47,6 +51,8 @@ export const Window: React.FC<WindowProps> = ({ id, children, icon }) => {
 
     focusWindow(id);
     setIsDragging(true);
+    setSnapCandidate(null);
+    shakeHistoryRef.current = [];
     dragStartRef.current = {
       mouseX: e.clientX,
       mouseY: e.clientY,
@@ -65,6 +71,40 @@ export const Window: React.FC<WindowProps> = ({ id, children, icon }) => {
       const newY = Math.max(38, Math.min(window.innerHeight - 80, dragStartRef.current.startY + deltaY));
 
       updatePosition(id, { x: newX, y: newY });
+
+      // Aero Snap boundary detection
+      if (e.clientY <= 45) {
+        setSnapCandidate('top');
+      } else if (e.clientX <= 25) {
+        setSnapCandidate('left');
+      } else if (e.clientX >= window.innerWidth - 25) {
+        setSnapCandidate('right');
+      } else {
+        setSnapCandidate(null);
+      }
+
+      // Aero Shake detection (shaking active window minimizes all background windows)
+      const now = performance.now();
+      const history = shakeHistoryRef.current;
+      const lastEntry = history[history.length - 1];
+      if (lastEntry) {
+        const dx = e.clientX - lastEntry.x;
+        if (Math.abs(dx) > 35) {
+          const currentDir = dx > 0 ? 1 : -1;
+          if (currentDir !== lastEntry.dir) {
+            history.push({ time: now, x: e.clientX, dir: currentDir });
+          }
+        }
+      } else {
+        history.push({ time: now, x: e.clientX, dir: 1 });
+      }
+
+      const recentReversals = history.filter((h) => now - h.time < 700);
+      shakeHistoryRef.current = recentReversals;
+      if (recentReversals.length >= 4) {
+        minimizeOthers(id);
+        shakeHistoryRef.current = [];
+      }
     } else if (resizingDir && resizeStartRef.current && !win.isMaximized) {
       const deltaX = e.clientX - resizeStartRef.current.mouseX;
       const deltaY = e.clientY - resizeStartRef.current.mouseY;
@@ -108,6 +148,17 @@ export const Window: React.FC<WindowProps> = ({ id, children, icon }) => {
     if (isDragging) {
       setIsDragging(false);
       dragStartRef.current = null;
+      shakeHistoryRef.current = [];
+
+      if (snapCandidate === 'top') {
+        maximizeWindow(id);
+      } else if (snapCandidate === 'left') {
+        snapWindow(id, 'left');
+      } else if (snapCandidate === 'right') {
+        snapWindow(id, 'right');
+      }
+      setSnapCandidate(null);
+
       try {
         (e.target as HTMLElement).releasePointerCapture(e.pointerId);
       } catch {
@@ -147,8 +198,29 @@ export const Window: React.FC<WindowProps> = ({ id, children, icon }) => {
   }
 
   return (
-    <div
-      role="dialog"
+    <>
+      {/* Aero Snap Blueprint Guide */}
+      {isDragging && snapCandidate && (
+        <div
+          className="fixed pointer-events-none z-[999] rounded-xl border-2 border-[var(--accent)] bg-[var(--accent)]/15 backdrop-blur-[2px] transition-all duration-150 animate-pulse shadow-[0_0_35px_var(--accent-glow)]"
+          style={{
+            top: '40px',
+            left: snapCandidate === 'right' ? 'calc(50% + 4px)' : '8px',
+            width: snapCandidate === 'top' ? 'calc(100vw - 16px)' : 'calc(50vw - 12px)',
+            height: 'calc(100vh - 40px - 68px)',
+          }}
+        >
+          <div className="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/80 border border-[var(--accent)]/40 font-mono text-[10px] text-[var(--accent)] flex items-center gap-1.5 uppercase tracking-wider shadow-lg">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-ping" />
+            <span>
+              AERO SNAP: {snapCandidate === 'top' ? 'MAXIMIZE (FULLSCREEN)' : `${snapCandidate.toUpperCase()} SPLIT (50%)`}
+            </span>
+          </div>
+        </div>
+      )}
+
+      <div
+        role="dialog"
       aria-label={win.title}
       tabIndex={-1}
       onClick={() => focusWindow(id)}
@@ -160,7 +232,7 @@ export const Window: React.FC<WindowProps> = ({ id, children, icon }) => {
         height: `${win.size.height}px`,
         zIndex: win.zIndex,
       }}
-      className={`pointer-events-auto flex flex-col rounded-lg overflow-hidden border transition-shadow duration-150 backdrop-blur-md ${
+      className={`window-container ${id === 'resume' ? 'window-resume' : 'print:hidden'} pointer-events-auto flex flex-col rounded-lg overflow-hidden border transition-shadow duration-150 backdrop-blur-md ${
         isActive
           ? 'border-[var(--border-highlight)] window-active-glow shadow-2xl'
           : 'border-[var(--border-color)] shadow-lg opacity-95'
@@ -172,7 +244,7 @@ export const Window: React.FC<WindowProps> = ({ id, children, icon }) => {
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onDoubleClick={() => maximizeWindow(id)}
-        className={`flex items-center justify-between px-3 py-2 border-b select-none cursor-move text-xs font-mono transition-colors ${
+        className={`window-titlebar print:hidden flex items-center justify-between px-3 py-2 border-b select-none cursor-move text-xs font-mono transition-colors ${
           isActive
             ? 'bg-[var(--bg-window-header)] border-[var(--border-highlight)] text-white'
             : 'bg-black/40 border-[var(--border-color)] text-[var(--text-muted)]'
@@ -243,13 +315,13 @@ export const Window: React.FC<WindowProps> = ({ id, children, icon }) => {
       </div>
 
       {/* Content Area */}
-      <div className="flex-1 overflow-auto relative font-sans text-sm selection:bg-[var(--accent)] selection:text-black pointer-events-auto">
+      <div className="window-content flex-1 overflow-auto relative font-sans text-sm selection:bg-[var(--accent)] selection:text-black pointer-events-auto print:overflow-visible print:h-auto print:static">
         {children}
       </div>
 
       {/* Multi-Directional Resize Handles (Only when not maximized) */}
       {!win.isMaximized && (
-        <>
+        <div className="window-resize-handle print:hidden">
           {/* North */}
           <div
             onPointerDown={(e) => handleResizeStart(e, 'n')}
@@ -306,8 +378,9 @@ export const Window: React.FC<WindowProps> = ({ id, children, icon }) => {
             onPointerUp={handlePointerUp}
             className="absolute bottom-0 right-0 w-3 h-3 cursor-nwse-resize hover:bg-[var(--accent)] z-40"
           />
-        </>
+        </div>
       )}
     </div>
+    </>
   );
 };

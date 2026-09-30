@@ -41,7 +41,7 @@ export const TopBar: React.FC = () => {
   }, []);
 
   return (
-    <header className="h-9 w-full bg-black/60 backdrop-blur-md border-b border-[var(--border-color)] px-3 flex items-center justify-between text-xs text-[var(--text-primary)] z-50 fixed top-0 left-0 select-none">
+    <header className="h-9 w-full bg-black/60 backdrop-blur-md border-b border-[var(--border-color)] px-3 flex items-center justify-between text-xs text-[var(--text-primary)] z-50 fixed top-0 left-0 select-none print:hidden">
       {/* Left: Brand Logo & Minimal Three-Bar Equalizer Status */}
       <div className="flex items-center gap-2 sm:gap-2.5">
         <div className="flex items-center gap-2 font-mono font-bold tracking-wider text-[var(--accent)] hover:opacity-80 cursor-pointer">
@@ -101,7 +101,7 @@ export const TopBar: React.FC = () => {
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400/80" />
           <span>KERNEL: OK</span>
           <span>•</span>
-          <span>eBPF: ACTIVE</span>
+          <span>STACK: ACTIVE</span>
         </div>
       </div>
 

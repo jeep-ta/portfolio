@@ -3,7 +3,8 @@ import { useDesktop } from '../../context/DesktopContext';
 import { 
   Terminal as TerminalIcon, 
   Music as MusicIcon, 
-  SlidersHorizontal 
+  SlidersHorizontal,
+  Monitor
 } from 'lucide-react';
 import { soundFx } from '../../utils/audio';
 import { MusicPopover } from './MusicPopover';
@@ -16,6 +17,7 @@ export const Dock: React.FC = () => {
     openWindow, 
     focusWindow, 
     minimizeWindow, 
+    toggleShowDesktop,
     ambientPlaying 
   } = useDesktop();
 
@@ -80,7 +82,7 @@ export const Dock: React.FC = () => {
       <nav
         ref={dockRef}
         aria-label="JEPTHA // OS — UTILITY DOCK"
-        className="fixed bottom-3.5 left-1/2 -translate-x-1/2 z-40 select-none pointer-events-auto"
+        className="fixed bottom-3.5 left-1/2 -translate-x-1/2 z-40 select-none pointer-events-auto print:hidden"
       >
         {/* Popovers Layer */}
         {activePopover === 'music' && (
@@ -177,6 +179,26 @@ export const Dock: React.FC = () => {
                 : 'bg-transparent opacity-0'
             }`}
           />
+        </button>
+
+        {/* Vertical Divider */}
+        <div className="w-[1px] h-6 bg-white/10 mx-1" />
+
+        {/* Show Desktop / Peek Utility Item */}
+        <button
+          onClick={() => {
+            soundFx.playClick();
+            setActivePopover(null);
+            toggleShowDesktop();
+          }}
+          className="group flex flex-col items-center justify-center px-3 py-1.5 rounded-xl transition-all duration-150 relative focus:outline-none hover:bg-white/[0.08] border border-transparent text-gray-400 hover:text-white"
+          title="Show Desktop / Peek (Toggle all windows) [Ctrl+D]"
+        >
+          <div className="flex items-center gap-1.5">
+            <Monitor className="w-4 h-4 text-emerald-400/80 transition-transform group-hover:scale-110 group-hover:text-emerald-300" />
+            <span className="font-mono text-xs font-semibold">Desktop</span>
+          </div>
+          <span className="w-1.5 h-1.5 rounded-full transition-all duration-200 mt-1 bg-transparent opacity-0 group-hover:bg-emerald-400 group-hover:opacity-100" />
         </button>
       </div>
     </nav>

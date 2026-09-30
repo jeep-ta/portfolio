@@ -9,12 +9,19 @@ const ALL_COMMANDS = [
   'help', 'ls', 'dir', 'cat', 'open', 'theme', 'sudo', 'echo', 
   'whoami', 'date', 'uname', 'snake', 'neofetch', 'matrix', 
   'top', 'htop', 'pwd', 'cd', 'clear', 'exit', 'quit',
-  'eq', 'visualizer', 'music', 'volume', 'vol', 'crt', 'scanlines'
+  'eq', 'visualizer', 'music', 'volume', 'vol', 'crt', 'scanlines',
+  'resume', 'cv', 'hire', 'challenge', 'quiz', 'trivia'
 ];
 
 const ALL_FILES = [
-  'About.txt', 'Projects.app', 'Skills.config', 'TaskMgr.app', 'Contact.sh', 'Snake.game'
+  'About.txt', 'Projects.app', 'Skills.config', 'TaskMgr.app', 'Contact.sh', 'Snake.game', 'Resume.pdf'
 ];
+
+interface InteractiveSession {
+  type: 'hire' | 'quiz';
+  step: number;
+  data: Record<string, string | number>;
+}
 
 const INITIAL_OUTPUT: TerminalEntry[] = [
   {
@@ -61,6 +68,7 @@ export const TerminalApp: React.FC = () => {
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState<number>(-1);
   const [isMatrixActive, setIsMatrixActive] = useState<boolean>(false);
+  const [session, setSession] = useState<InteractiveSession | null>(null);
 
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -87,6 +95,7 @@ export const TerminalApp: React.FC = () => {
 
   // Tab Autocompletion handler
   const handleTabComplete = () => {
+    if (session) return;
     soundFx.playKeypress();
     const trimmed = inputVal.trimStart();
     const parts = trimmed.split(' ');
@@ -120,6 +129,232 @@ export const TerminalApp: React.FC = () => {
     }
   };
 
+  const handleInteractiveInput = (rawVal: string) => {
+    if (!session) return;
+    const val = rawVal.trim();
+
+    if (val.toLowerCase() === 'cancel' || val.toLowerCase() === 'exit') {
+      soundFx.playClick();
+      setSession(null);
+      setHistory((prev) => [
+        ...prev,
+        { id: Math.random().toString(), type: 'input', content: `[CANCEL] > ${val}` },
+        { id: Math.random().toString(), type: 'output', content: 'Session aborted. Returned to standard guest shell.' },
+      ]);
+      return;
+    }
+
+    if (session.type === 'hire') {
+      const promptText = `[RECRUITER WIZARD: STEP ${session.step}/3] > ${val || '(default)'}`;
+      const entry: TerminalEntry = { id: Math.random().toString(), type: 'input', content: promptText };
+
+      if (session.step === 1) {
+        let role = 'Junior Full-Stack Developer';
+        if (val === '1') role = 'Software Engineering Intern (OJT / Co-op)';
+        else if (val === '2') role = 'Junior Full-Stack Developer';
+        else if (val === '3') role = 'Junior Backend Developer';
+        else if (val === '4') role = 'General Software Engineering / Contract';
+        else if (val.length > 2) role = val;
+
+        soundFx.playClick();
+        setSession({ type: 'hire', step: 2, data: { role } });
+        setHistory((prev) => [
+          ...prev,
+          entry,
+          {
+            id: Math.random().toString(),
+            type: 'info',
+            content: [
+              `Target Role Selected: [${role}]`,
+              '',
+              'STEP 2 OF 3: Select Work Arrangement:',
+              '  [1] Remote (Global / Async)',
+              '  [2] Hybrid',
+              '  [3] On-site (Philippines)',
+              '',
+              'Enter choice [1-3] or type custom:',
+            ],
+          },
+        ]);
+      } else if (session.step === 2) {
+        let mode = 'Remote (Global / Async)';
+        if (val === '1') mode = 'Remote (Global / Async)';
+        else if (val === '2') mode = 'Hybrid';
+        else if (val === '3') mode = 'On-site (Philippines)';
+        else if (val.length > 2) mode = val;
+
+        soundFx.playClick();
+        setSession({ type: 'hire', step: 3, data: { ...session.data, mode } });
+        setHistory((prev) => [
+          ...prev,
+          entry,
+          {
+            id: Math.random().toString(),
+            type: 'info',
+            content: [
+              `Work Mode Selected: [${mode}]`,
+              '',
+              'STEP 3 OF 3: Enter your Company Name or Hiring Organization:',
+              '  (Press [Enter] to leave as "Prospective Engineering Partner")',
+            ],
+          },
+        ]);
+      } else if (session.step === 3) {
+        const company = val || 'Prospective Engineering Partner';
+        const role = (session.data.role as string) || 'Junior Full-Stack Developer';
+        const mode = (session.data.mode as string) || 'Remote';
+
+        soundFx.playFanfare();
+        setSession(null);
+
+        const email = PERSONAL_INFO.email;
+        const mailSubject = encodeURIComponent(`Engineering Opportunity: ${role} at ${company}`);
+        const mailBody = encodeURIComponent(
+          `Hi Jeptha,\n\nI reviewed your portfolio operating system and would love to connect regarding an opportunity for a ${role} (${mode}) at ${company}.\n\nLooking forward to discussing further!\n\nBest regards,\n${company}`
+        );
+        const mailtoUrl = `mailto:${email}?subject=${mailSubject}&body=${mailBody}`;
+
+        try {
+          navigator.clipboard.writeText(email);
+        } catch {
+          // ignore
+        }
+
+        setTimeout(() => {
+          if (typeof window !== 'undefined') {
+            window.open(mailtoUrl, '_blank');
+          }
+        }, 500);
+
+        setHistory((prev) => [
+          ...prev,
+          entry,
+          {
+            id: Math.random().toString(),
+            type: 'success',
+            content: [
+              '====================================================================',
+              ' OFFICIAL DISPATCH: JEPTHA OS CANDIDATE RECRUITMENT HANDSHAKE       ',
+              '====================================================================',
+              ` Candidate:   Jeptha Osorio (Batangas State University, BSCS)`,
+              ` Target Role: ${role}`,
+              ` Work Mode:   ${mode}`,
+              ` Recruiter:   ${company}`,
+              ` Contact:     ${email} [COPIED TO CLIPBOARD]`,
+              ` Status:      DISPATCH GENERATED & PRE-COMPOSED DRAFT OPENED`,
+              '====================================================================',
+              'Tip: You can also open "Resume.pdf" to print or download an official PDF.',
+            ],
+          },
+        ]);
+      }
+    } else if (session.type === 'quiz') {
+      const promptText = `[CS TRIVIA Q${session.step}/3] > ${val}`;
+      const entry: TerminalEntry = { id: Math.random().toString(), type: 'input', content: promptText };
+
+      if (session.step === 1) {
+        const isCorrect = val === '2' || val.toLowerCase().includes('n log n');
+        const score = isCorrect ? 1 : 0;
+        soundFx.playClick();
+        setSession({ type: 'quiz', step: 2, data: { score } });
+        setHistory((prev) => [
+          ...prev,
+          entry,
+          {
+            id: Math.random().toString(),
+            type: isCorrect ? 'success' : 'error',
+            content: isCorrect
+              ? 'CORRECT! QuickSort achieves O(n log n) average time by balanced partitioning.'
+              : 'INCORRECT! Average QuickSort complexity is [2] O(n log n). Worst-case is O(n²).',
+          },
+          {
+            id: Math.random().toString(),
+            type: 'info',
+            content: [
+              '',
+              'QUESTION 2 OF 3:',
+              'Which data structure strictly operates under First-In, First-Out (FIFO) semantics?',
+              '  [1] Stack (LIFO)',
+              '  [2] Heap (Priority)',
+              '  [3] Queue (FIFO)',
+              '  [4] Binary Search Tree',
+              '',
+              'Enter answer [1-4]:',
+            ],
+          },
+        ]);
+      } else if (session.step === 2) {
+        const isCorrect = val === '3' || val.toLowerCase().includes('queue');
+        const currentScore = ((session.data.score as number) || 0) + (isCorrect ? 1 : 0);
+        soundFx.playClick();
+        setSession({ type: 'quiz', step: 3, data: { score: currentScore } });
+        setHistory((prev) => [
+          ...prev,
+          entry,
+          {
+            id: Math.random().toString(),
+            type: isCorrect ? 'success' : 'error',
+            content: isCorrect
+              ? 'CORRECT! Queues service items in the order they arrived (FIFO).'
+              : 'INCORRECT! [3] Queue is FIFO. Stacks are LIFO (Last-In, First-Out).',
+          },
+          {
+            id: Math.random().toString(),
+            type: 'info',
+            content: [
+              '',
+              'QUESTION 3 OF 3:',
+              'In modern React 19, which hook is used to mark state updates as non-blocking concurrent transitions?',
+              '  [1] useTransition',
+              '  [2] useEffect',
+              '  [3] useMemo',
+              '  [4] useDeferredValue',
+              '',
+              'Enter answer [1-4]:',
+            ],
+          },
+        ]);
+      } else if (session.step === 3) {
+        const isCorrect = val === '1' || val.toLowerCase().includes('transition');
+        const finalScore = ((session.data.score as number) || 0) + (isCorrect ? 1 : 0);
+        soundFx.playFanfare();
+        setSession(null);
+
+        const badge =
+          finalScore === 3
+            ? '🏆 [STAFF ALGORITHM ARCHITECT] — PERFECT 3/3 SCORE!'
+            : finalScore === 2
+            ? '⭐ [SENIOR SYSTEMS ENGINEER] — 2/3 SCORE!'
+            : '📘 [ASSOCIATE ENGINEER] — 1/3 SCORE!';
+
+        setHistory((prev) => [
+          ...prev,
+          entry,
+          {
+            id: Math.random().toString(),
+            type: isCorrect ? 'success' : 'error',
+            content: isCorrect
+              ? 'CORRECT! useTransition allows updating state without blocking UI responsiveness.'
+              : 'INCORRECT! [1] useTransition is the hook for non-blocking concurrent transitions.',
+          },
+          {
+            id: Math.random().toString(),
+            type: 'success',
+            content: [
+              '====================================================================',
+              ' COMPUTER SCIENCE CHALLENGE RESULTS                                 ',
+              '====================================================================',
+              ` Final Score: ${finalScore} / 3 Correct`,
+              ` Awarded Badge: ${badge}`,
+              ' Thanks for playing! Type "challenge" to retry anytime.',
+              '====================================================================',
+            ],
+          },
+        ]);
+      }
+    }
+  };
+
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Tab') {
       e.preventDefault();
@@ -130,21 +365,26 @@ export const TerminalApp: React.FC = () => {
     soundFx.playKeypress();
 
     if (e.key === 'Enter') {
-      executeCommand(inputVal.trim());
-      if (inputVal.trim()) {
-        setCommandHistory((prev) => [...prev, inputVal.trim()]);
+      const val = inputVal.trim();
+      if (session) {
+        handleInteractiveInput(val);
+      } else {
+        executeCommand(val);
+        if (val) {
+          setCommandHistory((prev) => [...prev, val]);
+        }
       }
       setHistoryIndex(-1);
       setInputVal('');
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
-      if (commandHistory.length === 0) return;
+      if (commandHistory.length === 0 || session) return;
       const nextIndex = historyIndex === -1 ? commandHistory.length - 1 : Math.max(0, historyIndex - 1);
       setHistoryIndex(nextIndex);
       setInputVal(commandHistory[nextIndex]);
     } else if (e.key === 'ArrowDown') {
       e.preventDefault();
-      if (historyIndex === -1) return;
+      if (historyIndex === -1 || session) return;
       const nextIndex = historyIndex + 1;
       if (nextIndex >= commandHistory.length) {
         setHistoryIndex(-1);
@@ -192,13 +432,15 @@ export const TerminalApp: React.FC = () => {
             '  top / htop            Open real-time Kernel Task Manager',
             '  theme <theme_name>    Switch desktop theme (dark, retro, matrix, cyber)',
             '  pwd / cd              Inspect virtual directories',
-            '  sudo hire me          Execute VIP recruitment sequence',
+            '  sudo hire me / hire   Launch interactive Recruitment Offer Dispatch wizard',
+            '  challenge / quiz      Test CS & algorithmic knowledge in 3-round trivia',
             '  echo <text>           Print text to console buffer',
             '  whoami / uname / date System info queries',
             '  music / lofi          Toggle Lo-Fi House audio streaming',
             '  eq / visualizer       NCS background audio equalizer & colors',
             '  volume <0-100>        Adjust master audio volume or mute/unmute',
             '  crt / scanlines       Toggle retro CRT monitor scanlines (default: OFF)',
+            '  resume / cv           Open official interactive Resume & PDF export',
             '  snake                 Launch arcade snake Easter egg',
             '  exit / quit           Close terminal window',
             '  clear                 Clear terminal scrollback',
@@ -227,6 +469,7 @@ export const TerminalApp: React.FC = () => {
             '-rwxr-xr 2026-09-28 11:45     5200 TaskMgr.app',
             '-rwxr-xr 2026-09-28 11:45     3210 Contact.sh',
             '-rwxr-xr 2026-09-28 11:46     6400 Snake.game',
+            '-rw-r--r 2026-09-30 19:40     2480 Resume.pdf',
             'drwxr-xr 2026-09-28 11:47     4096 secrets/',
           ],
         });
@@ -267,6 +510,22 @@ export const TerminalApp: React.FC = () => {
           id: Math.random().toString(),
           type: 'success',
           content: `CRT Scanline overlay switched to: ${nextState ? 'ON' : 'OFF'}`,
+        });
+        break;
+      }
+
+      case 'resume':
+      case 'cv': {
+        openWindow('resume');
+        soundFx.playSuccess();
+        responses.push({
+          id: Math.random().toString(),
+          type: 'success',
+          content: [
+            'Opening official Resume.pdf application...',
+            'Candidate: Jeptha Osorio // BSCS Undergraduate',
+            'Tip: Use the in-app "Print / PDF" button to download a standard print-ready PDF.',
+          ],
         });
         break;
       }
@@ -354,7 +613,7 @@ export const TerminalApp: React.FC = () => {
             type: 'output',
             content: [
               '// Skills Overview:',
-              'Core: TypeScript, Rust, Go, React 19, Distributed Systems, eBPF',
+              'Core: TypeScript, React 19, Next.js, Node.js, Java, Python, SQL',
               'Type "open skills" for full interactive diagnostic tree.',
             ],
           });
@@ -407,11 +666,14 @@ export const TerminalApp: React.FC = () => {
         } else if (target === 'snake' || target === 'snake.game') {
           openWindow('snake');
           responses.push({ id: Math.random().toString(), type: 'success', content: 'Launching Snake.game...' });
+        } else if (target === 'resume' || target === 'resume.pdf' || target === 'cv') {
+          openWindow('resume');
+          responses.push({ id: Math.random().toString(), type: 'success', content: 'Launching Resume.pdf...' });
         } else {
           responses.push({
             id: Math.random().toString(),
             type: 'error',
-            content: `open: unknown app "${target}". Available: about, projects, skills, taskmgr, contact, snake`,
+            content: `open: unknown app "${target}". Available: about, projects, skills, taskmgr, contact, snake, resume`,
           });
         }
         break;
@@ -430,22 +692,28 @@ export const TerminalApp: React.FC = () => {
             ],
           });
           triggerSystemCrash();
-        } else if (fullArgs === 'hire me' || fullArgs === 'hire jeptha' || fullArgs === 'hire') {
+        } else if (fullArgs.includes('hire')) {
           soundFx.playSuccess();
+          setSession({ type: 'hire', step: 1, data: {} });
           responses.push({
             id: Math.random().toString(),
-            type: 'success',
+            type: 'info',
             content: [
-              '==================================================================',
-              ' [ROOT AUTHORIZED] YOU UNLOCKED THE VIP RECRUITMENT PROTOCOL!     ',
-              '==================================================================',
-              'Congratulations! Excellent engineering judgment confirmed.',
-              `Direct candidate dispatch: ${PERSONAL_INFO.email}`,
-              'Email copied to clipboard automatically!',
-              'Looking forward to architecting exceptional systems together.',
+              '====================================================================',
+              ' [ROOT AUTHORIZED] RECRUITMENT OFFER DISPATCH WIZARD                ',
+              '====================================================================',
+              'Welcome! Tailor your recruitment inquiry in 3 rapid steps.',
+              '(Type "cancel" anytime to abort session)',
+              '',
+              'STEP 1 OF 3: Select Candidate Role Focus:',
+              '  [1] Software Engineering Intern (OJT / Co-op)',
+              '  [2] Junior Full-Stack Developer (React 19, TypeScript, Node.js)',
+              '  [3] Junior Backend Developer (Node.js, Express, Java, SQL, REST APIs)',
+              '  [4] General Inquiry / Contract Engineering',
+              '',
+              'Enter choice [1-4] or type your custom role title:',
             ],
           });
-          navigator.clipboard.writeText(PERSONAL_INFO.email);
         } else {
           responses.push({
             id: Math.random().toString(),
@@ -453,6 +721,59 @@ export const TerminalApp: React.FC = () => {
             content: `sudo: ${args[0] || 'command'}: Try typing "sudo hire me" or "sudo rm -rf /"`,
           });
         }
+        break;
+      }
+
+      case 'hire': {
+        soundFx.playSuccess();
+        setSession({ type: 'hire', step: 1, data: {} });
+        responses.push({
+          id: Math.random().toString(),
+          type: 'info',
+          content: [
+            '====================================================================',
+            ' RECRUITMENT OFFER DISPATCH WIZARD                                  ',
+            '====================================================================',
+            'Welcome! Tailor your recruitment inquiry in 3 rapid steps.',
+            '(Type "cancel" anytime to abort session)',
+            '',
+            'STEP 1 OF 3: Select Candidate Role Focus:',
+            '  [1] Software Engineering Intern (OJT / Co-op)',
+            '  [2] Junior Full-Stack Developer (React 19, TypeScript, Node.js)',
+            '  [3] Junior Backend Developer (Node.js, Express, Java, SQL, REST APIs)',
+            '  [4] General Inquiry / Contract Engineering',
+            '',
+            'Enter choice [1-4] or type your custom role title:',
+          ],
+        });
+        break;
+      }
+
+      case 'challenge':
+      case 'quiz':
+      case 'trivia': {
+        soundFx.playSuccess();
+        setSession({ type: 'quiz', step: 1, data: { score: 0 } });
+        responses.push({
+          id: Math.random().toString(),
+          type: 'info',
+          content: [
+            '====================================================================',
+            ' CS & ENGINEERING ARENA // 3-ROUND TRIVIA CHALLENGE                 ',
+            '====================================================================',
+            'Test your computer science intuition against the Jeptha OS kernel!',
+            '(Type "cancel" anytime to abort session)',
+            '',
+            'QUESTION 1 OF 3:',
+            'What is the average-case algorithmic time complexity of QuickSort?',
+            '  [1] O(n)',
+            '  [2] O(n log n)',
+            '  [3] O(n²)',
+            '  [4] O(log n)',
+            '',
+            'Enter choice [1-4]:',
+          ],
+        });
         break;
       }
 
@@ -751,7 +1072,13 @@ export const TerminalApp: React.FC = () => {
         onClick={() => inputRef.current?.focus()}
         className="flex items-center gap-2 pt-2 border-t border-white/10 select-none cursor-text pointer-events-auto"
       >
-        <span className="text-[var(--accent)] font-bold shrink-0">guest@jeptha-os:~$</span>
+        <span className="text-[var(--accent)] font-bold shrink-0">
+          {session
+            ? session.type === 'hire'
+              ? `[WIZARD ${session.step}/3] >`
+              : `[CS QUIZ Q${session.step}/3] >`
+            : 'guest@jeptha-os:~$'}
+        </span>
         <div className="relative flex-1 flex items-center">
           <input
             ref={inputRef}

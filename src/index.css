@@ -191,3 +191,98 @@
   animation: glitch-shake 0.12s infinite;
 }
 
+/* ==========================================================================
+   Comprehensive Clean Print & PDF Export Styles
+   ========================================================================== */
+@page {
+  size: A4 portrait;
+  margin: 12mm 15mm 12mm 15mm;
+}
+
+@media print {
+  /* 1. Reset document flow and root styling */
+  html,
+  body {
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    font-size: 10pt !important;
+    line-height: 1.4 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    user-select: text !important;
+    -webkit-user-select: text !important;
+  }
+
+  /* 2. Hide all OS environment chrome */
+  header,
+  nav,
+  canvas,
+  .scanlines,
+  .scanlines::after,
+  .desktop-icon-rail,
+  .window-titlebar,
+  .window-resize-handle,
+  .resume-top-ribbon,
+  .aero-snap-overlay,
+  [aria-label*="UTILITY DOCK"],
+  [aria-label*="Top Status Bar"],
+  [role="dialog"]:not(.window-resume),
+  .window-container:not(.window-resume),
+  .print-hidden,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* 3. Neutralize Desktop Main / Root Containers */
+  #root,
+  .desktop-root,
+  main,
+  .window-resume,
+  .window-resume > .window-content {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: #ffffff !important;
+    background-image: none !important;
+    transform: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* 4. Dedicated Print Document Styling */
+  .resume-print-document {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  }
+
+  /* 5. Page break controls */
+  .print-avoid-break {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+}
+

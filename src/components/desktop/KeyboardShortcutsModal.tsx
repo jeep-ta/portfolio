@@ -94,6 +94,22 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({ 
             </div>
             <div className="space-y-2 text-[11px]">
               <div className="flex items-center justify-between">
+                <span className="text-gray-300">Show Desktop (Peek / Restore)</span>
+                <div className="flex gap-1">
+                  <kbd className="px-1.5 py-0.5 rounded bg-white/10 border border-white/15 text-white font-mono text-[10px]">Ctrl</kbd>
+                  <span className="text-gray-500">+</span>
+                  <kbd className="px-1.5 py-0.5 rounded bg-white/10 border border-white/15 text-white font-mono text-[10px]">D</kbd>
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-gray-300">Aero Snap Half / Full</span>
+                <span className="text-gray-400 font-sans text-[11px]">Drag to Edge / Top</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-gray-300">Aero Shake (Minimize Others)</span>
+                <span className="text-gray-400 font-sans text-[11px]">Shake Title Bar</span>
+              </div>
+              <div className="flex items-center justify-between">
                 <span className="text-gray-300">Desktop Actions Context Menu</span>
                 <span className="text-gray-400 font-sans text-[11px]">Right-Click Canvas</span>
               </div>

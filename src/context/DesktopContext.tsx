@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
 import type { ReactNode } from 'react';
-import type { WindowId, WindowState, Theme, Position, Size, VisualizerStyle, AnimationIntensity } from '../types';
+import type { WindowId, WindowState, Theme, SoundProfile, Position, Size, VisualizerStyle, AnimationIntensity } from '../types';
 import { soundFx, type AudioTrack } from '../utils/audio';
 
 interface DesktopContextType {
@@ -8,6 +8,8 @@ interface DesktopContextType {
   activeWindowId: WindowId | null;
   theme: Theme;
   soundEnabled: boolean;
+  soundProfile: SoundProfile;
+  setSoundProfile: (profile: SoundProfile) => void;
   scanlinesEnabled: boolean;
   isCrashed: boolean;
   isRebooting: boolean;
@@ -30,6 +32,9 @@ interface DesktopContextType {
   toggleSound: () => void;
   toggleScanlines: () => void;
   minimizeAll: () => void;
+  minimizeOthers: (id: WindowId) => void;
+  toggleShowDesktop: () => void;
+  snapWindow: (id: WindowId, side: 'left' | 'right') => void;
   tileWindows: () => void;
   toggleAmbientMusic: () => void;
   triggerSystemCrash: () => void;
@@ -147,6 +152,19 @@ const INITIAL_WINDOWS: Record<WindowId, WindowState> = {
     minWidth: 340,
     minHeight: 380,
   },
+  resume: {
+    id: 'resume',
+    title: 'Resume.pdf — Jeptha Osorio',
+    fileName: 'Resume.pdf',
+    isOpen: false,
+    isMinimized: false,
+    isMaximized: false,
+    zIndex: 12,
+    position: { x: 160, y: 55 },
+    size: { width: 720, height: 560 },
+    minWidth: 400,
+    minHeight: 340,
+  },
 };
 
 const DesktopContext = createContext<DesktopContextType | undefined>(undefined);
@@ -183,6 +201,13 @@ export const DesktopProvider: React.FC<{ children: ReactNode }> = ({ children })
     return false; // OFF by default
   });
   const [ambientPlaying, setAmbientPlaying] = useState<boolean>(false);
+  const [soundProfile, setSoundProfileState] = useState<SoundProfile>(() => soundFx.getSoundProfile());
+
+  const setSoundProfile = useCallback((profile: SoundProfile) => {
+    setSoundProfileState(profile);
+    soundFx.setSoundProfile(profile);
+  }, []);
+
   const [isCrashed, setIsCrashed] = useState<boolean>(false);
   const [isRebooting, setIsRebooting] = useState<boolean>(false);
 
@@ -602,6 +627,88 @@ export const DesktopProvider: React.FC<{ children: ReactNode }> = ({ children })
     setActiveWindowId(null);
   }, []);
 
+  const lastUnminimizedRef = useRef<WindowId[]>([]);
+
+  const toggleShowDesktop = useCallback(() => {
+    setWindows((prev) => {
+      const openWins = Object.values(prev).filter((w) => w.isOpen);
+      const visibleWins = openWins.filter((w) => !w.isMinimized);
+
+      if (visibleWins.length > 0) {
+        lastUnminimizedRef.current = visibleWins.map((w) => w.id);
+        soundFx.playWindowClose();
+        const updated = { ...prev };
+        visibleWins.forEach((w) => {
+          updated[w.id] = { ...w, isMinimized: true };
+        });
+        return updated;
+      } else if (lastUnminimizedRef.current.length > 0) {
+        soundFx.playWindowOpen();
+        const updated = { ...prev };
+        lastUnminimizedRef.current.forEach((id) => {
+          if (updated[id] && updated[id].isOpen) {
+            updated[id] = { ...updated[id], isMinimized: false };
+          }
+        });
+        return updated;
+      } else {
+        soundFx.playWindowOpen();
+        const updated = { ...prev };
+        openWins.forEach((w) => {
+          updated[w.id] = { ...w, isMinimized: false };
+        });
+        return updated;
+      }
+    });
+    setActiveWindowId(null);
+  }, []);
+
+  const minimizeOthers = useCallback((keepId: WindowId) => {
+    soundFx.playWindowClose();
+    setWindows((prev) => {
+      const updated = { ...prev };
+      Object.keys(updated).forEach((k) => {
+        const id = k as WindowId;
+        if (id !== keepId && updated[id].isOpen && !updated[id].isMinimized) {
+          updated[id] = { ...updated[id], isMinimized: true };
+        }
+      });
+      return updated;
+    });
+    setActiveWindowId(keepId);
+  }, []);
+
+  const snapWindow = useCallback((id: WindowId, side: 'left' | 'right') => {
+    soundFx.playSuccess();
+    const topBarH = 38;
+    const dockMargin = 64;
+    const availW = window.innerWidth;
+    const availH = window.innerHeight - topBarH - dockMargin;
+    const halfW = Math.floor(availW / 2);
+
+    setWindows((prev) => {
+      const win = prev[id];
+      if (!win) return prev;
+      return {
+        ...prev,
+        [id]: {
+          ...win,
+          isMaximized: false,
+          prevPosition: win.position,
+          prevSize: win.size,
+          position: {
+            x: side === 'left' ? 0 : halfW,
+            y: topBarH,
+          },
+          size: {
+            width: side === 'left' ? halfW : availW - halfW,
+            height: availH,
+          },
+        },
+      };
+    });
+  }, []);
+
   const tileWindows = useCallback(() => {
     soundFx.playClick();
     const openWins = Object.values(windows).filter((w) => w.isOpen);
@@ -711,6 +818,12 @@ export const DesktopProvider: React.FC<{ children: ReactNode }> = ({ children })
         closeWindow(activeWindowId);
       }
 
+      // Ctrl+D or Cmd+D: Show Desktop / Restore
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'd') {
+        e.preventDefault();
+        toggleShowDesktop();
+      }
+
       // Ctrl+K or Cmd+K or Ctrl+`
       if ((e.ctrlKey || e.metaKey) && (e.key.toLowerCase() === 'k' || e.key === '`')) {
         e.preventDefault();
@@ -725,7 +838,7 @@ export const DesktopProvider: React.FC<{ children: ReactNode }> = ({ children })
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [activeWindowId, windows, closeWindow, openWindow, toggleWindow, setTheme]);
+  }, [activeWindowId, windows, closeWindow, openWindow, toggleWindow, setTheme, toggleShowDesktop]);
 
   // Handle window resizing (mobile responsiveness)
   useEffect(() => {
@@ -781,8 +894,13 @@ export const DesktopProvider: React.FC<{ children: ReactNode }> = ({ children })
         updateSize,
         setTheme,
         toggleSound,
+        soundProfile,
+        setSoundProfile,
         toggleScanlines,
         minimizeAll,
+        minimizeOthers,
+        toggleShowDesktop,
+        snapWindow,
         tileWindows,
         toggleAmbientMusic,
         triggerSystemCrash,

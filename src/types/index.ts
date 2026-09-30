@@ -1,6 +1,8 @@
-export type WindowId = 'about' | 'projects' | 'skills' | 'contact' | 'terminal' | 'snake' | 'taskmgr';
+export type WindowId = 'about' | 'projects' | 'skills' | 'contact' | 'terminal' | 'snake' | 'taskmgr' | 'resume';
 
 export type Theme = 'dark' | 'retro' | 'matrix' | 'cyber' | 'cyan';
+
+export type SoundProfile = 'mechanical' | 'cyber' | 'minimal' | 'silent';
 
 export type AnimationIntensity = 'reduced' | 'normal' | 'enhanced';
 

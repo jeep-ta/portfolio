@@ -14,15 +14,18 @@ import {
   Copy,
   Check,
   X,
-  Workflow
+  Workflow,
+  Sparkles
 } from 'lucide-react';
 import { GithubIcon } from '../common/BrandIcons';
 import { soundFx } from '../../utils/audio';
+import { ProjectSimulator } from './ProjectSimulator';
 
 export const ProjectsApp: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
+  const [modalTab, setModalTab] = useState<'simulator' | 'architecture' | 'benchmark'>('simulator');
   const [isBenchmarking, setIsBenchmarking] = useState(false);
   const [benchmarkLogs, setBenchmarkLogs] = useState<string[]>([]);
   const [copiedClone, setCopiedClone] = useState(false);
@@ -41,6 +44,7 @@ export const ProjectsApp: React.FC = () => {
   const handleOpenDeepDive = (project: Project) => {
     soundFx.playClick();
     setActiveModalProject(project);
+    setModalTab('simulator');
     setBenchmarkLogs([]);
     setIsBenchmarking(false);
   };
@@ -304,8 +308,61 @@ export const ProjectsApp: React.FC = () => {
               </button>
             </div>
 
-            {/* Architecture Steps Sequence */}
-            {activeModalProject.architectureSteps && (
+            {/* Tab Selection Ribbon */}
+            <div className="flex flex-wrap bg-black/40 p-0.5 rounded-lg border border-white/10 text-xs font-mono">
+              <button
+                onClick={() => {
+                  setModalTab('simulator');
+                  soundFx.playClick();
+                }}
+                className={`px-3 py-1 rounded transition-colors flex items-center gap-1.5 ${
+                  modalTab === 'simulator'
+                    ? 'bg-[var(--accent)] text-black font-semibold'
+                    : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Live Simulator & Demo</span>
+              </button>
+              <button
+                onClick={() => {
+                  setModalTab('architecture');
+                  soundFx.playClick();
+                }}
+                className={`px-3 py-1 rounded transition-colors flex items-center gap-1.5 ${
+                  modalTab === 'architecture'
+                    ? 'bg-[var(--accent)] text-black font-semibold'
+                    : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                <Workflow className="w-3.5 h-3.5" />
+                <span>Architecture Pipeline</span>
+              </button>
+              <button
+                onClick={() => {
+                  setModalTab('benchmark');
+                  soundFx.playClick();
+                }}
+                className={`px-3 py-1 rounded transition-colors flex items-center gap-1.5 ${
+                  modalTab === 'benchmark'
+                    ? 'bg-[var(--accent)] text-black font-semibold'
+                    : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                <Cpu className="w-3.5 h-3.5" />
+                <span>Stress Benchmark</span>
+              </button>
+            </div>
+
+            {/* Tab 1: Interactive Live Simulator */}
+            {modalTab === 'simulator' && (
+              <div className="p-3.5 rounded-xl bg-black/50 border border-white/10">
+                <ProjectSimulator project={activeModalProject} />
+              </div>
+            )}
+
+            {/* Tab 2: Architecture Steps Sequence */}
+            {modalTab === 'architecture' && activeModalProject.architectureSteps && (
               <div>
                 <h4 className="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold mb-2 flex items-center gap-1.5">
                   <Workflow className="w-3.5 h-3.5" />
@@ -315,44 +372,50 @@ export const ProjectsApp: React.FC = () => {
                   {activeModalProject.architectureSteps.map((step, idx) => (
                     <div
                       key={idx}
-                      className="p-2 rounded-lg bg-black/40 border border-white/10 flex items-start gap-2 text-xs text-gray-300"
+                      className="p-2.5 rounded-lg bg-black/40 border border-white/10 flex items-start gap-2.5 text-xs text-gray-300"
                     >
-                      <span className="w-4 h-4 rounded-full bg-white/10 text-[10px] flex items-center justify-center font-mono text-cyan-300 shrink-0">
+                      <span className="w-5 h-5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-[10px] flex items-center justify-center font-mono text-cyan-300 shrink-0">
                         {idx + 1}
                       </span>
-                      <span>{step}</span>
+                      <span className="pt-0.5">{step}</span>
                     </div>
                   ))}
                 </div>
               </div>
             )}
 
-            {/* Benchmark Simulator Section */}
-            <div className="p-3.5 rounded-xl bg-black/60 border border-white/10 space-y-2.5">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono text-amber-400 font-semibold flex items-center gap-1.5">
-                  <Cpu className="w-3.5 h-3.5" />
-                  Live Workload Benchmark Simulator
-                </span>
+            {/* Tab 3: Benchmark Simulator Section */}
+            {modalTab === 'benchmark' && (
+              <div className="p-3.5 rounded-xl bg-black/60 border border-white/10 space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono text-amber-400 font-semibold flex items-center gap-1.5">
+                    <Cpu className="w-3.5 h-3.5" />
+                    Live Workload Benchmark Simulator
+                  </span>
 
-                <button
-                  onClick={() => handleRunBenchmark(activeModalProject)}
-                  disabled={isBenchmarking}
-                  className="px-3 py-1 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 font-mono text-xs flex items-center gap-1.5 disabled:opacity-50 transition-all active:scale-95"
-                >
-                  <Play className="w-3 h-3" />
-                  <span>{isBenchmarking ? 'Simulating...' : 'Run Benchmark'}</span>
-                </button>
-              </div>
-
-              {benchmarkLogs.length > 0 && (
-                <div className="p-2.5 rounded-lg bg-black/80 border border-white/10 font-mono text-[11px] text-emerald-400 space-y-1">
-                  {benchmarkLogs.map((log, i) => (
-                    <div key={i}>{log}</div>
-                  ))}
+                  <button
+                    onClick={() => handleRunBenchmark(activeModalProject)}
+                    disabled={isBenchmarking}
+                    className="px-3 py-1 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 font-mono text-xs flex items-center gap-1.5 disabled:opacity-50 transition-all active:scale-95"
+                  >
+                    <Play className="w-3 h-3" />
+                    <span>{isBenchmarking ? 'Simulating...' : 'Run Benchmark'}</span>
+                  </button>
                 </div>
-              )}
-            </div>
+
+                {benchmarkLogs.length > 0 ? (
+                  <div className="p-2.5 rounded-lg bg-black/80 border border-white/10 font-mono text-[11px] text-emerald-400 space-y-1">
+                    {benchmarkLogs.map((log, i) => (
+                      <div key={i}>{log}</div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="p-4 rounded-lg bg-black/40 border border-white/5 text-center text-xs text-gray-400 font-mono">
+                    Click "Run Benchmark" to execute synthetic workload analysis against {activeModalProject.title}.
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* Modal Bottom Actions */}
             <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs">

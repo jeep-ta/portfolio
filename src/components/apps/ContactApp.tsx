@@ -73,7 +73,7 @@ export const ContactApp: React.FC = () => {
     {
       key: 'github',
       label: 'GitHub',
-      value: 'github.com/jeptha',
+      value: 'github.com/jeep-ta',
       rawUrl: PERSONAL_INFO.github,
       icon: <GithubIcon className="w-4 h-4 text-sky-400" />,
       href: PERSONAL_INFO.github,
@@ -81,7 +81,7 @@ export const ContactApp: React.FC = () => {
     {
       key: 'linkedin',
       label: 'LinkedIn',
-      value: 'linkedin.com/in/jeptha',
+      value: 'linkedin.com/in/jepthaosorio',
       rawUrl: PERSONAL_INFO.linkedin,
       icon: <LinkedinIcon className="w-4 h-4 text-blue-400" />,
       href: PERSONAL_INFO.linkedin,
@@ -89,7 +89,7 @@ export const ContactApp: React.FC = () => {
     {
       key: 'twitter',
       label: 'X / Twitter',
-      value: '@jepthadev',
+      value: '@jeep_ta',
       rawUrl: PERSONAL_INFO.twitter,
       icon: <TwitterIcon className="w-4 h-4 text-cyan-400" />,
       href: PERSONAL_INFO.twitter,

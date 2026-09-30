@@ -1,17 +1,17 @@
 # Graph Report - Portfolio  (2026-09-30)
 
 ## Corpus Check
-- 44 files · ~49,990 words
+- 46 files · ~57,342 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 5 file(s) not represented in the graph (top: (none) 3, .toml 1, .css 1)
 
 ## Summary
-- 318 nodes · 525 edges · 23 communities (17 shown, 6 thin omitted)
+- 330 nodes · 569 edges · 23 communities (17 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6df32910`
+- Built from commit: `effdfd79`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -20,7 +20,7 @@
 - package.json
 - DesktopContext.tsx
 - Desktop.tsx
-- react
+- TerminalApp.tsx
 - compilerOptions
 - InteractiveBackground.tsx
 - compilerOptions
@@ -41,28 +41,28 @@
 - workflows/graphify.md
 
 ## God Nodes (most connected - your core abstractions)
-1. `SoundEffects` - 32 edges
-2. `react` - 21 edges
+1. `SoundEffects` - 35 edges
+2. `react` - 23 edges
 3. `useDesktop()` - 21 edges
-4. `Desktop()` - 19 edges
+4. `Desktop()` - 20 edges
 5. `compilerOptions` - 18 edges
-6. `lucide-react` - 15 edges
-7. `soundFx` - 15 edges
+6. `lucide-react` - 17 edges
+7. `soundFx` - 17 edges
 8. `compilerOptions` - 15 edges
 9. `What You Must Do When Invoked` - 12 edges
 10. `/graphify` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `ProjectsApp()` --calls--> `GithubIcon()`  [EXTRACTED]
-  src/components/apps/ProjectsApp.tsx → src/components/common/BrandIcons.tsx
+- `App()` --calls--> `Desktop()`  [EXTRACTED]
+  src/App.tsx → src/components/desktop/Desktop.tsx
+- `ProjectSimulatorProps` --references--> `Project`  [EXTRACTED]
+  src/components/apps/ProjectSimulator.tsx → src/types/index.ts
 - `TerminalApp()` --calls--> `useDesktop()`  [EXTRACTED]
   src/components/apps/TerminalApp.tsx → src/context/DesktopContext.tsx
 - `AccentPreset` --references--> `Theme`  [EXTRACTED]
   src/components/desktop/AppearancePopover.tsx → src/types/index.ts
 - `DesktopIconProps` --references--> `WindowId`  [EXTRACTED]
   src/components/desktop/DesktopIcon.tsx → src/types/index.ts
-- `Dock()` --calls--> `MusicPopover()`  [EXTRACTED]
-  src/components/desktop/Dock.tsx → src/components/desktop/MusicPopover.tsx
 
 ## Import Cycles
 - None detected.
@@ -70,24 +70,24 @@
 ## Communities (23 total, 6 thin omitted)
 
 ### Community 0 - "SoundEffects"
-Cohesion: 0.11
+Cohesion: 0.10
 Nodes (3): TerminalApp(), MusicPopover(), SoundEffects
 
 ### Community 1 - "package.json"
 Cohesion: 0.06
-Nodes (32): dependencies, lucide-react, react, react-dom, tailwindcss, @tailwindcss/vite, devDependencies, oxlint (+24 more)
+Nodes (36): dependencies, lucide-react, react, react-dom, tailwindcss, @tailwindcss/vite, devDependencies, oxlint (+28 more)
 
 ### Community 2 - "DesktopContext.tsx"
-Cohesion: 0.15
-Nodes (21): ACCENT_PRESETS, AccentPreset, AppearancePopoverProps, EQ_COLOR_PRESETS, DesktopIconProps, ResizeDirection, WindowProps, DesktopContext (+13 more)
+Cohesion: 0.16
+Nodes (22): ACCENT_PRESETS, AccentPreset, AppearancePopoverProps, EQ_COLOR_PRESETS, SOUND_PROFILES, DesktopIconProps, WindowProps, DesktopContext (+14 more)
 
 ### Community 3 - "Desktop.tsx"
-Cohesion: 0.17
-Nodes (22): react-dom, App(), AppearancePopover(), ContextMenu(), AboutApp, AppLoader(), ContactApp, Desktop() (+14 more)
+Cohesion: 0.11
+Nodes (30): lucide-react, react, INITIAL_DIR, INITIAL_SNAKE, Point, INITIAL_PROCESSES, AppearancePopover(), ContextMenu() (+22 more)
 
-### Community 5 - "react"
-Cohesion: 0.10
-Nodes (26): lucide-react, react, ContactApp(), ProjectsApp(), INITIAL_DIR, INITIAL_SNAKE, INITIAL_PROCESSES, ALL_COMMANDS (+18 more)
+### Community 5 - "TerminalApp.tsx"
+Cohesion: 0.13
+Nodes (21): ContactApp(), ProjectsApp(), ProjectSimulator(), ProjectSimulatorProps, ResumeApp(), ALL_COMMANDS, ALL_FILES, INITIAL_OUTPUT (+13 more)
 
 ### Community 6 - "compilerOptions"
 Cohesion: 0.10
@@ -138,24 +138,24 @@ Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
 ## Knowledge Gaps
-- **157 isolated node(s):** `$schema`, `plugins`, `react/rules-of-hooks`, `react/only-export-components`, `name` (+152 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 187 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **160 isolated node(s):** `$schema`, `plugins`, `react/rules-of-hooks`, `react/only-export-components`, `name` (+155 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 190 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `SoundEffects` connect `SoundEffects` to `react`?**
-  _High betweenness centrality (0.090) - this node is a cross-community bridge._
-- **Why does `react` connect `react` to `package.json`, `DesktopContext.tsx`, `Desktop.tsx`, `InteractiveBackground.tsx`?**
-  _High betweenness centrality (0.084) - this node is a cross-community bridge._
-- **Why does `lucide-react` connect `react` to `package.json`, `DesktopContext.tsx`, `Desktop.tsx`?**
-  _High betweenness centrality (0.036) - this node is a cross-community bridge._
+- **Why does `SoundEffects` connect `SoundEffects` to `DesktopContext.tsx`?**
+  _High betweenness centrality (0.092) - this node is a cross-community bridge._
+- **Why does `react` connect `Desktop.tsx` to `package.json`, `DesktopContext.tsx`, `TerminalApp.tsx`, `InteractiveBackground.tsx`?**
+  _High betweenness centrality (0.085) - this node is a cross-community bridge._
+- **Why does `lucide-react` connect `Desktop.tsx` to `package.json`, `DesktopContext.tsx`, `TerminalApp.tsx`?**
+  _High betweenness centrality (0.038) - this node is a cross-community bridge._
 - **What connects `$schema`, `plugins`, `react/rules-of-hooks` to the rest of the system?**
-  _157 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _160 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `SoundEffects` be split into smaller, more focused modules?**
-  _Cohesion score 0.1051693404634581 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09841269841269841 - nodes in this community are weakly interconnected._
 - **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.062388591800356503 - nodes in this community are weakly interconnected._
-- **Should `react` be split into smaller, more focused modules?**
-  _Cohesion score 0.10359408033826638 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05512820512820513 - nodes in this community are weakly interconnected._
+- **Should `Desktop.tsx` be split into smaller, more focused modules?**
+  _Cohesion score 0.11341463414634147 - nodes in this community are weakly interconnected._

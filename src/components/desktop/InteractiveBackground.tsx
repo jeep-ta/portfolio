@@ -166,6 +166,7 @@ export const InteractiveBackground: React.FC = () => {
   // Smoothed bass and audio levels for jitter-free animation
   const smoothedBassRef = useRef<number>(0);
   const lastSparkTimeRef = useRef<number>(0);
+  const lastShockwaveTimeRef = useRef<number>(0);
 
   // Initialize Constellation Particles
   const initParticles = useCallback((width: number, height: number) => {
@@ -255,6 +256,11 @@ export const InteractiveBackground: React.FC = () => {
       // Resolve dynamic visualizer color palette (supports custom hex, presets, rainbow, theme-sync)
       const eqColors = resolveVisualizerColors(visualizerColor, theme, timestamp);
 
+      const isMobile = width < 768;
+      const centerX = width / 2;
+      const centerY = (height - 40) / 2; // subtle offset above dock
+      const baseRadius = isMobile ? Math.min(width, height) * 0.22 : 155;
+
       // ==========================================
       // 1. NCS Circular Audio Equalizer Visualizer
       // ==========================================
@@ -266,10 +272,6 @@ export const InteractiveBackground: React.FC = () => {
         const targetVizAlpha = hasOpenWin ? 0.18 : 1.0;
         visualizerAlphaRef.current += (targetVizAlpha - visualizerAlphaRef.current) * 0.08;
         ctx.globalAlpha = visualizerAlphaRef.current;
-
-        const isMobile = width < 768;
-        const centerX = width / 2;
-        const centerY = (height - 40) / 2; // subtle offset above dock
 
         const precalc = isMobile ? PRECALC_MOBILE : PRECALC_DESKTOP;
         const halfBars = precalc.length;
@@ -329,7 +331,6 @@ export const InteractiveBackground: React.FC = () => {
         const bassPulse = smoothedBassRef.current;
 
         // Base circle radius and dynamic pulsing bounce
-        const baseRadius = isMobile ? Math.min(width, height) * 0.22 : 155;
         const currentRadius = baseRadius * (1 + bassPulse * 0.35);
 
         // --- Spawn NCS Beat-Drop Blast Sparks on Bass Kicks ---
@@ -352,6 +353,18 @@ export const InteractiveBackground: React.FC = () => {
               color: eqColors.primary,
             });
           }
+        }
+
+        // Outward expanding acoustic shockwave on pronounced bass kick transients
+        if (isAudioActive && bassPulse > 0.38 && timestamp - lastShockwaveTimeRef.current > 420) {
+          lastShockwaveTimeRef.current = timestamp;
+          ripplesRef.current.push({
+            x: centerX,
+            y: centerY,
+            radius: currentRadius * 0.85,
+            maxRadius: currentRadius * 2.6,
+            alpha: 0.85,
+          });
         }
 
         // Render and update blast sparks with in-place O(1) swap-and-pop deletion
@@ -796,6 +809,18 @@ export const InteractiveBackground: React.FC = () => {
           const p = particles[i];
           p.x += p.vx * (1 + bassPulse * 0.5);
           p.y += p.vy * (1 + bassPulse * 0.5);
+
+          // Audio-reactive shockwave dispersion from central visualizer
+          if (ambientPlaying && bassPulse > 0.28) {
+            const dxCenter = p.x - centerX;
+            const dyCenter = p.y - centerY;
+            const distCenter = Math.sqrt(dxCenter * dxCenter + dyCenter * dyCenter);
+            if (distCenter > baseRadius && distCenter < baseRadius * 3) {
+              const push = (1 - distCenter / (baseRadius * 3)) * bassPulse * 0.75;
+              p.x += (dxCenter / distCenter) * push;
+              p.y += (dyCenter / distCenter) * push;
+            }
+          }
 
           // Bounce off canvas boundaries
           if (p.x < 0 || p.x > width) p.vx *= -1;

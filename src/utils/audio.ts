@@ -1,3 +1,5 @@
+import type { SoundProfile } from '../types';
+
 // Web Audio API Synthesizer for Retro Mechanical OS Sound Effects
 
 export interface AudioTrack {
@@ -20,9 +22,29 @@ export const AUDIO_PLAYLIST: AudioTrack[] = [
 class SoundEffects {
   private ctx: AudioContext | null = null;
   private isMuted: boolean = false;
+  private soundProfile: SoundProfile = 'mechanical';
 
   constructor() {
-    // Lazily initialize AudioContext upon first user interaction
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('portfolio_sound_profile') as SoundProfile | null;
+      if (saved && ['mechanical', 'cyber', 'minimal', 'silent'].includes(saved)) {
+        this.soundProfile = saved;
+      }
+    }
+  }
+
+  public setSoundProfile(profile: SoundProfile) {
+    this.soundProfile = profile;
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('portfolio_sound_profile', profile);
+    }
+    if (profile !== 'silent') {
+      this.playClick();
+    }
+  }
+
+  public getSoundProfile(): SoundProfile {
+    return this.soundProfile;
   }
 
   private initCtx() {
@@ -80,9 +102,9 @@ class SoundEffects {
     return this.isMuted;
   }
 
-  // Subtle mechanical mouse click sound
+  // Mouse click sound synthesized per active profile
   public playClick() {
-    if (this.isMuted) return;
+    if (this.isMuted || this.soundProfile === 'silent') return;
     try {
       this.initCtx();
       if (!this.ctx) return;
@@ -90,26 +112,58 @@ class SoundEffects {
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
 
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(1200, this.ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(300, this.ctx.currentTime + 0.025);
+      if (this.soundProfile === 'cyber') {
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(2200, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(550, this.ctx.currentTime + 0.03);
 
-      gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.025);
+        const filter = this.ctx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.setValueAtTime(1400, this.ctx.currentTime);
+        filter.Q.setValueAtTime(3.0, this.ctx.currentTime);
 
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
+        gain.gain.setValueAtTime(0.045, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.03);
 
-      osc.start();
-      osc.stop(this.ctx.currentTime + 0.025);
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.03);
+      } else if (this.soundProfile === 'minimal') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(450, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(150, this.ctx.currentTime + 0.02);
+
+        gain.gain.setValueAtTime(0.05, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.02);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.02);
+      } else {
+        // 'mechanical' (Crisp Cherry MX click)
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(1200, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(300, this.ctx.currentTime + 0.025);
+
+        gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.025);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.025);
+      }
     } catch {
       // AudioContext could fail gracefully
     }
   }
 
-  // Keypress tick
+  // Keypress tick synthesized per active profile
   public playKeypress() {
-    if (this.isMuted) return;
+    if (this.isMuted || this.soundProfile === 'silent') return;
     try {
       this.initCtx();
       if (!this.ctx) return;
@@ -117,16 +171,26 @@ class SoundEffects {
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
 
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(800 + Math.random() * 150, this.ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(200, this.ctx.currentTime + 0.015);
+      if (this.soundProfile === 'cyber') {
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(1200 + Math.random() * 200, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(400, this.ctx.currentTime + 0.015);
+        gain.gain.setValueAtTime(0.018, this.ctx.currentTime);
+      } else if (this.soundProfile === 'minimal') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(500 + Math.random() * 100, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(250, this.ctx.currentTime + 0.012);
+        gain.gain.setValueAtTime(0.025, this.ctx.currentTime);
+      } else {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(800 + Math.random() * 150, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(200, this.ctx.currentTime + 0.015);
+        gain.gain.setValueAtTime(0.03, this.ctx.currentTime);
+      }
 
-      gain.gain.setValueAtTime(0.03, this.ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.015);
-
       osc.connect(gain);
       gain.connect(this.ctx.destination);
-
       osc.start();
       osc.stop(this.ctx.currentTime + 0.015);
     } catch {

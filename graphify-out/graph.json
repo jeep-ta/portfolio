@@ -14,7 +14,7 @@
       "file_type": "code",
       "norm_label": "soundeffects",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L20"
+      "source_location": "L22"
     },
     {
       "id": "src_components_desktop_appearancepopover_accentpreset",
@@ -27,7 +27,7 @@
       "file_type": "code",
       "norm_label": "accentpreset",
       "source_file": "src/components/desktop/AppearancePopover.tsx",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
       "id": "src_components_desktop_appearancepopover_appearancepopoverprops",
@@ -40,7 +40,7 @@
       "file_type": "code",
       "norm_label": "appearancepopoverprops",
       "source_file": "src/components/desktop/AppearancePopover.tsx",
-      "source_location": "L14"
+      "source_location": "L15"
     },
     {
       "id": "src_components_desktop_desktopicon_desktopiconprops",
@@ -54,19 +54,6 @@
       "norm_label": "desktopiconprops",
       "source_file": "src/components/desktop/DesktopIcon.tsx",
       "source_location": "L6"
-    },
-    {
-      "id": "src_components_desktop_window_resizedirection",
-      "label": "ResizeDirection",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "DesktopContext.tsx",
-      "file_type": "code",
-      "norm_label": "resizedirection",
-      "source_file": "src/components/desktop/Window.tsx",
-      "source_location": "L13"
     },
     {
       "id": "src_components_desktop_window_windowprops",
@@ -105,7 +92,7 @@
       "file_type": "code",
       "norm_label": "animationintensity",
       "source_file": "src/types/index.ts",
-      "source_location": "L5"
+      "source_location": "L7"
     },
     {
       "id": "src_types_index_position",
@@ -118,20 +105,7 @@
       "file_type": "code",
       "norm_label": "position",
       "source_file": "src/types/index.ts",
-      "source_location": "L21"
-    },
-    {
-      "id": "src_types_index_processitem",
-      "label": "ProcessItem",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "DesktopContext.tsx",
-      "file_type": "code",
-      "norm_label": "processitem",
-      "source_file": "src/types/index.ts",
-      "source_location": "L93"
+      "source_location": "L23"
     },
     {
       "id": "src_types_index_projectbenchmark",
@@ -144,7 +118,7 @@
       "file_type": "code",
       "norm_label": "projectbenchmark",
       "source_file": "src/types/index.ts",
-      "source_location": "L47"
+      "source_location": "L49"
     },
     {
       "id": "src_types_index_size",
@@ -157,7 +131,20 @@
       "file_type": "code",
       "norm_label": "size",
       "source_file": "src/types/index.ts",
-      "source_location": "L26"
+      "source_location": "L28"
+    },
+    {
+      "id": "src_types_index_soundprofile",
+      "label": "SoundProfile",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "DesktopContext.tsx",
+      "file_type": "code",
+      "norm_label": "soundprofile",
+      "source_file": "src/types/index.ts",
+      "source_location": "L5"
     },
     {
       "id": "src_types_index_theme",
@@ -183,7 +170,7 @@
       "file_type": "code",
       "norm_label": "visualizercolorpreset",
       "source_file": "src/types/index.ts",
-      "source_location": "L7"
+      "source_location": "L9"
     },
     {
       "id": "src_types_index_visualizerstyle",
@@ -196,7 +183,7 @@
       "file_type": "code",
       "norm_label": "visualizerstyle",
       "source_file": "src/types/index.ts",
-      "source_location": "L19"
+      "source_location": "L21"
     },
     {
       "id": "src_types_index_windowid",
@@ -222,7 +209,7 @@
       "file_type": "code",
       "norm_label": "windowstate",
       "source_file": "src/types/index.ts",
-      "source_location": "L31"
+      "source_location": "L33"
     },
     {
       "id": "src_utils_audio_audiotrack",
@@ -235,7 +222,20 @@
       "file_type": "code",
       "norm_label": "audiotrack",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L3"
+      "source_location": "L5"
+    },
+    {
+      "id": "src_components_apps_snakeapp_point",
+      "label": "Point",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Desktop.tsx",
+      "file_type": "code",
+      "norm_label": "point",
+      "source_file": "src/components/apps/SnakeApp.tsx",
+      "source_location": "L9"
     },
     {
       "id": "src_components_desktop_contextmenu_contextmenuprops",
@@ -243,8 +243,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
+      "community": 3,
+      "community_name": "Desktop.tsx",
       "file_type": "code",
       "norm_label": "contextmenuprops",
       "source_file": "src/components/desktop/ContextMenu.tsx",
@@ -256,8 +256,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
+      "community": 3,
+      "community_name": "Desktop.tsx",
       "file_type": "code",
       "norm_label": "keyboardshortcutsmodalprops",
       "source_file": "src/components/desktop/KeyboardShortcutsModal.tsx",
@@ -269,12 +269,64 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
+      "community": 3,
+      "community_name": "Desktop.tsx",
       "file_type": "code",
       "norm_label": "musicpopoverprops",
       "source_file": "src/components/desktop/MusicPopover.tsx",
       "source_location": "L16"
+    },
+    {
+      "id": "src_components_desktop_window_resizedirection",
+      "label": "ResizeDirection",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Desktop.tsx",
+      "file_type": "code",
+      "norm_label": "resizedirection",
+      "source_file": "src/components/desktop/Window.tsx",
+      "source_location": "L13"
+    },
+    {
+      "id": "src_types_index_processitem",
+      "label": "ProcessItem",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Desktop.tsx",
+      "file_type": "code",
+      "norm_label": "processitem",
+      "source_file": "src/types/index.ts",
+      "source_location": "L95"
+    },
+    {
+      "id": "src_components_apps_projectsimulator_projectsimulatorprops",
+      "label": "ProjectSimulatorProps",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "TerminalApp.tsx",
+      "file_type": "code",
+      "norm_label": "projectsimulatorprops",
+      "source_file": "src/components/apps/ProjectSimulator.tsx",
+      "source_location": "L16"
+    },
+    {
+      "id": "src_components_apps_terminalapp_interactivesession",
+      "label": "InteractiveSession",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "TerminalApp.tsx",
+      "file_type": "code",
+      "norm_label": "interactivesession",
+      "source_file": "src/components/apps/TerminalApp.tsx",
+      "source_location": "L20"
     },
     {
       "id": "src_types_index_project",
@@ -283,11 +335,11 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "project",
       "source_file": "src/types/index.ts",
-      "source_location": "L55"
+      "source_location": "L57"
     },
     {
       "id": "src_types_index_skillcategory",
@@ -296,11 +348,11 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "skillcategory",
       "source_file": "src/types/index.ts",
-      "source_location": "L80"
+      "source_location": "L82"
     },
     {
       "id": "src_types_index_skillitem",
@@ -309,11 +361,11 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "skillitem",
       "source_file": "src/types/index.ts",
-      "source_location": "L72"
+      "source_location": "L74"
     },
     {
       "id": "src_types_index_terminalentry",
@@ -322,11 +374,11 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "terminalentry",
       "source_file": "src/types/index.ts",
-      "source_location": "L87"
+      "source_location": "L89"
     },
     {
       "id": "src_components_desktop_interactivebackground_barprecalc",
@@ -442,7 +494,7 @@
       "file_type": "code",
       "norm_label": "terminalapp()",
       "source_file": "src/components/apps/TerminalApp.tsx",
-      "source_location": "L38"
+      "source_location": "L45"
     },
     {
       "id": "src_components_desktop_musicpopover_musicpopover",
@@ -466,7 +518,7 @@
       "file_type": "code",
       "norm_label": ".constructor()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L24"
+      "source_location": "L27"
     },
     {
       "id": "src_utils_audio_soundeffects_getcurrenttrack",
@@ -478,7 +530,7 @@
       "file_type": "code",
       "norm_label": ".getcurrenttrack()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L475"
+      "source_location": "L539"
     },
     {
       "id": "src_utils_audio_soundeffects_getcurrenttracktime",
@@ -490,7 +542,7 @@
       "file_type": "code",
       "norm_label": ".getcurrenttracktime()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L524"
+      "source_location": "L588"
     },
     {
       "id": "src_utils_audio_soundeffects_getfrequencydata",
@@ -502,7 +554,7 @@
       "file_type": "code",
       "norm_label": ".getfrequencydata()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L460"
+      "source_location": "L524"
     },
     {
       "id": "src_utils_audio_soundeffects_getmuted",
@@ -514,7 +566,7 @@
       "file_type": "code",
       "norm_label": ".getmuted()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L79"
+      "source_location": "L101"
     },
     {
       "id": "src_utils_audio_soundeffects_getplaylist",
@@ -526,7 +578,19 @@
       "file_type": "code",
       "norm_label": ".getplaylist()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L483"
+      "source_location": "L547"
+    },
+    {
+      "id": "src_utils_audio_soundeffects_getsoundprofile",
+      "label": ".getSoundProfile()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "SoundEffects",
+      "file_type": "code",
+      "norm_label": ".getsoundprofile()",
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L46"
     },
     {
       "id": "src_utils_audio_soundeffects_gettrackindex",
@@ -538,7 +602,7 @@
       "file_type": "code",
       "norm_label": ".gettrackindex()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L479"
+      "source_location": "L543"
     },
     {
       "id": "src_utils_audio_soundeffects_getvolume",
@@ -550,7 +614,7 @@
       "file_type": "code",
       "norm_label": ".getvolume()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L61"
+      "source_location": "L83"
     },
     {
       "id": "src_utils_audio_soundeffects_initaudioelement",
@@ -562,7 +626,7 @@
       "file_type": "code",
       "norm_label": ".initaudioelement()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L348"
+      "source_location": "L412"
     },
     {
       "id": "src_utils_audio_soundeffects_initctx",
@@ -574,7 +638,7 @@
       "file_type": "code",
       "norm_label": ".initctx()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L28"
+      "source_location": "L50"
     },
     {
       "id": "src_utils_audio_soundeffects_isambientplaying",
@@ -586,7 +650,7 @@
       "file_type": "code",
       "norm_label": ".isambientplaying()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L414"
+      "source_location": "L478"
     },
     {
       "id": "src_utils_audio_soundeffects_nexttrack",
@@ -598,7 +662,7 @@
       "file_type": "code",
       "norm_label": ".nexttrack()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L499"
+      "source_location": "L563"
     },
     {
       "id": "src_utils_audio_soundeffects_playalarm",
@@ -610,7 +674,7 @@
       "file_type": "code",
       "norm_label": ".playalarm()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L314"
+      "source_location": "L378"
     },
     {
       "id": "src_utils_audio_soundeffects_playclick",
@@ -622,7 +686,7 @@
       "file_type": "code",
       "norm_label": ".playclick()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L84"
+      "source_location": "L106"
     },
     {
       "id": "src_utils_audio_soundeffects_playerror",
@@ -634,7 +698,7 @@
       "file_type": "code",
       "norm_label": ".playerror()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L229"
+      "source_location": "L293"
     },
     {
       "id": "src_utils_audio_soundeffects_playfanfare",
@@ -646,7 +710,7 @@
       "file_type": "code",
       "norm_label": ".playfanfare()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L282"
+      "source_location": "L346"
     },
     {
       "id": "src_utils_audio_soundeffects_playfood",
@@ -658,7 +722,7 @@
       "file_type": "code",
       "norm_label": ".playfood()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L255"
+      "source_location": "L319"
     },
     {
       "id": "src_utils_audio_soundeffects_playkeypress",
@@ -670,7 +734,7 @@
       "file_type": "code",
       "norm_label": ".playkeypress()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L111"
+      "source_location": "L165"
     },
     {
       "id": "src_utils_audio_soundeffects_playsuccess",
@@ -682,7 +746,7 @@
       "file_type": "code",
       "norm_label": ".playsuccess()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L197"
+      "source_location": "L261"
     },
     {
       "id": "src_utils_audio_soundeffects_playwindowclose",
@@ -694,7 +758,7 @@
       "file_type": "code",
       "norm_label": ".playwindowclose()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L170"
+      "source_location": "L234"
     },
     {
       "id": "src_utils_audio_soundeffects_playwindowopen",
@@ -706,7 +770,7 @@
       "file_type": "code",
       "norm_label": ".playwindowopen()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L138"
+      "source_location": "L202"
     },
     {
       "id": "src_utils_audio_soundeffects_prevtrack",
@@ -718,7 +782,7 @@
       "file_type": "code",
       "norm_label": ".prevtrack()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L504"
+      "source_location": "L568"
     },
     {
       "id": "src_utils_audio_soundeffects_seektrack",
@@ -730,7 +794,7 @@
       "file_type": "code",
       "norm_label": ".seektrack()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L515"
+      "source_location": "L579"
     },
     {
       "id": "src_utils_audio_soundeffects_selecttrack",
@@ -742,7 +806,7 @@
       "file_type": "code",
       "norm_label": ".selecttrack()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L487"
+      "source_location": "L551"
     },
     {
       "id": "src_utils_audio_soundeffects_setmuted",
@@ -754,7 +818,19 @@
       "file_type": "code",
       "norm_label": ".setmuted()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L65"
+      "source_location": "L87"
+    },
+    {
+      "id": "src_utils_audio_soundeffects_setsoundprofile",
+      "label": ".setSoundProfile()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "SoundEffects",
+      "file_type": "code",
+      "norm_label": ".setsoundprofile()",
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L36"
     },
     {
       "id": "src_utils_audio_soundeffects_setupaudioanalyser",
@@ -766,7 +842,7 @@
       "file_type": "code",
       "norm_label": ".setupaudioanalyser()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L393"
+      "source_location": "L457"
     },
     {
       "id": "src_utils_audio_soundeffects_setvolume",
@@ -778,7 +854,7 @@
       "file_type": "code",
       "norm_label": ".setvolume()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L47"
+      "source_location": "L69"
     },
     {
       "id": "src_utils_audio_soundeffects_startambient",
@@ -790,7 +866,7 @@
       "file_type": "code",
       "norm_label": ".startambient()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L433"
+      "source_location": "L497"
     },
     {
       "id": "src_utils_audio_soundeffects_stopambient",
@@ -802,7 +878,7 @@
       "file_type": "code",
       "norm_label": ".stopambient()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L452"
+      "source_location": "L516"
     },
     {
       "id": "src_utils_audio_soundeffects_subscribetimeupdate",
@@ -814,7 +890,7 @@
       "file_type": "code",
       "norm_label": ".subscribetimeupdate()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L533"
+      "source_location": "L597"
     },
     {
       "id": "src_utils_audio_soundeffects_toggleambient",
@@ -826,19 +902,55 @@
       "file_type": "code",
       "norm_label": ".toggleambient()",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L421"
+      "source_location": "L485"
     },
     {
       "id": "src_app_app",
       "label": "App()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "community_name": "Desktop.tsx",
+      "community": 1,
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "app()",
       "source_file": "src/App.tsx",
       "source_location": "L4"
+    },
+    {
+      "id": "src_context_desktopcontext_desktopprovider",
+      "label": "DesktopProvider()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "desktopprovider()",
+      "source_file": "src/context/DesktopContext.tsx",
+      "source_location": "L172"
+    },
+    {
+      "id": "src_components_apps_snakeapp_snakeapp",
+      "label": "SnakeApp()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Desktop.tsx",
+      "file_type": "code",
+      "norm_label": "snakeapp()",
+      "source_file": "src/components/apps/SnakeApp.tsx",
+      "source_location": "L21"
+    },
+    {
+      "id": "src_components_apps_taskmanagerapp_taskmanagerapp",
+      "label": "TaskManagerApp()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Desktop.tsx",
+      "file_type": "code",
+      "norm_label": "taskmanagerapp()",
+      "source_file": "src/components/apps/TaskManagerApp.tsx",
+      "source_location": "L25"
     },
     {
       "id": "src_components_desktop_appearancepopover_appearancepopover",
@@ -850,7 +962,7 @@
       "file_type": "code",
       "norm_label": "appearancepopover()",
       "source_file": "src/components/desktop/AppearancePopover.tsx",
-      "source_location": "L43"
+      "source_location": "L51"
     },
     {
       "id": "src_components_desktop_contextmenu_contextmenu",
@@ -874,7 +986,7 @@
       "file_type": "code",
       "norm_label": "apploader()",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L29"
+      "source_location": "L30"
     },
     {
       "id": "src_components_desktop_desktop_desktop",
@@ -886,7 +998,7 @@
       "file_type": "code",
       "norm_label": "desktop()",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L35"
+      "source_location": "L36"
     },
     {
       "id": "src_components_desktop_desktopicon_desktopicon",
@@ -910,7 +1022,7 @@
       "file_type": "code",
       "norm_label": "dock()",
       "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L12"
+      "source_location": "L13"
     },
     {
       "id": "src_components_desktop_interactivebackground_interactivebackground",
@@ -961,18 +1073,6 @@
       "source_location": "L15"
     },
     {
-      "id": "src_context_desktopcontext_desktopprovider",
-      "label": "DesktopProvider()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "Desktop.tsx",
-      "file_type": "code",
-      "norm_label": "desktopprovider()",
-      "source_file": "src/context/DesktopContext.tsx",
-      "source_location": "L154"
-    },
-    {
       "id": "src_context_desktopcontext_usedesktop",
       "label": "useDesktop()",
       "_callable": true,
@@ -982,7 +1082,7 @@
       "file_type": "code",
       "norm_label": "usedesktop()",
       "source_file": "src/context/DesktopContext.tsx",
-      "source_location": "L816"
+      "source_location": "L934"
     },
     {
       "id": "src_components_apps_aboutapp_aboutapp",
@@ -990,7 +1090,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "aboutapp()",
       "source_file": "src/components/apps/AboutApp.tsx",
@@ -1002,7 +1102,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "contactapp()",
       "source_file": "src/components/apps/ContactApp.tsx",
@@ -1014,11 +1114,35 @@
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "projectsapp()",
       "source_file": "src/components/apps/ProjectsApp.tsx",
-      "source_location": "L22"
+      "source_location": "L24"
+    },
+    {
+      "id": "src_components_apps_projectsimulator_projectsimulator",
+      "label": "ProjectSimulator()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "TerminalApp.tsx",
+      "file_type": "code",
+      "norm_label": "projectsimulator()",
+      "source_file": "src/components/apps/ProjectSimulator.tsx",
+      "source_location": "L20"
+    },
+    {
+      "id": "src_components_apps_resumeapp_resumeapp",
+      "label": "ResumeApp()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "TerminalApp.tsx",
+      "file_type": "code",
+      "norm_label": "resumeapp()",
+      "source_file": "src/components/apps/ResumeApp.tsx",
+      "source_location": "L86"
     },
     {
       "id": "src_components_apps_skillsapp_skillsapp",
@@ -1026,35 +1150,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "skillsapp()",
       "source_file": "src/components/apps/SkillsApp.tsx",
       "source_location": "L15"
-    },
-    {
-      "id": "src_components_apps_snakeapp_snakeapp",
-      "label": "SnakeApp()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "snakeapp()",
-      "source_file": "src/components/apps/SnakeApp.tsx",
-      "source_location": "L13"
-    },
-    {
-      "id": "src_components_apps_taskmanagerapp_taskmanagerapp",
-      "label": "TaskManagerApp()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "taskmanagerapp()",
-      "source_file": "src/components/apps/TaskManagerApp.tsx",
-      "source_location": "L25"
     },
     {
       "id": "src_components_common_brandicons_githubicon",
@@ -1062,7 +1162,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "githubicon()",
       "source_file": "src/components/common/BrandIcons.tsx",
@@ -1074,7 +1174,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "linkedinicon()",
       "source_file": "src/components/common/BrandIcons.tsx",
@@ -1086,7 +1186,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "twittericon()",
       "source_file": "src/components/common/BrandIcons.tsx",
@@ -1393,6 +1493,28 @@
       "source_location": "L4"
     },
     {
+      "id": "src_app",
+      "label": "App.tsx",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "app.tsx",
+      "source_file": "src/App.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_main",
+      "label": "main.tsx",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "main.tsx",
+      "source_file": "src/main.tsx",
+      "source_location": "L1"
+    },
+    {
       "id": "vite_config",
       "label": "vite.config.ts",
       "_origin": "ast",
@@ -1413,6 +1535,17 @@
       "norm_label": "oxlint",
       "source_file": "package.json",
       "source_location": "L24"
+    },
+    {
+      "id": "ref_react_dom",
+      "label": "react-dom",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "react-dom",
+      "source_file": "package.json",
+      "source_location": "L16"
     },
     {
       "id": "ref_tailwindcss",
@@ -2080,7 +2213,7 @@
       "file_type": "code",
       "norm_label": "accent_presets",
       "source_file": "src/components/desktop/AppearancePopover.tsx",
-      "source_location": "L25"
+      "source_location": "L26"
     },
     {
       "id": "src_components_desktop_appearancepopover_eq_color_presets",
@@ -2091,7 +2224,18 @@
       "file_type": "code",
       "norm_label": "eq_color_presets",
       "source_file": "src/components/desktop/AppearancePopover.tsx",
-      "source_location": "L32"
+      "source_location": "L33"
+    },
+    {
+      "id": "src_components_desktop_appearancepopover_sound_profiles",
+      "label": "SOUND_PROFILES",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "DesktopContext.tsx",
+      "file_type": "code",
+      "norm_label": "sound_profiles",
+      "source_file": "src/components/desktop/AppearancePopover.tsx",
+      "source_location": "L44"
     },
     {
       "id": "src_components_desktop_desktopicon",
@@ -2102,17 +2246,6 @@
       "file_type": "code",
       "norm_label": "desktopicon.tsx",
       "source_file": "src/components/desktop/DesktopIcon.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_desktop_window",
-      "label": "Window.tsx",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "DesktopContext.tsx",
-      "file_type": "code",
-      "norm_label": "window.tsx",
-      "source_file": "src/components/desktop/Window.tsx",
       "source_location": "L1"
     },
     {
@@ -2135,7 +2268,7 @@
       "file_type": "code",
       "norm_label": "desktopcontext",
       "source_file": "src/context/DesktopContext.tsx",
-      "source_location": "L152"
+      "source_location": "L170"
     },
     {
       "id": "src_context_desktopcontext_initial_windows",
@@ -2146,7 +2279,7 @@
       "file_type": "code",
       "norm_label": "initial_windows",
       "source_file": "src/context/DesktopContext.tsx",
-      "source_location": "L58"
+      "source_location": "L63"
     },
     {
       "id": "src_types_index",
@@ -2158,6 +2291,28 @@
       "norm_label": "index.ts",
       "source_file": "src/types/index.ts",
       "source_location": "L1"
+    },
+    {
+      "id": "src_utils_audio",
+      "label": "audio.ts",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "DesktopContext.tsx",
+      "file_type": "code",
+      "norm_label": "audio.ts",
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_utils_audio_audio_playlist",
+      "label": "AUDIO_PLAYLIST",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "DesktopContext.tsx",
+      "file_type": "code",
+      "norm_label": "audio_playlist",
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L14"
     },
     {
       "id": "agents_skills_graphify_references_add_watch",
@@ -2456,14 +2611,69 @@
       "source_location": "L6"
     },
     {
-      "id": "src_app",
-      "label": "App.tsx",
+      "id": "src_components_apps_snakeapp",
+      "label": "SnakeApp.tsx",
       "_origin": "ast",
       "community": 3,
       "community_name": "Desktop.tsx",
       "file_type": "code",
-      "norm_label": "app.tsx",
-      "source_file": "src/App.tsx",
+      "norm_label": "snakeapp.tsx",
+      "source_file": "src/components/apps/SnakeApp.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_apps_snakeapp_initial_dir",
+      "label": "INITIAL_DIR",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Desktop.tsx",
+      "file_type": "code",
+      "norm_label": "initial_dir",
+      "source_file": "src/components/apps/SnakeApp.tsx",
+      "source_location": "L19"
+    },
+    {
+      "id": "src_components_apps_snakeapp_initial_snake",
+      "label": "INITIAL_SNAKE",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Desktop.tsx",
+      "file_type": "code",
+      "norm_label": "initial_snake",
+      "source_file": "src/components/apps/SnakeApp.tsx",
+      "source_location": "L14"
+    },
+    {
+      "id": "src_components_apps_taskmanagerapp",
+      "label": "TaskManagerApp.tsx",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Desktop.tsx",
+      "file_type": "code",
+      "norm_label": "taskmanagerapp.tsx",
+      "source_file": "src/components/apps/TaskManagerApp.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_apps_taskmanagerapp_initial_processes",
+      "label": "INITIAL_PROCESSES",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Desktop.tsx",
+      "file_type": "code",
+      "norm_label": "initial_processes",
+      "source_file": "src/components/apps/TaskManagerApp.tsx",
+      "source_location": "L15"
+    },
+    {
+      "id": "src_components_desktop_contextmenu",
+      "label": "ContextMenu.tsx",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Desktop.tsx",
+      "file_type": "code",
+      "norm_label": "contextmenu.tsx",
+      "source_file": "src/components/desktop/ContextMenu.tsx",
       "source_location": "L1"
     },
     {
@@ -2511,6 +2721,17 @@
       "source_location": "L22"
     },
     {
+      "id": "src_components_desktop_desktop_resumeapp",
+      "label": "ResumeApp",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Desktop.tsx",
+      "file_type": "code",
+      "norm_label": "resumeapp",
+      "source_file": "src/components/desktop/Desktop.tsx",
+      "source_location": "L28"
+    },
+    {
       "id": "src_components_desktop_desktop_skillsapp",
       "label": "SkillsApp",
       "_origin": "ast",
@@ -2555,6 +2776,39 @@
       "source_location": "L26"
     },
     {
+      "id": "src_components_desktop_dock",
+      "label": "Dock.tsx",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Desktop.tsx",
+      "file_type": "code",
+      "norm_label": "dock.tsx",
+      "source_file": "src/components/desktop/Dock.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_desktop_keyboardshortcutsmodal",
+      "label": "KeyboardShortcutsModal.tsx",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Desktop.tsx",
+      "file_type": "code",
+      "norm_label": "keyboardshortcutsmodal.tsx",
+      "source_file": "src/components/desktop/KeyboardShortcutsModal.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_desktop_musicpopover",
+      "label": "MusicPopover.tsx",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Desktop.tsx",
+      "file_type": "code",
+      "norm_label": "musicpopover.tsx",
+      "source_file": "src/components/desktop/MusicPopover.tsx",
+      "source_location": "L1"
+    },
+    {
       "id": "src_components_desktop_topbar",
       "label": "TopBar.tsx",
       "_origin": "ast",
@@ -2566,33 +2820,44 @@
       "source_location": "L1"
     },
     {
-      "id": "src_main",
-      "label": "main.tsx",
+      "id": "src_components_desktop_window",
+      "label": "Window.tsx",
       "_origin": "ast",
       "community": 3,
       "community_name": "Desktop.tsx",
       "file_type": "code",
-      "norm_label": "main.tsx",
-      "source_file": "src/main.tsx",
+      "norm_label": "window.tsx",
+      "source_file": "src/components/desktop/Window.tsx",
       "source_location": "L1"
     },
     {
-      "id": "ref_react_dom",
-      "label": "react-dom",
+      "id": "ref_lucide_react",
+      "label": "lucide-react",
       "_origin": "ast",
       "community": 3,
       "community_name": "Desktop.tsx",
       "file_type": "concept",
-      "norm_label": "react-dom",
+      "norm_label": "lucide-react",
       "source_file": "package.json",
-      "source_location": "L16"
+      "source_location": "L14"
+    },
+    {
+      "id": "ref_react",
+      "label": "react",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Desktop.tsx",
+      "file_type": "concept",
+      "norm_label": "react",
+      "source_file": "package.json",
+      "source_location": "L15"
     },
     {
       "id": "src_components_apps_aboutapp",
       "label": "AboutApp.tsx",
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "aboutapp.tsx",
       "source_file": "src/components/apps/AboutApp.tsx",
@@ -2603,7 +2868,7 @@
       "label": "ContactApp.tsx",
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "contactapp.tsx",
       "source_file": "src/components/apps/ContactApp.tsx",
@@ -2614,10 +2879,32 @@
       "label": "ProjectsApp.tsx",
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "projectsapp.tsx",
       "source_file": "src/components/apps/ProjectsApp.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_apps_projectsimulator",
+      "label": "ProjectSimulator.tsx",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "TerminalApp.tsx",
+      "file_type": "code",
+      "norm_label": "projectsimulator.tsx",
+      "source_file": "src/components/apps/ProjectSimulator.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_apps_resumeapp",
+      "label": "ResumeApp.tsx",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "TerminalApp.tsx",
+      "file_type": "code",
+      "norm_label": "resumeapp.tsx",
+      "source_file": "src/components/apps/ResumeApp.tsx",
       "source_location": "L1"
     },
     {
@@ -2625,73 +2912,18 @@
       "label": "SkillsApp.tsx",
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "skillsapp.tsx",
       "source_file": "src/components/apps/SkillsApp.tsx",
       "source_location": "L1"
     },
     {
-      "id": "src_components_apps_snakeapp",
-      "label": "SnakeApp.tsx",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "snakeapp.tsx",
-      "source_file": "src/components/apps/SnakeApp.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_apps_snakeapp_initial_dir",
-      "label": "INITIAL_DIR",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "initial_dir",
-      "source_file": "src/components/apps/SnakeApp.tsx",
-      "source_location": "L11"
-    },
-    {
-      "id": "src_components_apps_snakeapp_initial_snake",
-      "label": "INITIAL_SNAKE",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "initial_snake",
-      "source_file": "src/components/apps/SnakeApp.tsx",
-      "source_location": "L6"
-    },
-    {
-      "id": "src_components_apps_taskmanagerapp",
-      "label": "TaskManagerApp.tsx",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "taskmanagerapp.tsx",
-      "source_file": "src/components/apps/TaskManagerApp.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_apps_taskmanagerapp_initial_processes",
-      "label": "INITIAL_PROCESSES",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "initial_processes",
-      "source_file": "src/components/apps/TaskManagerApp.tsx",
-      "source_location": "L15"
-    },
-    {
       "id": "src_components_apps_terminalapp",
       "label": "TerminalApp.tsx",
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "terminalapp.tsx",
       "source_file": "src/components/apps/TerminalApp.tsx",
@@ -2702,7 +2934,7 @@
       "label": "ALL_COMMANDS",
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "all_commands",
       "source_file": "src/components/apps/TerminalApp.tsx",
@@ -2713,76 +2945,32 @@
       "label": "ALL_FILES",
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "all_files",
       "source_file": "src/components/apps/TerminalApp.tsx",
-      "source_location": "L15"
+      "source_location": "L16"
     },
     {
       "id": "src_components_apps_terminalapp_initial_output",
       "label": "INITIAL_OUTPUT",
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "initial_output",
       "source_file": "src/components/apps/TerminalApp.tsx",
-      "source_location": "L19"
+      "source_location": "L26"
     },
     {
       "id": "src_components_common_brandicons",
       "label": "BrandIcons.tsx",
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "brandicons.tsx",
       "source_file": "src/components/common/BrandIcons.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_desktop_contextmenu",
-      "label": "ContextMenu.tsx",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "contextmenu.tsx",
-      "source_file": "src/components/desktop/ContextMenu.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_desktop_dock",
-      "label": "Dock.tsx",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "dock.tsx",
-      "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_desktop_keyboardshortcutsmodal",
-      "label": "KeyboardShortcutsModal.tsx",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "keyboardshortcutsmodal.tsx",
-      "source_file": "src/components/desktop/KeyboardShortcutsModal.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_desktop_musicpopover",
-      "label": "MusicPopover.tsx",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "musicpopover.tsx",
-      "source_file": "src/components/desktop/MusicPopover.tsx",
       "source_location": "L1"
     },
     {
@@ -2790,7 +2978,7 @@
       "label": "portfolioData.ts",
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "portfoliodata.ts",
       "source_file": "src/data/portfolioData.ts",
@@ -2801,7 +2989,7 @@
       "label": "ABOUT_FILE_CONTENT",
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "about_file_content",
       "source_file": "src/data/portfolioData.ts",
@@ -2812,7 +3000,7 @@
       "label": "PERSONAL_INFO",
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "personal_info",
       "source_file": "src/data/portfolioData.ts",
@@ -2823,7 +3011,7 @@
       "label": "PROJECTS",
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "projects",
       "source_file": "src/data/portfolioData.ts",
@@ -2834,66 +3022,22 @@
       "label": "SKILL_CATEGORIES",
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "skill_categories",
       "source_file": "src/data/portfolioData.ts",
       "source_location": "L189"
     },
     {
-      "id": "src_utils_audio",
-      "label": "audio.ts",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "audio.ts",
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_utils_audio_audio_playlist",
-      "label": "AUDIO_PLAYLIST",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "audio_playlist",
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L12"
-    },
-    {
       "id": "src_utils_audio_soundfx",
       "label": "soundFx",
       "_origin": "ast",
       "community": 5,
-      "community_name": "react",
+      "community_name": "TerminalApp.tsx",
       "file_type": "code",
       "norm_label": "soundfx",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L541"
-    },
-    {
-      "id": "ref_lucide_react",
-      "label": "lucide-react",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
-      "file_type": "concept",
-      "norm_label": "lucide-react",
-      "source_file": "package.json",
-      "source_location": "L14"
-    },
-    {
-      "id": "ref_react",
-      "label": "react",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "react",
-      "file_type": "concept",
-      "norm_label": "react",
-      "source_file": "package.json",
-      "source_location": "L15"
+      "source_location": "L605"
     },
     {
       "id": "tsconfig_app",
@@ -3722,8 +3866,8 @@
       "id": "src_index",
       "label": "src_index",
       "_origin": "semantic",
-      "community": 3,
-      "community_name": "Desktop.tsx",
+      "community": 1,
+      "community_name": "package.json",
       "external": true,
       "file_type": "concept",
       "norm_label": "src_index",
@@ -3801,7 +3945,43 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/apps/ProjectsApp.tsx",
-      "source_location": "L219",
+      "source_location": "L223",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_projectsapp_projectsapp",
+      "target": "src_components_apps_projectsimulator_projectsimulator",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/apps/ProjectsApp.tsx",
+      "source_location": "L360",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_resumeapp_resumeapp",
+      "target": "src_components_common_brandicons_githubicon",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/apps/ResumeApp.tsx",
+      "source_location": "L250",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_resumeapp_resumeapp",
+      "target": "src_components_common_brandicons_linkedinicon",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/apps/ResumeApp.tsx",
+      "source_location": "L259",
       "weight": 1.0
     },
     {
@@ -3813,7 +3993,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/apps/TerminalApp.tsx",
-      "source_location": "L57",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -3825,7 +4005,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/apps/TerminalApp.tsx",
-      "source_location": "L657",
+      "source_location": "L978",
       "weight": 1.0
     },
     {
@@ -3837,7 +4017,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/AppearancePopover.tsx",
-      "source_location": "L56",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -3861,7 +4041,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L117",
+      "source_location": "L125",
       "weight": 1.0
     },
     {
@@ -3873,7 +4053,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L118",
+      "source_location": "L126",
       "weight": 1.0
     },
     {
@@ -3885,7 +4065,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L119",
+      "source_location": "L127",
       "weight": 1.0
     },
     {
@@ -3897,7 +4077,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L127",
+      "source_location": "L135",
       "weight": 1.0
     },
     {
@@ -3909,7 +4089,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L135",
+      "source_location": "L143",
       "weight": 1.0
     },
     {
@@ -3921,7 +4101,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L143",
+      "source_location": "L151",
       "weight": 1.0
     },
     {
@@ -3933,7 +4113,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L151",
+      "source_location": "L159",
       "weight": 1.0
     },
     {
@@ -3945,7 +4125,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L159",
+      "source_location": "L167",
       "weight": 1.0
     },
     {
@@ -3957,7 +4137,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L167",
+      "source_location": "L175",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_desktop_desktop_desktop",
+      "target": "src_components_desktop_desktop_resumeapp",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/desktop/Desktop.tsx",
+      "source_location": "L183",
       "weight": 1.0
     },
     {
@@ -3969,7 +4161,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L175",
+      "source_location": "L191",
       "weight": 1.0
     },
     {
@@ -3981,7 +4173,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L179",
+      "source_location": "L195",
       "weight": 1.0
     },
     {
@@ -3993,7 +4185,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L187",
+      "source_location": "L203",
       "weight": 1.0
     },
     {
@@ -4005,7 +4197,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L43",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -4017,7 +4209,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L74",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -4029,7 +4221,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L77",
+      "source_location": "L80",
       "weight": 1.0
     },
     {
@@ -4041,7 +4233,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L83",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -4065,7 +4257,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L20",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -4077,7 +4269,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L87",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -4089,7 +4281,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L91",
+      "source_location": "L93",
       "weight": 1.0
     },
     {
@@ -4113,7 +4305,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/InteractiveBackground.tsx",
-      "source_location": "L256",
+      "source_location": "L257",
       "weight": 1.0
     },
     {
@@ -4209,7 +4401,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Window.tsx",
-      "source_location": "L25",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -4221,7 +4413,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L501",
+      "source_location": "L565",
       "weight": 1.0
     },
     {
@@ -4233,7 +4425,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L317",
+      "source_location": "L381",
       "weight": 1.0
     },
     {
@@ -4245,7 +4437,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L87",
+      "source_location": "L109",
       "weight": 1.0
     },
     {
@@ -4257,7 +4449,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L232",
+      "source_location": "L296",
       "weight": 1.0
     },
     {
@@ -4269,7 +4461,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L285",
+      "source_location": "L349",
       "weight": 1.0
     },
     {
@@ -4281,7 +4473,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L258",
+      "source_location": "L322",
       "weight": 1.0
     },
     {
@@ -4293,7 +4485,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L114",
+      "source_location": "L168",
       "weight": 1.0
     },
     {
@@ -4305,7 +4497,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L200",
+      "source_location": "L264",
       "weight": 1.0
     },
     {
@@ -4317,7 +4509,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L173",
+      "source_location": "L237",
       "weight": 1.0
     },
     {
@@ -4329,7 +4521,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L141",
+      "source_location": "L205",
       "weight": 1.0
     },
     {
@@ -4341,7 +4533,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L505",
+      "source_location": "L569",
       "weight": 1.0
     },
     {
@@ -4353,7 +4545,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L511",
+      "source_location": "L575",
       "weight": 1.0
     },
     {
@@ -4365,7 +4557,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L516",
+      "source_location": "L580",
       "weight": 1.0
     },
     {
@@ -4377,7 +4569,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L490",
+      "source_location": "L554",
       "weight": 1.0
     },
     {
@@ -4389,7 +4581,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L494",
+      "source_location": "L558",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects_setsoundprofile",
+      "target": "src_utils_audio_soundeffects_playclick",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -4401,7 +4605,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L434",
+      "source_location": "L498",
       "weight": 1.0
     },
     {
@@ -4413,7 +4617,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L435",
+      "source_location": "L499",
       "weight": 1.0
     },
     {
@@ -4425,7 +4629,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L436",
+      "source_location": "L500",
       "weight": 1.0
     },
     {
@@ -4437,7 +4641,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L422",
+      "source_location": "L486",
       "weight": 1.0
     },
     {
@@ -4449,7 +4653,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L423",
+      "source_location": "L487",
       "weight": 1.0
     },
     {
@@ -4461,7 +4665,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L425",
+      "source_location": "L489",
       "weight": 1.0
     },
     {
@@ -4473,7 +4677,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/utils/audio.ts",
-      "source_location": "L428",
+      "source_location": "L492",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_projectsimulator_projectsimulatorprops",
+      "target": "src_types_index_project",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "src/components/apps/ProjectSimulator.tsx",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -4485,7 +4701,7 @@
       "confidence_score": 1.0,
       "context": "field",
       "source_file": "src/components/desktop/AppearancePopover.tsx",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -4514,6 +4730,18 @@
     },
     {
       "source": "src_context_desktopcontext_desktopcontexttype",
+      "target": "src_types_index_soundprofile",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "src/context/DesktopContext.tsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "src_context_desktopcontext_desktopcontexttype",
       "target": "src_types_index_visualizerstyle",
       "relation": "references",
       "_origin": "ast",
@@ -4521,7 +4749,7 @@
       "confidence_score": 1.0,
       "context": "field",
       "source_file": "src/context/DesktopContext.tsx",
-      "source_location": "L19",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -4533,7 +4761,7 @@
       "confidence_score": 1.0,
       "context": "field",
       "source_file": "src/context/DesktopContext.tsx",
-      "source_location": "L27",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -4545,7 +4773,7 @@
       "confidence_score": 1.0,
       "context": "field",
       "source_file": "src/context/DesktopContext.tsx",
-      "source_location": "L28",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -4557,7 +4785,7 @@
       "confidence_score": 1.0,
       "context": "field",
       "source_file": "src/context/DesktopContext.tsx",
-      "source_location": "L42",
+      "source_location": "L47",
       "weight": 1.0
     },
     {
@@ -4569,7 +4797,7 @@
       "confidence_score": 1.0,
       "context": "field",
       "source_file": "src/context/DesktopContext.tsx",
-      "source_location": "L45",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -4594,6 +4822,18 @@
       "context": "field",
       "source_file": "src/context/DesktopContext.tsx",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_types_index_soundprofile",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -4645,6 +4885,19 @@
       "deferred": true,
       "source_file": "src/components/desktop/Desktop.tsx",
       "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_desktop_desktop_resumeapp",
+      "target": "src_components_apps_resumeapp",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "deferred": true,
+      "source_file": "src/components/desktop/Desktop.tsx",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -4965,18 +5218,6 @@
     },
     {
       "source": "src_components_apps_projectsapp",
-      "target": "src_components_common_brandicons_githubicon",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/components/apps/ProjectsApp.tsx",
-      "source_location": "L19",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_apps_projectsapp",
       "target": "src_data_portfoliodata_projects",
       "relation": "imports",
       "_origin": "ast",
@@ -4989,7 +5230,7 @@
     },
     {
       "source": "src_components_apps_projectsapp",
-      "target": "src_utils_audio_soundfx",
+      "target": "src_components_common_brandicons_githubicon",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4997,6 +5238,30 @@
       "context": "import",
       "source_file": "src/components/apps/ProjectsApp.tsx",
       "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_projectsapp",
+      "target": "src_utils_audio_soundfx",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ProjectsApp.tsx",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_projectsapp",
+      "target": "src_components_apps_projectsimulator_projectsimulator",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ProjectsApp.tsx",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -5009,6 +5274,90 @@
       "context": "import",
       "source_file": "src/components/apps/ProjectsApp.tsx",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_projectsimulator",
+      "target": "src_utils_audio_soundfx",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ProjectSimulator.tsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_projectsimulator",
+      "target": "src_types_index_project",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ProjectSimulator.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_resumeapp",
+      "target": "src_components_common_brandicons_githubicon",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ResumeApp.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_resumeapp",
+      "target": "src_components_common_brandicons_linkedinicon",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ResumeApp.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_resumeapp",
+      "target": "src_utils_audio_soundfx",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ResumeApp.tsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_resumeapp",
+      "target": "src_data_portfoliodata_personal_info",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ResumeApp.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_resumeapp",
+      "target": "src_data_portfoliodata_projects",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ResumeApp.tsx",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -5176,7 +5525,19 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/components/desktop/AppearancePopover.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_desktop_appearancepopover",
+      "target": "src_types_index_soundprofile",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/desktop/AppearancePopover.tsx",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -5188,7 +5549,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/components/desktop/AppearancePopover.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -5361,7 +5722,7 @@
     },
     {
       "source": "src_components_desktop_dock",
-      "target": "src_components_desktop_appearancepopover_appearancepopover",
+      "target": "src_components_desktop_musicpopover_musicpopover",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5369,6 +5730,18 @@
       "context": "import",
       "source_file": "src/components/desktop/Dock.tsx",
       "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_desktop_dock",
+      "target": "src_components_desktop_appearancepopover_appearancepopover",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/desktop/Dock.tsx",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -5386,18 +5759,6 @@
     {
       "source": "src_components_desktop_dock",
       "target": "src_utils_audio_soundfx",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_desktop_dock",
-      "target": "src_components_desktop_musicpopover_musicpopover",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5577,6 +5938,18 @@
     },
     {
       "source": "src_context_desktopcontext",
+      "target": "src_types_index_soundprofile",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/context/DesktopContext.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_context_desktopcontext",
       "target": "src_types_index_theme",
       "relation": "imports",
       "_origin": "ast",
@@ -5693,6 +6066,18 @@
       "context": "import",
       "source_file": "src/main.tsx",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio",
+      "target": "src_types_index_soundprofile",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -5841,18 +6226,6 @@
     },
     {
       "source": "src_components_apps_projectsapp",
-      "target": "src_components_common_brandicons",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/components/apps/ProjectsApp.tsx",
-      "source_location": "L19",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_apps_projectsapp",
       "target": "src_data_portfoliodata",
       "relation": "imports_from",
       "_origin": "ast",
@@ -5865,7 +6238,7 @@
     },
     {
       "source": "src_components_apps_projectsapp",
-      "target": "src_utils_audio",
+      "target": "src_components_common_brandicons",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5873,6 +6246,30 @@
       "context": "import",
       "source_file": "src/components/apps/ProjectsApp.tsx",
       "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_projectsapp",
+      "target": "src_utils_audio",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ProjectsApp.tsx",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_projectsapp",
+      "target": "src_components_apps_projectsimulator",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ProjectsApp.tsx",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -5898,6 +6295,115 @@
       "context": "import",
       "source_file": "src/components/apps/ProjectsApp.tsx",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_projectsimulator",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ProjectSimulator.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_projectsimulator",
+      "target": "src_utils_audio",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ProjectSimulator.tsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_projectsimulator",
+      "target": "src_types_index",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ProjectSimulator.tsx",
+      "source_location": "L2",
+      "type_only": true,
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_projectsimulator",
+      "target": "ref_lucide_react",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ProjectSimulator.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_resumeapp",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ResumeApp.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_resumeapp",
+      "target": "src_components_common_brandicons",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ResumeApp.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_resumeapp",
+      "target": "src_utils_audio",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ResumeApp.tsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_resumeapp",
+      "target": "src_data_portfoliodata",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ResumeApp.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_resumeapp",
+      "target": "ref_lucide_react",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/apps/ResumeApp.tsx",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -6141,7 +6647,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/components/desktop/AppearancePopover.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "type_only": true,
       "weight": 1.0
     },
@@ -6401,7 +6907,7 @@
     },
     {
       "source": "src_components_desktop_dock",
-      "target": "src_components_desktop_appearancepopover",
+      "target": "src_components_desktop_musicpopover",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6409,6 +6915,18 @@
       "context": "import",
       "source_file": "src/components/desktop/Dock.tsx",
       "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_desktop_dock",
+      "target": "src_components_desktop_appearancepopover",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/desktop/Dock.tsx",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -6438,18 +6956,6 @@
     {
       "source": "src_components_desktop_dock",
       "target": "src_utils_audio",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_desktop_dock",
-      "target": "src_components_desktop_musicpopover",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6803,6 +7309,19 @@
       "weight": 1.0
     },
     {
+      "source": "src_utils_audio",
+      "target": "src_types_index",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L1",
+      "type_only": true,
+      "weight": 1.0
+    },
+    {
       "source": "vite_config",
       "target": "ref_vite",
       "relation": "imports_from",
@@ -6836,6 +7355,30 @@
       "context": "import",
       "source_file": "vite.config.ts",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects_setsoundprofile",
+      "target": "src_types_index_soundprofile",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects_getsoundprofile",
+      "target": "src_types_index_soundprofile",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -8023,7 +8566,40 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/apps/ProjectsApp.tsx",
-      "source_location": "L22",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_projectsimulator",
+      "target": "src_components_apps_projectsimulator_projectsimulatorprops",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/apps/ProjectSimulator.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_projectsimulator",
+      "target": "src_components_apps_projectsimulator_projectsimulator",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/apps/ProjectSimulator.tsx",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_resumeapp",
+      "target": "src_components_apps_resumeapp_resumeapp",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/apps/ResumeApp.tsx",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -8039,13 +8615,24 @@
     },
     {
       "source": "src_components_apps_snakeapp",
+      "target": "src_components_apps_snakeapp_initial_snake",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/apps/SnakeApp.tsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_snakeapp",
       "target": "src_components_apps_snakeapp_initial_dir",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/apps/SnakeApp.tsx",
-      "source_location": "L11",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -8056,18 +8643,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/apps/SnakeApp.tsx",
-      "source_location": "L13",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
       "source": "src_components_apps_snakeapp",
-      "target": "src_components_apps_snakeapp_initial_snake",
+      "target": "src_components_apps_snakeapp_point",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/apps/SnakeApp.tsx",
-      "source_location": "L6",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -8100,7 +8687,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/apps/TerminalApp.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_apps_terminalapp",
+      "target": "src_components_apps_terminalapp_interactivesession",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/apps/TerminalApp.tsx",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -8111,7 +8709,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/apps/TerminalApp.tsx",
-      "source_location": "L19",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -8122,7 +8720,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/apps/TerminalApp.tsx",
-      "source_location": "L38",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -8177,7 +8775,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/desktop/AppearancePopover.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -8188,7 +8786,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/desktop/AppearancePopover.tsx",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -8199,7 +8797,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/desktop/AppearancePopover.tsx",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -8210,7 +8808,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/desktop/AppearancePopover.tsx",
-      "source_location": "L32",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_desktop_appearancepopover",
+      "target": "src_components_desktop_appearancepopover_sound_profiles",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/desktop/AppearancePopover.tsx",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -8221,7 +8830,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/desktop/AppearancePopover.tsx",
-      "source_location": "L43",
+      "source_location": "L51",
       "weight": 1.0
     },
     {
@@ -8325,13 +8934,24 @@
     },
     {
       "source": "src_components_desktop_desktop",
+      "target": "src_components_desktop_desktop_resumeapp",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/desktop/Desktop.tsx",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_desktop_desktop",
       "target": "src_components_desktop_desktop_apploader",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -8342,7 +8962,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L35",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -8375,7 +8995,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -8628,7 +9248,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/context/DesktopContext.tsx",
-      "source_location": "L152",
+      "source_location": "L170",
       "weight": 1.0
     },
     {
@@ -8639,18 +9259,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/context/DesktopContext.tsx",
-      "source_location": "L154",
-      "weight": 1.0
-    },
-    {
-      "source": "src_context_desktopcontext",
-      "target": "src_context_desktopcontext_initial_windows",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/context/DesktopContext.tsx",
-      "source_location": "L58",
+      "source_location": "L172",
       "weight": 1.0
     },
     {
@@ -8666,13 +9275,24 @@
     },
     {
       "source": "src_context_desktopcontext",
+      "target": "src_context_desktopcontext_initial_windows",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/context/DesktopContext.tsx",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "src_context_desktopcontext",
       "target": "src_context_desktopcontext_usedesktop",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/context/DesktopContext.tsx",
-      "source_location": "L816",
+      "source_location": "L934",
       "weight": 1.0
     },
     {
@@ -8782,7 +9402,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/types/index.ts",
-      "source_location": "L19",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -8793,7 +9413,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/types/index.ts",
-      "source_location": "L21",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -8804,7 +9424,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/types/index.ts",
-      "source_location": "L26",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -8826,7 +9446,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/types/index.ts",
-      "source_location": "L31",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -8837,12 +9457,12 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/types/index.ts",
-      "source_location": "L47",
+      "source_location": "L49",
       "weight": 1.0
     },
     {
       "source": "src_types_index",
-      "target": "src_types_index_animationintensity",
+      "target": "src_types_index_soundprofile",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8859,12 +9479,12 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/types/index.ts",
-      "source_location": "L55",
+      "source_location": "L57",
       "weight": 1.0
     },
     {
       "source": "src_types_index",
-      "target": "src_types_index_visualizercolorpreset",
+      "target": "src_types_index_animationintensity",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8881,7 +9501,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/types/index.ts",
-      "source_location": "L72",
+      "source_location": "L74",
       "weight": 1.0
     },
     {
@@ -8892,7 +9512,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/types/index.ts",
-      "source_location": "L80",
+      "source_location": "L82",
       "weight": 1.0
     },
     {
@@ -8903,7 +9523,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/types/index.ts",
-      "source_location": "L87",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "src_types_index",
+      "target": "src_types_index_visualizercolorpreset",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/types/index.ts",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -8914,7 +9545,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/types/index.ts",
-      "source_location": "L93",
+      "source_location": "L95",
       "weight": 1.0
     },
     {
@@ -8925,7 +9556,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/utils/audio.ts",
-      "source_location": "L12",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -8936,7 +9567,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/utils/audio.ts",
-      "source_location": "L20",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -8947,7 +9578,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/utils/audio.ts",
-      "source_location": "L3",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -8958,7 +9589,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/utils/audio.ts",
-      "source_location": "L541",
+      "source_location": "L605",
       "weight": 1.0
     },
     {
@@ -9397,6 +10028,15 @@
     },
     {
       "source": "src_components_desktop_desktop",
+      "target": "src_components_apps_resumeapp",
+      "relation": "dynamic_import",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/desktop/Desktop.tsx"
+    },
+    {
+      "source": "src_components_desktop_desktop",
       "target": "src_components_apps_skillsapp",
       "relation": "dynamic_import",
       "_origin": "ast",
@@ -9433,332 +10073,13 @@
     },
     {
       "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_playkeypress",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L111",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_playwindowopen",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L138",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_playwindowclose",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L170",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_playsuccess",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L197",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_playerror",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L229",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_constructor",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L24",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_playfood",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L255",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_initctx",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L28",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_playfanfare",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L282",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_playalarm",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L314",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_initaudioelement",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L348",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_setupaudioanalyser",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L393",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_isambientplaying",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L414",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_toggleambient",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L421",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_startambient",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L433",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_stopambient",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L452",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_getfrequencydata",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L460",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_setvolume",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L47",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_getcurrenttrack",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L475",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_gettrackindex",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L479",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_getplaylist",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L483",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_selecttrack",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L487",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_nexttrack",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L499",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_prevtrack",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L504",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_seektrack",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L515",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_getcurrenttracktime",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L524",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_subscribetimeupdate",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L533",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_getvolume",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L61",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
-      "target": "src_utils_audio_soundeffects_setmuted",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/utils/audio.ts",
-      "source_location": "L65",
-      "weight": 1.0
-    },
-    {
-      "source": "src_utils_audio_soundeffects",
       "target": "src_utils_audio_soundeffects_getmuted",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/utils/audio.ts",
-      "source_location": "L79",
+      "source_location": "L101",
       "weight": 1.0
     },
     {
@@ -9769,10 +10090,351 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/utils/audio.ts",
-      "source_location": "L84",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_playkeypress",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L165",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_playwindowopen",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L202",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_playwindowclose",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L234",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_playsuccess",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L261",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_constructor",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_playerror",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L293",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_playfood",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L319",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_playfanfare",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L346",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_setsoundprofile",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_playalarm",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L378",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_initaudioelement",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L412",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_setupaudioanalyser",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L457",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_getsoundprofile",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_isambientplaying",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L478",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_toggleambient",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L485",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_startambient",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L497",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_initctx",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_stopambient",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L516",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_getfrequencydata",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L524",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_getcurrenttrack",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L539",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_gettrackindex",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L543",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_getplaylist",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L547",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_selecttrack",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L551",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_nexttrack",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L563",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_prevtrack",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L568",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_seektrack",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L579",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_getcurrenttracktime",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L588",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_subscribetimeupdate",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L597",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_setvolume",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_getvolume",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "src_utils_audio_soundeffects",
+      "target": "src_utils_audio_soundeffects_setmuted",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/utils/audio.ts",
+      "source_location": "L87",
       "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6df329101b3335318b19fe823daf8a9508a71115"
+  "built_at_commit": "effdfd79734ac436bb09f4757995390c369b976b"
 }

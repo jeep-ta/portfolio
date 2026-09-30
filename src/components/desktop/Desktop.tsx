@@ -25,6 +25,7 @@ const TaskManagerApp = lazy(() => import('../apps/TaskManagerApp').then(m => ({ 
 const ContactApp = lazy(() => import('../apps/ContactApp').then(m => ({ default: m.ContactApp })));
 const TerminalApp = lazy(() => import('../apps/TerminalApp').then(m => ({ default: m.TerminalApp })));
 const SnakeApp = lazy(() => import('../apps/SnakeApp').then(m => ({ default: m.SnakeApp })));
+const ResumeApp = lazy(() => import('../apps/ResumeApp').then(m => ({ default: m.ResumeApp })));
 
 const AppLoader = () => (
   <div className="h-full w-full flex items-center justify-center font-mono text-xs text-[var(--accent)] bg-[#0d1117]/80 animate-pulse">
@@ -61,25 +62,27 @@ export const Desktop: React.FC = () => {
   return (
     <div
       onContextMenu={handleContextMenu}
-      className={`relative w-screen h-screen overflow-hidden bg-[var(--bg-desktop)] bg-grid-pattern flex flex-col select-none ${
+      className={`desktop-root relative w-screen h-screen overflow-hidden bg-[var(--bg-desktop)] bg-grid-pattern flex flex-col select-none print:w-full print:h-auto print:min-h-0 print:overflow-visible print:bg-white print:p-0 ${
         isCrashed ? 'system-glitch' : ''
       }`}
     >
       {/* Authentic Retro CRT Scanlines & Monitor Vignette Overlay */}
       {scanlinesEnabled && (
-        <div className="scanlines absolute inset-0 z-30 pointer-events-none transition-opacity duration-200" />
+        <div className="scanlines absolute inset-0 z-30 pointer-events-none transition-opacity duration-200 print:hidden" />
       )}
 
       {/* Interactive Constellation & Shockwave Wallpaper Canvas */}
-      <InteractiveBackground />
+      <div className="print:hidden">
+        <InteractiveBackground />
+      </div>
 
       {/* Top Status Bar */}
       <TopBar />
 
       {/* Desktop Main Workspace Area */}
-      <main className="relative flex-1 w-full h-full pt-10 pb-16 px-4 overflow-hidden pointer-events-none">
+      <main className="relative flex-1 w-full h-full pt-10 pb-16 px-4 overflow-hidden pointer-events-none print:p-0 print:m-0 print:h-auto print:w-full print:overflow-visible print:static">
         {/* Desktop Shortcuts Column - Structured Vertical Rail */}
-        <div className="flex flex-col gap-3.5 z-10 w-fit pointer-events-auto select-none">
+        <div className="desktop-icon-rail flex flex-col gap-3.5 z-10 w-fit pointer-events-auto select-none print:hidden">
           <DesktopIcon
             id="about"
             label="About"
@@ -109,6 +112,11 @@ export const Desktop: React.FC = () => {
             id="snake"
             label="Arcade"
             icon={<Gamepad2 className="w-6 h-6 text-pink-400" />}
+          />
+          <DesktopIcon
+            id="resume"
+            label="Resume.pdf"
+            icon={<FileText className="w-6 h-6 text-rose-400" />}
           />
         </div>
 
@@ -165,6 +173,14 @@ export const Desktop: React.FC = () => {
           <Window id="snake" icon={<Gamepad2 className="w-3.5 h-3.5 text-pink-400" />}>
             <Suspense fallback={<AppLoader />}>
               <SnakeApp />
+            </Suspense>
+          </Window>
+        )}
+
+        {windows.resume.isOpen && (
+          <Window id="resume" icon={<FileText className="w-3.5 h-3.5 text-rose-400" />}>
+            <Suspense fallback={<AppLoader />}>
+              <ResumeApp />
             </Suspense>
           </Window>
         )}
