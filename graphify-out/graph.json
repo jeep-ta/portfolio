@@ -946,7 +946,7 @@
       "file_type": "code",
       "norm_label": "topbar()",
       "source_file": "src/components/desktop/TopBar.tsx",
-      "source_location": "L14"
+      "source_location": "L13"
     },
     {
       "id": "src_components_desktop_window_window",
@@ -2805,7 +2805,7 @@
       "file_type": "code",
       "norm_label": "about_file_content",
       "source_file": "src/data/portfolioData.ts",
-      "source_location": "L247"
+      "source_location": "L242"
     },
     {
       "id": "src_data_portfoliodata_personal_info",
@@ -2827,7 +2827,7 @@
       "file_type": "code",
       "norm_label": "projects",
       "source_file": "src/data/portfolioData.ts",
-      "source_location": "L22"
+      "source_location": "L24"
     },
     {
       "id": "src_data_portfoliodata_skill_categories",
@@ -2838,7 +2838,7 @@
       "file_type": "code",
       "norm_label": "skill_categories",
       "source_file": "src/data/portfolioData.ts",
-      "source_location": "L192"
+      "source_location": "L189"
     },
     {
       "id": "src_utils_audio",
@@ -4197,7 +4197,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/TopBar.tsx",
-      "source_location": "L22",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -8584,7 +8584,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/desktop/TopBar.tsx",
-      "source_location": "L14",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -8683,7 +8683,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/data/portfolioData.ts",
-      "source_location": "L192",
+      "source_location": "L189",
       "weight": 1.0
     },
     {
@@ -8694,7 +8694,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/data/portfolioData.ts",
-      "source_location": "L22",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -8705,7 +8705,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/data/portfolioData.ts",
-      "source_location": "L247",
+      "source_location": "L242",
       "weight": 1.0
     },
     {
@@ -9774,5 +9774,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "202fdb637579379a56c9575046d9ecb25d2d6f42"
+  "built_at_commit": "f49e45a0aabc2d251eafe0e0436d57ca0a1dc185"
 }

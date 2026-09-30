@@ -6,7 +6,6 @@ import {
   VolumeX, 
   Wifi, 
   BatteryMedium, 
-  Sparkles,
   Command,
   Music,
 } from 'lucide-react';
@@ -46,7 +45,13 @@ export const TopBar: React.FC = () => {
       {/* Left: Brand Logo & Minimal Three-Bar Equalizer Status */}
       <div className="flex items-center gap-2 sm:gap-2.5">
         <div className="flex items-center gap-2 font-mono font-bold tracking-wider text-[var(--accent)] hover:opacity-80 cursor-pointer">
-          <Sparkles className="w-3.5 h-3.5 text-[var(--accent)]" />
+          <div className="w-5 h-5 rounded-full overflow-hidden border border-[var(--accent)]/60 bg-black shrink-0">
+            <img
+              src="/vMlwDyi7.jpg"
+              alt="Jeptha"
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
           <span className="hidden sm:inline">JEPTHA // OS</span>
           <span className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/30 font-normal">
             v2.5

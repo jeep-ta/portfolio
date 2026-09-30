@@ -123,18 +123,35 @@ export const AboutApp: React.FC = () => {
         /* Formatted Bio Card View */
         <div className="flex-1 overflow-auto p-6 space-y-6 font-sans text-sm">
           {/* Header profile banner */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/10">
-            <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-xl font-bold font-mono text-white">{PERSONAL_INFO.name}</h1>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                  Open for opportunities
-                </span>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-xl bg-white/[0.03] border border-white/10">
+            <div className="flex items-center gap-4">
+              {/* Profile Avatar Frame */}
+              <div className="relative shrink-0 group">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden border-2 border-[var(--accent)] shadow-lg shadow-[var(--accent)]/20 bg-black/60">
+                  <img
+                    src={PERSONAL_INFO.avatar}
+                    alt={PERSONAL_INFO.name}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                {/* Online pulse indicator */}
+                <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-[#0b0e14] shadow-sm shadow-emerald-400/50" />
               </div>
-              <p className="text-gray-400 text-xs mt-1 font-mono">{PERSONAL_INFO.role}</p>
-              <p className="text-gray-500 text-xs mt-0.5">{PERSONAL_INFO.location}</p>
+
+              <div>
+                <div className="flex items-center gap-2">
+                  <h1 className="text-xl font-bold font-mono text-white">{PERSONAL_INFO.name}</h1>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                    Open for opportunities
+                  </span>
+                </div>
+                <p className="text-gray-400 text-xs mt-1 font-mono">{PERSONAL_INFO.role}</p>
+                <p className="text-cyan-400/90 text-xs font-mono">{PERSONAL_INFO.degree}</p>
+                <p className="text-gray-500 text-xs mt-0.5">{PERSONAL_INFO.location}</p>
+              </div>
             </div>
-            <div className="flex items-center gap-2 font-mono text-xs text-gray-400 bg-black/40 px-3 py-2 rounded-lg border border-white/5">
+
+            <div className="flex items-center gap-2 font-mono text-xs text-gray-400 bg-black/40 px-3 py-2 rounded-lg border border-white/5 shrink-0">
               <Sparkles className="w-4 h-4 text-[var(--accent)]" />
               <span>{PERSONAL_INFO.status}</span>
             </div>
@@ -156,7 +173,7 @@ export const AboutApp: React.FC = () => {
             <div className="text-gray-300 leading-relaxed space-y-2 text-sm">
               <p>{PERSONAL_INFO.bio}</p>
               <p>
-                Specialized in zero-overhead telemetry pipelines, WebAssembly runtimes, distributed consensus (Raft), and rich client interfaces built with clean component hierarchies.
+                Experienced in developing responsive web apps, student clearance & ledger portals, desktop utilities in Java/JavaFX, and modern frontend interfaces with clean, maintainable component design.
               </p>
             </div>
           </div>

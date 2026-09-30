@@ -1,190 +1,187 @@
 import type { Project, SkillCategory } from '../types';
 
 export const PERSONAL_INFO = {
-  name: 'Jeptha',
-  handle: 'jeptha',
-  role: 'Senior Full-Stack & Systems Engineer',
+  name: 'Jeptha Osorio',
+  handle: 'jeep-ta',
+  role: 'Computer Science Student & Aspiring Software Engineer',
+  degree: 'Bachelor of Science in Computer Science (BSCS)',
+  avatar: '/vMlwDyi7.jpg',
   systemName: 'JEPTHA-OS',
-  kernelVersion: 'v2.4.0-release',
+  kernelVersion: 'v2.5.0-release',
   uptime: '99.98%',
-  status: 'Ready for High-Impact Projects',
-  location: 'Singapore (UTC+8) • Remote Worldwide',
-  email: 'jeptha.dev@gmail.com',
-  github: 'https://github.com/jeptha',
-  linkedin: 'https://linkedin.com/in/jeptha',
-  twitter: 'https://x.com/jepthadev',
-  philosophy: 'Make it work, make it elegant, make it fast. Keep blast radius minimal, respect the platform, and write code that reads like well-authored literature.',
-  bio: `Senior Software Engineer passionate about low-latency distributed systems, modern reactive frontend architectures, and developer tooling. 
-Over 6 years of experience transforming complex technical problems into reliable, high-performing software systems. 
-Advocate for type-safe codebases, local-first web applications, and resilient distributed state machines.`
+  status: 'Seeking Software Engineering Internships (OJT) & Junior Developer Roles',
+  location: 'Philippines (UTC+8) • Remote Worldwide',
+  email: 'jepthaosorio1@gmail.com',
+  github: 'https://github.com/jeep-ta',
+  linkedin: 'https://linkedin.com/in/jepthaosorio',
+  twitter: 'https://x.com/jeep_ta',
+  philosophy: 'Build with purpose, stay curious, and write clean, resilient software that solves real problems.',
+  bio: `Computer Science student (BSCS) and aspiring software engineer passionate about modern reactive web architectures, robust backend systems, and clean user experiences.
+Focused on building reliable full-stack applications with TypeScript, React, Next.js, Node.js, Python, Java, and SQL databases.
+Actively building campus management systems, interactive tools, and seeking OJT / Junior Software Engineering opportunities.`
 };
 
 export const PROJECTS: Project[] = [
   {
-    id: 'aether-db',
-    title: 'AetherDB',
-    tagline: 'Embedded Distributed Key-Value Engine',
+    id: 'citsc-student-payment',
+    title: 'CITSC Payment System',
+    tagline: 'Centralized Academic Fee Tracking & Student Ledger System',
     category: 'Systems',
-    description: 'High-throughput, log-structured merge-tree (LSM) embedded storage engine built in Rust with Raft consensus and zero-copy io_uring serialization.',
-    problem: 'Existing distributed KV stores had excessive tail latency (p99 > 35ms) and high memory footprint under bursty microservice ingestion workloads.',
-    solution: 'Engineered an LSM engine featuring segmented WAL, Bloom filter cache indexing, asynchronous io_uring syscall execution, and lock-free thread queues.',
-    metrics: '120,000 ops/sec • <1.2ms p99 latency • 40% RAM reduction',
-    techStack: ['Rust', 'Tokio', 'io_uring', 'Raft', 'gRPC', 'Protobuf'],
-    demoUrl: 'https://github.com/jeptha/aether-db',
-    repoUrl: 'https://github.com/jeptha/aether-db',
+    description: 'Full-featured student payment and clearance management system built for academic departments and student councils to automate fee reconciliation, student ledger tracking, and clearance status verification.',
+    problem: 'Manual student fee collections suffered from paper receipt losses, calculation mismatches, and lengthy clearance validation queues during exam periods.',
+    solution: 'Engineered a centralized transaction management architecture with role-based access, automated ledger balancing, receipt verification, and exportable audit records.',
+    metrics: '100% digital ledger tracking • Sub-second student search • Zero balance discrepancy',
+    techStack: ['Java', 'MySQL', 'JDBC', 'OOP Architecture', 'Data Modeling', 'Swing / UI'],
+    demoUrl: 'https://github.com/jeep-ta/citsc-student-payment',
+    repoUrl: 'https://github.com/jeep-ta/citsc-student-payment',
     featured: true,
     architectureSteps: [
-      'Client issue write over high-throughput gRPC socket',
-      'Tokio thread pool worker receives and verifies payload integrity',
-      'Asynchronous segmented WAL write executed via Linux io_uring',
-      'In-memory skiplist MemTable update and Bloom filter index compute',
-      'Raft consensus log broadcast to peer quorum replica nodes',
-      'Background asynchronous tiered SSTable compaction on NVMe'
+      'Student ID / record lookup query against normalized MySQL database',
+      'Ledger balance & prerequisite fee verification computation',
+      'Atomic transaction processing with receipt hash generation',
+      'Real-time student clearance status update and audit log commitment'
     ],
     benchmark: {
-      opsSec: '120,400 ops/sec',
-      p99Latency: '1.18 ms',
-      memoryFootprint: '38.4 MB',
-      concurrency: '512 workers',
-      summary: 'Outperformed baseline RocksDB by 2.4x under bursty 95% write load.'
+      opsSec: 'Instant queries',
+      p99Latency: '< 15 ms',
+      memoryFootprint: '42 MB',
+      concurrency: 'Multi-station',
+      summary: 'Eliminated paper receipt latency and ensured 100% audit accuracy for academic student collections.'
     }
   },
   {
-    id: 'nexus-hyperflow',
-    title: 'Nexus Hyperflow',
-    tagline: 'Real-Time CRDT Collaborative Spatial Canvas',
-    category: 'Web',
-    description: 'Ultra-responsive collaborative infinite whiteboard with conflict-free replicated data types, WebRTC peer meshes, and WebGL hardware-accelerated rendering.',
-    problem: 'Frequent conflict desynchronization and sluggish 15fps canvas stutter during large multi-user planning sessions with 50+ concurrent participants.',
-    solution: 'Designed a hybrid CRDT synchronization topology using WebSockets for room presence and WebRTC data channels for low-latency cursor tracking, powered by a 60fps WebGL viewport.',
-    metrics: '50+ concurrent editors • 60 FPS viewport • <10ms sync latency',
-    techStack: ['TypeScript', 'React 19', 'WebGL', 'CRDT / Yjs', 'WebSockets', 'WebRTC', 'Tailwind CSS'],
-    demoUrl: 'https://github.com/jeptha/nexus-hyperflow',
-    repoUrl: 'https://github.com/jeptha/nexus-hyperflow',
-    featured: true,
-    architectureSteps: [
-      'Spatial canvas vector draw event triggered on client UI',
-      'Local Yjs CRDT delta encoded into compact binary buffer',
-      'WebRTC direct data channel broadcast to active viewport peers',
-      'Server WebSocket state vector verification & fallback broadcast',
-      'Hardware-accelerated WebGL viewport re-render with zero jank'
-    ],
-    benchmark: {
-      opsSec: '60 FPS stable',
-      p99Latency: '7.8 ms',
-      memoryFootprint: '24.2 MB',
-      concurrency: '64 peers',
-      summary: 'Maintained 60fps and zero state drift across 10,000 synthetic multi-cursor inputs.'
-    }
-  },
-  {
-    id: 'kubepulse',
-    title: 'KubePulse Telemetry',
-    tagline: 'eBPF-Powered Zero-Overhead Kubernetes Observability',
-    category: 'Systems',
-    description: 'Next-gen Linux kernel telemetry daemon that monitors container socket lifecycles, TCP retransmits, and syscall latency using eBPF probes without userspace context-switching.',
-    problem: 'Legacy APM sidecars consumed 15% to 20% of CPU capacity on resource-constrained Kubernetes worker nodes.',
-    solution: 'Created in-kernel ring-buffer probes using Cilium eBPF, streaming condensed protocol metrics to Prometheus and Grafana dashboards with minimal CPU wakeups.',
-    metrics: '<0.8% CPU footprint • Zero-loss packet trace • Sub-millisecond alert triage',
-    techStack: ['Go', 'eBPF / Cilium', 'Linux Kernel', 'Kubernetes', 'Prometheus', 'Grafana'],
-    demoUrl: 'https://github.com/jeptha/kubepulse',
-    repoUrl: 'https://github.com/jeptha/kubepulse',
-    featured: true,
-    architectureSteps: [
-      'Kernel socket lifecycle hook triggered via kprobe / tracepoint',
-      'Raw packet latency calculation in kernel space with zero context switch',
-      'Lockless ring-buffer batch streaming to userspace Go collector',
-      'Prometheus pull endpoint metrics publication and Grafana dashboard stream'
-    ],
-    benchmark: {
-      opsSec: '450,000 pkts/sec',
-      p99Latency: '0.04 ms',
-      memoryFootprint: '14.2 MB',
-      concurrency: 'Kernel space',
-      summary: 'Demonstrated 95% CPU savings compared to standard user-space daemonset proxies.'
-    }
-  },
-  {
-    id: 'synapse-devtools',
-    title: 'Synapse DevTools',
-    tagline: 'Polyglot AST & Dependency Graph Analyzer',
+    id: 'smart-lost-and-found',
+    title: 'Smart Lost & Found System',
+    tagline: 'Intelligent Item Matching & Campus Recovery Platform',
     category: 'Tools',
-    description: 'Interactive static analysis suite that parses codebases into interactive force-directed dependency graphs, detecting circular imports and architectural boundary violations.',
-    problem: 'Engineers struggled to understand deep circular imports and refactor monoliths safely without visual dependency architecture maps.',
-    solution: 'Compiled Tree-sitter parsers to WebAssembly for client-side parallel AST parsing, visualising dependency trees with D3.js and instant pathfinding.',
-    metrics: 'Parsed 100k LOC in 180ms • 24 cyclic loops detected • Zero server requirement',
-    techStack: ['TypeScript', 'Rust (Wasm)', 'Tree-sitter', 'D3.js', 'Vite', 'Tailwind CSS'],
-    demoUrl: 'https://github.com/jeptha/synapse-devtools',
-    repoUrl: 'https://github.com/jeptha/synapse-devtools',
-    featured: false,
+    description: 'A JavaFX-based campus application designed to streamline the reporting of lost valuables and automatically match them with found entries using similarity algorithms.',
+    problem: 'Campus lost-and-found boxes remained unindexed and unorganized, causing over 80% of lost belongings to remain unclaimed due to lack of a centralized search matching engine.',
+    solution: 'Built a desktop recovery application utilizing tokenized similarity algorithms, category filtering, and status workflows to match item descriptions and notify owners.',
+    metrics: 'Intelligent string similarity matching • High precision recall • Instant filtered search',
+    techStack: ['Java', 'JavaFX', 'Similarity Algorithms', 'Object-Oriented Design', 'SQL'],
+    demoUrl: 'https://github.com/jeep-ta/Smart-Lost-and-Found-System',
+    repoUrl: 'https://github.com/jeep-ta/Smart-Lost-and-Found-System',
+    featured: true,
     architectureSteps: [
-      'Source files scanned in parallel via Web Workers',
-      'Tree-sitter Rust parser compiled to WebAssembly evaluates grammar',
-      'Directed acyclic graph (DAG) node matrix constructed in memory',
-      'Tarjan cycle detection algorithm isolates circular references',
-      'Force-directed canvas graph rendered with interactive zoom/pan'
+      'Lost or found incident item reported with metadata attributes',
+      'Text normalization & tokenized keyword similarity scoring pipeline',
+      'Weighted match threshold calculation against active item registry',
+      'Candidate match list presented to administrator with claim verification'
     ],
     benchmark: {
-      opsSec: '100k LOC / 180ms',
-      p99Latency: '12.4 ms',
-      memoryFootprint: '18.9 MB',
-      concurrency: '4 Web Workers',
-      summary: '100% client-side execution with zero backend infrastructure needed.'
+      opsSec: '1,200 matches/sec',
+      p99Latency: '< 5 ms',
+      memoryFootprint: '55 MB',
+      concurrency: 'Desktop Client',
+      summary: 'Delivers accurate similarity matches across hundreds of active campus inventory entries.'
     }
   },
   {
-    id: 'aura-ui',
-    title: 'Aura UI Toolkit',
-    tagline: 'Ultra-Lightweight Headless Accessible Component Engine',
+    id: 'birb-portal',
+    title: 'Birb Conservation & Edu Portal',
+    tagline: 'Modern Responsive Biodiversity & Avian Species Showcase',
     category: 'Web',
-    description: 'Zero-dependency design system library prioritizing 100% WAI-ARIA keyboard navigation, compound component patterns, and sub-12KB bundle footprint.',
-    problem: 'Mainstream component libraries bloated bundles by 300KB+ and had brittle keyboard trap bugs in complex modal dialogs.',
-    solution: 'Built modular state machines using standard DOM primitives with zero runtime styling overhead and 100% test coverage.',
-    metrics: '11.4KB gzip • 100/100 Lighthouse • 99.8% test coverage',
-    techStack: ['TypeScript', 'React', 'Tailwind CSS', 'Radix Primitives', 'Vitest'],
-    demoUrl: 'https://github.com/jeptha/aura-ui',
-    repoUrl: 'https://github.com/jeptha/aura-ui',
-    featured: false,
+    description: 'A modern, multi-page web platform dedicated to bird watching, avian species education, and wildlife conservation awareness with dynamic theming and interactive discovery elements.',
+    problem: 'Educational wildlife platforms frequently suffer from dated layouts, poor mobile responsiveness, and high friction for students exploring species catalogs.',
+    solution: 'Designed a responsive, accessible web portal featuring smooth navigation, categorized species directories, dynamic dark mode, and engaging visual layouts.',
+    metrics: '100/100 Lighthouse Performance • Responsive across all viewports • Accessible color contrast',
+    techStack: ['JavaScript', 'HTML5', 'Modern CSS', 'Responsive Design', 'UI/UX'],
+    demoUrl: 'https://github.com/jeep-ta/Birb',
+    repoUrl: 'https://github.com/jeep-ta/Birb',
+    featured: true,
     architectureSteps: [
-      'State machine initialized with headless ARIA attributes',
-      'Focus trapping and keyboard event capture registered',
-      'Tailwind CSS tokens applied via compound slot hierarchy',
-      'Zero-runtime overhead DOM nodes rendered with instant response'
+      'Modular semantic HTML structure with responsive layout grid',
+      'CSS custom properties driving dark/light mode toggle states',
+      'Client-side species catalog filtering and search event handling',
+      'Smooth DOM transitions and micro-interactions for high engagement'
     ],
     benchmark: {
-      opsSec: '100/100 Lighthouse',
-      p99Latency: '0.2 ms',
-      memoryFootprint: '11.4 KB gzip',
-      concurrency: 'Unlimited',
-      summary: 'Zero accessibility warnings in automated axe-core audits.'
+      opsSec: '60 FPS transitions',
+      p99Latency: '< 1 ms DOM update',
+      memoryFootprint: '12 MB browser RAM',
+      concurrency: 'Static CDN',
+      summary: 'Zero-dependency vanilla implementation delivering instantaneous page transitions.'
     }
   },
   {
-    id: 'edgeforge-gateway',
-    title: 'EdgeForge AI Gateway',
-    tagline: 'Edge Cache & Dynamic LLM Router',
-    category: 'Systems',
-    description: 'Edge-deployed reverse proxy performing semantic similarity caching, fallback failover across model providers, and real-time streaming token budgeting.',
-    problem: 'Repetitive developer and agent prompts inflated API costs and suffered 1.5s cold latency on cloud models.',
-    solution: 'Deployed on Cloudflare Workers edge nodes with Vectorize semantic embeddings, returning cached completions in 18ms and saving 42% on API quotas.',
-    metrics: '42% cost reduction • 18ms cached response • 99.99% uptime',
-    techStack: ['TypeScript', 'Cloudflare Workers', 'Vectorize', 'Redis', 'OpenAI API', 'Anthropic API'],
-    demoUrl: 'https://github.com/jeptha/edgeforge',
-    repoUrl: 'https://github.com/jeptha/edgeforge',
+    id: 'umaweb-extension',
+    title: 'umaWeb Chrome Extension',
+    tagline: 'Interactive Web Companion & DOM Animation Engine',
+    category: 'Tools',
+    description: 'A Chromium browser extension that injects interactive animated companions onto active web pages, complete with configurable sprite physics, audio controls, and movement routines.',
+    problem: 'Browser environments lack lightweight, customizable ambient widgets that do not disrupt user workflow or hog tab memory.',
+    solution: 'Constructed an optimized Chrome Extension using non-blocking DOM physics loops, custom volume sliders, and configurable sprite populations.',
+    metrics: 'Zero layout reflow interference • Low CPU animation loop • Configurable sprite density',
+    techStack: ['JavaScript', 'Chrome Extension Manifest V3', 'Web Audio API', 'DOM Physics'],
+    demoUrl: 'https://github.com/jeep-ta/umaWeb',
+    repoUrl: 'https://github.com/jeep-ta/umaWeb',
     featured: false,
     architectureSteps: [
-      'Incoming prompt request hits Cloudflare edge PoP',
-      'Semantic embedding calculated via Vectorize index',
-      'Cosine similarity lookup checks for high-confidence cache hit',
-      'Cache hit: return streamed token stream in 18ms',
-      'Cache miss: route to optimal upstream LLM with budget throttling'
+      'Extension content script injected into host viewport',
+      'Configurable sprite state machine initializes position and velocity',
+      'RequestAnimationFrame game loop calculates ground bounds and bounce vectors',
+      'Web Audio controller handles synchronized sound effects'
     ],
     benchmark: {
-      opsSec: '18 ms cache hit',
-      p99Latency: '32 ms edge proxy',
-      memoryFootprint: '4.8 MB edge RAM',
-      concurrency: '10,000+ edge req/s',
-      summary: 'Saved 42% on API billing across 2.5 million test agent prompt calls.'
+      opsSec: '60 FPS loop',
+      p99Latency: '0.4 ms frame time',
+      memoryFootprint: '8.5 MB',
+      concurrency: 'Isolated sandbox',
+      summary: 'Smooth 60fps animation loop with zero DOM thrashing on the active web page.'
+    }
+  },
+  {
+    id: 'nasa-space-apps',
+    title: 'NASA Space Apps Explorer',
+    tagline: 'Interactive Planetary & Open Science Data Platform',
+    category: 'Web',
+    description: 'Collaborative hackathon submission engineered for the NASA Space Apps Challenge, visualizing open scientific data and Earth observation metrics in an interactive web application.',
+    problem: 'Raw scientific Earth and planetary observation datasets are overwhelming and inaccessible to general audiences without visual exploration interfaces.',
+    solution: 'Built a TypeScript web interface parsing open NASA datasets, rendering key metrics and planetary observations through interactive visual charts.',
+    metrics: 'NASA Space Apps Hackathon submission • Real-time data parsing • Open science exploration',
+    techStack: ['TypeScript', 'React', 'Open APIs', 'Data Visualization', 'Vite', 'Tailwind CSS'],
+    demoUrl: 'https://github.com/jeep-ta/NASA-Challenge',
+    repoUrl: 'https://github.com/jeep-ta/NASA-Challenge',
+    featured: false,
+    architectureSteps: [
+      'Open API data fetched and validated against schema',
+      'Geospatial and scientific readings aggregated in memory',
+      'Interactive UI components render dynamic data views and telemetry graphs',
+      'Responsive layout supports exploration across mobile and desktop'
+    ],
+    benchmark: {
+      opsSec: 'Instant render',
+      p99Latency: '< 25 ms',
+      memoryFootprint: '18 MB',
+      concurrency: 'Client-side SPA',
+      summary: 'Rapid hackathon prototype delivering intuitive exploration of open planetary datasets.'
+    }
+  },
+  {
+    id: 'doomscroll-guard',
+    title: 'Doomscroll Guard (Skyrim Edition)',
+    tagline: 'Computer Vision Focus Guardian & Distraction Blocker',
+    category: 'Systems',
+    description: 'A computer vision productivity tool that monitors user focus and doomscrolling habits via camera/display tracking, humorously triggering the iconic Skeleton Shield alert when focus drifts.',
+    problem: 'Passive browser blockers are easy to bypass and fail to address physical smartphone doomscrolling or tab disengagement.',
+    solution: 'Implemented an active Python CV script utilizing OpenCV face/eye tracking and gesture estimation to intercept distraction with instant audio/visual meme deterrence.',
+    metrics: 'Real-time CV inference • 30+ FPS webcam processing • Instant alert deterrence',
+    techStack: ['Python', 'OpenCV', 'Computer Vision', 'Audio Processing', 'MediaPipe'],
+    demoUrl: 'https://github.com/jeep-ta/Doomscroll-Skyrim-Edition',
+    repoUrl: 'https://github.com/jeep-ta/Doomscroll-Skyrim-Edition',
+    featured: false,
+    architectureSteps: [
+      'Webcam video stream captured frame-by-frame via OpenCV',
+      'Facial landmark & head pose estimation evaluates screen engagement',
+      'Attention decay threshold triggers distraction event',
+      'Synchronous media player fires iconic audio-visual deterrence alert'
+    ],
+    benchmark: {
+      opsSec: '30 FPS inference',
+      p99Latency: '< 18 ms per frame',
+      memoryFootprint: '68 MB RAM',
+      concurrency: 'Single-stream CV',
+      summary: 'Real-time distraction interception with minimal CPU footprint.'
     }
   }
 ];
@@ -193,14 +190,14 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     id: 'languages',
     name: 'Languages',
-    description: 'Core programming languages leveraged for systems and modern web applications',
+    description: 'Core programming languages for modern web and application development',
     skills: [
-      { name: 'TypeScript / JavaScript', level: 96, experience: '6+ yrs', status: 'Core', tag: 'ES2024 / Node / Browser' },
-      { name: 'Rust', level: 88, experience: '4 yrs', status: 'Core', tag: 'Systems / Tokio / Wasm' },
-      { name: 'Go (Golang)', level: 85, experience: '3+ yrs', status: 'Advanced', tag: 'Microservices / eBPF' },
-      { name: 'Python', level: 82, experience: '5 yrs', status: 'Advanced', tag: 'FastAPI / PyTorch / Data' },
-      { name: 'SQL & Query Design', level: 90, experience: '6 yrs', status: 'Core', tag: 'Postgres / ClickHouse' },
-      { name: 'HTML5 & Modern CSS', level: 95, experience: '6+ yrs', status: 'Core', tag: 'Tailwind / Responsive' }
+      { name: 'TypeScript / JavaScript', level: 92, experience: '3+ yrs', status: 'Core', tag: 'ES2024 / React / Node' },
+      { name: 'Python', level: 86, experience: '3 yrs', status: 'Core', tag: 'Backend / Data / OpenCV' },
+      { name: 'Java', level: 88, experience: '3 yrs', status: 'Core', tag: 'OOP / JavaFX / Swing / Systems' },
+      { name: 'C# / .NET', level: 80, experience: '2 yrs', status: 'Advanced', tag: 'OOP / Desktop Apps' },
+      { name: 'SQL (Postgres & MySQL)', level: 88, experience: '3 yrs', status: 'Core', tag: 'Schema / Relational / Queries' },
+      { name: 'HTML5 & Modern CSS', level: 95, experience: '4 yrs', status: 'Core', tag: 'Tailwind CSS / Responsive' }
     ]
   },
   {
@@ -208,88 +205,95 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     name: 'Frameworks & Libraries',
     description: 'Modern reactive component frameworks, state libraries, and backend runtimes',
     skills: [
-      { name: 'React 19 & Next.js', level: 95, experience: '5+ yrs', status: 'Core', tag: 'RSC / Hooks / Suspense' },
-      { name: 'Node.js & Bun', level: 92, experience: '5+ yrs', status: 'Core', tag: 'Asynchronous Event Loop' },
-      { name: 'Tailwind CSS v4', level: 96, experience: '4 yrs', status: 'Core', tag: 'Utility-First / JIT' },
-      { name: 'Tokio & Axum (Rust)', level: 84, experience: '3 yrs', status: 'Advanced', tag: 'High-Throughput Async' },
-      { name: 'FastAPI & Pydantic', level: 86, experience: '4 yrs', status: 'Advanced', tag: 'Type-Safe Async REST' },
-      { name: 'Vite & Vitest', level: 94, experience: '4 yrs', status: 'Core', tag: 'Lightning Build Tooling' }
+      { name: 'React 19 & Next.js', level: 92, experience: '3 yrs', status: 'Core', tag: 'Modern Hooks / SSR / Routing' },
+      { name: 'Node.js & Express', level: 88, experience: '3 yrs', status: 'Core', tag: 'REST APIs / Middleware' },
+      { name: 'Tailwind CSS', level: 95, experience: '3 yrs', status: 'Core', tag: 'Utility-First / Responsive UI' },
+      { name: 'JavaFX & Desktop GUI', level: 86, experience: '2 yrs', status: 'Core', tag: 'Desktop Architecture / FXML' },
+      { name: 'Python FastAPI / Flask', level: 82, experience: '2 yrs', status: 'Advanced', tag: 'Async Endpoints / Services' },
+      { name: 'Vite & Build Tooling', level: 90, experience: '2 yrs', status: 'Core', tag: 'Fast Bundling / Development' }
     ]
   },
   {
-    id: 'architecture',
-    name: 'Architecture & Distributed Systems',
-    description: 'Engineering paradigms for high availability, fault tolerance, and concurrency',
+    id: 'backend-databases',
+    name: 'Backend & Database Systems',
+    description: 'Data modeling, schema design, and server-side architecture',
     skills: [
-      { name: 'Distributed Systems & Raft', level: 86, experience: '3+ yrs', status: 'Advanced', tag: 'Consensus / Replication' },
-      { name: 'Event-Driven (Kafka / RabbitMQ)', level: 88, experience: '4 yrs', status: 'Core', tag: 'Pub/Sub & CQRS' },
-      { name: 'CRDT & Local-First State', level: 87, experience: '2+ yrs', status: 'Advanced', tag: 'Yjs / Automerge / Offline' },
-      { name: 'RESTful & GraphQL & gRPC', level: 94, experience: '5+ yrs', status: 'Core', tag: 'Contract-First API Design' },
-      { name: 'Database Indexing & LSM-Trees', level: 88, experience: '4 yrs', status: 'Advanced', tag: 'B-Tree / LSM / WAL' },
-      { name: 'Microservices & Domain Design', level: 90, experience: '5 yrs', status: 'Core', tag: 'Boundaries / Fault Isolation' }
+      { name: 'PostgreSQL & MySQL', level: 88, experience: '3 yrs', status: 'Core', tag: 'Relational Design / Normalization' },
+      { name: 'RESTful API Architecture', level: 90, experience: '3 yrs', status: 'Core', tag: 'JSON / Auth / JWT' },
+      { name: 'Database Normalization', level: 86, experience: '2+ yrs', status: 'Advanced', tag: 'Relational Modeling' },
+      { name: 'Authentication & Security', level: 84, experience: '2 yrs', status: 'Advanced', tag: 'JWT / Sessions / CORS' },
+      { name: 'Express Server Architecture', level: 88, experience: '3 yrs', status: 'Core', tag: 'Modular Route Design' }
     ]
   },
   {
     id: 'tooling',
-    name: 'Tooling, Cloud & DevOps',
-    description: 'Infrastructure automation, containerization, and observability pipelines',
+    name: 'Tooling & Workflow',
+    description: 'Version control, developer tooling, and testing workflows',
     skills: [
-      { name: 'Docker & Podman', level: 92, experience: '5+ yrs', status: 'Core', tag: 'Multi-stage / Alpine' },
-      { name: 'Kubernetes & Helm', level: 84, experience: '3+ yrs', status: 'Advanced', tag: 'Ingress / Deployments' },
-      { name: 'Linux System Administration', level: 92, experience: '6+ yrs', status: 'Core', tag: 'POSIX / Systemd / Bash' },
-      { name: 'Git & Trunk Development', level: 98, experience: '6+ yrs', status: 'Core', tag: 'Rebase / Bisect / Hooks' },
-      { name: 'CI/CD (GitHub Actions)', level: 92, experience: '5 yrs', status: 'Core', tag: 'Matrix Builds / Cache' },
-      { name: 'Prometheus & Grafana & OpenTelemetry', level: 85, experience: '3+ yrs', status: 'Advanced', tag: 'Metrics / Traces / Alerts' }
+      { name: 'Git & GitHub (@jeep-ta)', level: 95, experience: '4 yrs', status: 'Core', tag: 'Branching / Commits / PRs' },
+      { name: 'Linux & Bash Terminal', level: 85, experience: '2+ yrs', status: 'Core', tag: 'POSIX / Shell Scripting' },
+      { name: 'Postman & API Testing', level: 90, experience: '3 yrs', status: 'Core', tag: 'Endpoint Verification' },
+      { name: 'VS Code & Developer CLI', level: 96, experience: '4 yrs', status: 'Core', tag: 'Debugging / Extensions' },
+      { name: 'CI/CD (GitHub Actions)', level: 78, experience: '1+ yr', status: 'Proficient', tag: 'Build & Test Workflows' }
     ]
   }
 ];
 
-export const ABOUT_FILE_CONTENT = `# ENGINEERING PROFILE // JEPTHA
-Role: Senior Software Engineer (Systems & Full-Stack)
-Specialization: Low-Latency Systems, Distributed State & Frontend Architecture
-Location: Singapore (UTC+8) • Remote Worldwide
+export const ABOUT_FILE_CONTENT = `# ENGINEERING PROFILE // JEPTHA OSORIO
+Role: Computer Science Student & Aspiring Software Engineer
+Degree: Bachelor of Science in Computer Science (BSCS)
+Specialization: Full-Stack Web Development, Backend APIs, Desktop Systems & Databases
+Location: Philippines (UTC+8) • Remote Worldwide
 
 1. TECHNICAL OVERVIEW
 --------------------------------------------------------------------------------
-Greetings, traveler. I am Jeptha, a Senior Full-Stack and Systems Engineer.
-I focus on building distributed engines, low-latency APIs, and polished,
-delightful user interfaces that respect computational resources.
+Greetings, traveler. I am Jeptha Osorio (@jeep-ta), a Computer Science student (BSCS)
+and aspiring software engineer based in the Philippines. I focus on building responsive
+web applications, robust backend APIs, practical desktop solutions, and polished terminal
+interfaces.
 
 I believe modern software should be:
-  [x] Fast without requiring exorbitant cloud hardware.
-  [x] Resilient in the face of network degradation or unexpected partition.
-  [x] Beautiful and intuitive, treating user attention as a scarce resource.
+  [x] Fast, accessible, and responsive across all devices.
+  [x] Resilient, structured, and easy to maintain.
+  [x] Intuitive, treating user attention and clarity as top priorities.
 
-2. CURRENT FOCUS AREAS
+2. CURRENT FOCUS AREAS & TARGET ROLES
 --------------------------------------------------------------------------------
-- High-Performance Embedded Storage: Developing LSM-tree architectures in Rust.
-- Local-First Web Applications: Real-time collaborative state using CRDTs.
-- Autonomous Agents & Telemetry: Kernel-space eBPF observability & safe LLM routing.
-- Micro-interaction Design: Crafting sensory-rich desktop UI paradigms on the web.
+* Actively seeking:
+  - Software Engineering Internships / OJT Student Trainee Placements
+  - Junior Full-Stack Developer Roles (React, Next.js, Node.js, TypeScript)
+  - Junior Backend / API Developer Roles (Node.js, Express, PostgreSQL/MySQL)
 
-3. WORK EXPERIENCE SUMMARY
+* Technical Focus:
+  - Full-Stack Web Development: Building reactive SPAs and SSR apps with React, Next.js, and TypeScript.
+  - Backend Services & APIs: Designing RESTful endpoints with Node.js, Express, and Python.
+  - Database Systems: Relational schema design and query optimization with PostgreSQL and MySQL.
+  - Desktop & System Applications: Object-oriented software in Java (JavaFX/Swing) and C#.
+
+3. FEATURED PROJECTS HIGHLIGHT
 --------------------------------------------------------------------------------
-* 2022 - Present: Lead Systems & Platform Engineer
-  - Architected distributed ingestion pipeline processing 40M+ events/day.
-  - Reduced p99 latency by 68% through zero-copy buffer pools and io_uring.
-  - Mentored 8 junior and mid-level engineers across frontend & systems tracks.
-
-* 2020 - 2022: Senior Full-Stack Engineer
-  - Built real-time collaborative telemetry dashboard using WebSockets and React.
-  - Implemented CI/CD caching strategies cutting test pipeline runtime by 50%.
-
-* 2018 - 2020: Software Engineer
-  - Developed RESTful microservices in Go and Python with PostgreSQL.
-  - Refactored legacy UI monolith to component-driven design system.
+* CITSC Student Payment System (Java / MySQL)
+  - Centralized fee tracking and student ledger management platform eliminating paper receipts.
+* Smart Lost & Found System (Java / JavaFX / Similarity Algorithms)
+  - Intelligent campus lost-and-found recovery platform with tokenized similarity matching.
+* Birb Conservation & Edu Portal (JavaScript / HTML5 / CSS)
+  - Accessible, responsive avian biodiversity web showcase with 100/100 Lighthouse performance.
+* umaWeb Chrome Extension (JavaScript / Manifest V3)
+  - Ambient interactive desktop/browser sprite companion engine with 60fps physics loop.
+* NASA Space Apps Challenge Submission (TypeScript / React)
+  - Collaborative open science explorer visualizing planetary and geospatial datasets.
+* Doomscroll Guard - Skyrim Edition (Python / OpenCV)
+  - Real-time computer vision focus deterrence tool monitoring study distraction.
 
 4. CORE PHILOSOPHY
 --------------------------------------------------------------------------------
-"Make it work, make it elegant, make it fast.
-Keep blast radius minimal, respect the platform,
-and write code that reads like well-authored literature."
+"Build with purpose, stay curious, and write clean,
+resilient code that solves real problems."
 
 5. STATUS & AVAILABILITY
 --------------------------------------------------------------------------------
-[ONLINE] Available for select high-impact engineering roles and technical advisory.
+[ONLINE] Actively seeking internship opportunities (OJT) and junior developer positions.
+GitHub: https://github.com/jeep-ta
+Email: jepthaosorio1@gmail.com
 Type 'contact' in the terminal or open the Contact app to initiate communications.
 `;

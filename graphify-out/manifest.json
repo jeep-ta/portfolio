@@ -18,16 +18,16 @@
     "semantic_hash": "0749dc585332500b69da70d432f68f67"
   },
   "src/components/apps/AboutApp.tsx": {
-    "mtime": 1790694221.6941836,
-    "seen": 1790696860.1536589,
-    "ast_hash": "80f7638e972ad046e35b2097da3ef851",
-    "semantic_hash": "80f7638e972ad046e35b2097da3ef851"
+    "mtime": 1790766523.2058654,
+    "seen": 1790766568.4981477,
+    "ast_hash": "12e62da3ebd8075677c24ec0480a5d21",
+    "semantic_hash": ""
   },
   "src/components/apps/ContactApp.tsx": {
-    "mtime": 1790567962.022245,
-    "seen": 1790696860.1536589,
-    "ast_hash": "56cd091497b151c04ee3cb4a1f7ee106",
-    "semantic_hash": "56cd091497b151c04ee3cb4a1f7ee106"
+    "mtime": 1790766528.6162078,
+    "seen": 1790766568.4981477,
+    "ast_hash": "76850110a79a164f4117a04bf532fe28",
+    "semantic_hash": ""
   },
   "src/components/apps/ProjectsApp.tsx": {
     "mtime": 1790603578.0542111,
@@ -48,10 +48,10 @@
     "semantic_hash": "e16db658228e829c50b8d05c070956f6"
   },
   "src/components/apps/TaskManagerApp.tsx": {
-    "mtime": 1790694380.5811725,
-    "seen": 1790696860.1536589,
-    "ast_hash": "3f8c448f2c6a383e33e4bcf7545ca23b",
-    "semantic_hash": "3f8c448f2c6a383e33e4bcf7545ca23b"
+    "mtime": 1790766547.2433794,
+    "seen": 1790766568.4981477,
+    "ast_hash": "0fa00e7220aefdb919a20a4c2703818f",
+    "semantic_hash": ""
   },
   "src/components/apps/TerminalApp.tsx": {
     "mtime": 1790730359.4359903,
@@ -114,9 +114,9 @@
     "semantic_hash": "0a6f4806172baaf7c10444198cb9d5d7"
   },
   "src/components/desktop/TopBar.tsx": {
-    "mtime": 1790730398.0199435,
-    "seen": 1790730443.0427432,
-    "ast_hash": "fc14595625ccef65760c3baaa1167119",
+    "mtime": 1790766152.980467,
+    "seen": 1790766365.689607,
+    "ast_hash": "dbb95cb183c66238021779b9ea8ff6f7",
     "semantic_hash": ""
   },
   "src/components/desktop/Window.tsx": {
@@ -132,10 +132,10 @@
     "semantic_hash": "df30e8200c3e8c19606a1cfd9d71db8c"
   },
   "src/data/portfolioData.ts": {
-    "mtime": 1790694207.485851,
-    "seen": 1790696860.1536589,
-    "ast_hash": "602be0053f7d11292d27f47415c93b3a",
-    "semantic_hash": "602be0053f7d11292d27f47415c93b3a"
+    "mtime": 1790766500.9378881,
+    "seen": 1790766568.4981477,
+    "ast_hash": "445acb96a7ea1a204ed15e382291432b",
+    "semantic_hash": ""
   },
   "src/data/visualizerPresets.ts": {
     "mtime": 1790593060.060551,
@@ -303,6 +303,12 @@
     "mtime": 1789314985.2061489,
     "seen": 1790729781.3874567,
     "ast_hash": "9960a24288958394ac50e57ff638b036",
+    "semantic_hash": ""
+  },
+  "public/vMlwDyi7.jpg": {
+    "mtime": 1790765937.5399835,
+    "seen": 1790766365.689607,
+    "ast_hash": "bc644111ca7156465cb5ac4926021038",
     "semantic_hash": ""
   }
 }

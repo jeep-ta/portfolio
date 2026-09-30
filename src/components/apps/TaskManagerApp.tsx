@@ -13,12 +13,12 @@ import {
 import { soundFx } from '../../utils/audio';
 
 const INITIAL_PROCESSES: ProcessItem[] = [
-  { pid: 1024, name: 'ebpf_kernel_probe', command: 'kubepulse --ring-buffer=enabled', cpu: 0.6, ram: 14.2, status: 'running', threads: 4 },
-  { pid: 1430, name: 'aether_raft_engine', command: 'aetherdb --wal --consensus=raft', cpu: 3.4, ram: 68.4, status: 'running', threads: 16 },
-  { pid: 2048, name: 'nexus_crdt_sync', command: 'nexus --webrtc-mesh --yjs-delta', cpu: 1.8, ram: 42.1, status: 'running', threads: 8 },
-  { pid: 3110, name: 'wasm_ast_parser', command: 'synapse-parser --tree-sitter', cpu: 0.2, ram: 18.9, status: 'sleeping', threads: 2 },
-  { pid: 4096, name: 'tokio_async_runtime', command: 'rust-tokio --workers=8', cpu: 2.1, ram: 54.0, status: 'running', threads: 8 },
-  { pid: 5120, name: 'edgeforge_vector_cache', command: 'edgeforge --vectorize-similarity', cpu: 0.8, ram: 31.6, status: 'running', threads: 4 },
+  { pid: 1024, name: 'citsc_payment_daemon', command: 'java -jar citsc-payment.jar --db=mysql', cpu: 1.2, ram: 42.0, status: 'running', threads: 8 },
+  { pid: 1430, name: 'smart_recovery_engine', command: 'javafx-match-engine --similarity=ngram', cpu: 0.8, ram: 55.4, status: 'running', threads: 6 },
+  { pid: 2048, name: 'birb_portal_service', command: 'node birb-server.js --cache=memory', cpu: 0.5, ram: 28.1, status: 'running', threads: 4 },
+  { pid: 3110, name: 'umaweb_sprite_loop', command: 'chromium-ext --manifest=v3 --physics=60fps', cpu: 0.4, ram: 16.9, status: 'running', threads: 2 },
+  { pid: 4096, name: 'doomscroll_cv_tracker', command: 'python doomscroll_guard.py --camera=0', cpu: 2.4, ram: 68.0, status: 'running', threads: 4 },
+  { pid: 5120, name: 'nasa_geospatial_worker', command: 'ts-node nasa-pipeline.ts --dataset=earth', cpu: 0.9, ram: 34.6, status: 'running', threads: 4 },
   { pid: 6012, name: 'webaudio_synth_daemon', command: 'audio-fx --sample-rate=48000', cpu: 0.4, ram: 12.0, status: 'running', threads: 2 },
 ];
 

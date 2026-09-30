@@ -110,7 +110,27 @@ export const ContactApp: React.FC = () => {
         <div className="text-[10px] text-gray-500">PID: 4182</div>
       </div>
 
-      <div className="flex-1 overflow-auto p-4 sm:p-5 space-y-6">
+      <div className="flex-1 overflow-auto p-4 sm:p-5 space-y-5">
+        {/* Profile Identity Card */}
+        <div className="flex items-center gap-3.5 p-3.5 rounded-xl bg-white/[0.03] border border-white/10">
+          <div className="relative shrink-0">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-[var(--accent)]/50 bg-black/60 shadow-md">
+              <img
+                src={PERSONAL_INFO.avatar}
+                alt={PERSONAL_INFO.name}
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+            <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#0b0e14]" />
+          </div>
+          <div>
+            <div className="text-white font-bold text-sm tracking-wide">{PERSONAL_INFO.name}</div>
+            <div className="text-gray-400 text-xs font-mono">{PERSONAL_INFO.role}</div>
+            <div className="text-cyan-400/90 text-[11px] font-mono">{PERSONAL_INFO.degree}</div>
+            <div className="text-[10px] text-emerald-400 font-mono mt-0.5">{PERSONAL_INFO.status}</div>
+          </div>
+        </div>
+
         {/* Quick Social & Direct Copy Channels */}
         <div>
           <h3 className="text-xs uppercase font-mono tracking-wider text-gray-400 mb-2 font-semibold">
