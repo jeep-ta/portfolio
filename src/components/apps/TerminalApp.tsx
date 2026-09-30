@@ -9,7 +9,7 @@ const ALL_COMMANDS = [
   'help', 'ls', 'dir', 'cat', 'open', 'theme', 'sudo', 'echo', 
   'whoami', 'date', 'uname', 'snake', 'neofetch', 'matrix', 
   'top', 'htop', 'pwd', 'cd', 'clear', 'exit', 'quit',
-  'eq', 'visualizer', 'music', 'volume', 'vol'
+  'eq', 'visualizer', 'music', 'volume', 'vol', 'crt', 'scanlines'
 ];
 
 const ALL_FILES = [
@@ -22,7 +22,7 @@ const INITIAL_OUTPUT: TerminalEntry[] = [
     type: 'info',
     content: [
       '====================================================================',
-      ' JEPTHA OS Terminal Environment [Version 2.4.0-release]',
+      ' JEPTHA OS Terminal Environment [Version 2.5.0-release]',
       ' (c) 2026 Jeptha. All rights reserved. Type "help" or "neofetch".',
       ' Tip: Press [Tab] to auto-complete commands and filenames.',
       '====================================================================',
@@ -51,7 +51,9 @@ export const TerminalApp: React.FC = () => {
     volume,
     setVolume,
     soundEnabled,
-    toggleSound
+    toggleSound,
+    scanlinesEnabled,
+    toggleScanlines
   } = useDesktop();
 
   const [inputVal, setInputVal] = useState('');
@@ -196,6 +198,7 @@ export const TerminalApp: React.FC = () => {
             '  music / lofi          Toggle Lo-Fi House audio streaming',
             '  eq / visualizer       NCS background audio equalizer & colors',
             '  volume <0-100>        Adjust master audio volume or mute/unmute',
+            '  crt / scanlines       Toggle retro CRT monitor scanlines (default: OFF)',
             '  snake                 Launch arcade snake Easter egg',
             '  exit / quit           Close terminal window',
             '  clear                 Clear terminal scrollback',
@@ -239,18 +242,31 @@ export const TerminalApp: React.FC = () => {
           content: [
             '      /\\_/\\          jeptha@workstation',
             '     ( o.o )         ------------------',
-            '      > ^ <          OS: JepthaOS 2.4.0 (x86_64-retro-web)',
-            '                     Host: Distributed Systems Engineer Workstation',
-            '                     Kernel: Linux 6.8.0-zen-arch (Rust Wasm Engine)',
+            '      > ^ <          OS: JepthaOS 2.5.0 (x86_64-retro-web)',
+            '                     Host: Computer Science Student Workstation (@jeep-ta)',
+            '                     Degree: Bachelor of Science in Computer Science (BSCS)',
+            '                     Kernel: Linux 6.8.0-zen-arch (Vite React Engine)',
             '                     Uptime: 99.98% (High Availability)',
-            '                     Packages: 6 projects, 4 daemons, 22 skills',
+            '                     Packages: 6 projects, 6 daemons, 24 skills',
             '                     Shell: zsh 5.9 (Interactive POSIX)',
             '                     Resolution: 1920x1080 (Responsive Retina)',
-            '                     WM: Jeptha Window Manager v2.4 (Draggable/Aero)',
+            '                     WM: Jeptha Window Manager v2.5 (Draggable/Aero)',
             '                     Memory: 1,420MiB / 16,384MiB (8.6%)',
-            '                     Status: Ready for high-impact engineering roles',
+            '                     Status: Seeking Internships (OJT) & Junior Dev Roles',
             '                     Palette: [■ #10b981] [■ #06b6d4] [■ #f59e0b] [■ #ec4899]',
           ],
+        });
+        break;
+      }
+
+      case 'crt':
+      case 'scanlines': {
+        toggleScanlines();
+        const nextState = !scanlinesEnabled;
+        responses.push({
+          id: Math.random().toString(),
+          type: 'success',
+          content: `CRT Scanline overlay switched to: ${nextState ? 'ON' : 'OFF'}`,
         });
         break;
       }

@@ -54,9 +54,9 @@
     "semantic_hash": ""
   },
   "src/components/apps/TerminalApp.tsx": {
-    "mtime": 1790730359.4359903,
-    "seen": 1790730443.0427432,
-    "ast_hash": "76d5e9bf7657b82da86040ad38e593a7",
+    "mtime": 1790766988.2177248,
+    "seen": 1790767010.9095616,
+    "ast_hash": "017a6def112ae1f77a27bb70577dd947",
     "semantic_hash": ""
   },
   "src/components/common/BrandIcons.tsx": {
@@ -126,10 +126,10 @@
     "semantic_hash": ""
   },
   "src/context/DesktopContext.tsx": {
-    "mtime": 1790606268.6776333,
-    "seen": 1790696860.1536589,
-    "ast_hash": "df30e8200c3e8c19606a1cfd9d71db8c",
-    "semantic_hash": "df30e8200c3e8c19606a1cfd9d71db8c"
+    "mtime": 1790766942.010372,
+    "seen": 1790767010.9095616,
+    "ast_hash": "7908df38b368123836510c6f752a5afb",
+    "semantic_hash": ""
   },
   "src/data/portfolioData.ts": {
     "mtime": 1790766500.9378881,

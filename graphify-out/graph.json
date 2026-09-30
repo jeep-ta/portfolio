@@ -982,7 +982,7 @@
       "file_type": "code",
       "norm_label": "usedesktop()",
       "source_file": "src/context/DesktopContext.tsx",
-      "source_location": "L802"
+      "source_location": "L816"
     },
     {
       "id": "src_components_apps_aboutapp_aboutapp",
@@ -3813,7 +3813,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/apps/TerminalApp.tsx",
-      "source_location": "L55",
+      "source_location": "L57",
       "weight": 1.0
     },
     {
@@ -3825,7 +3825,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/apps/TerminalApp.tsx",
-      "source_location": "L641",
+      "source_location": "L657",
       "weight": 1.0
     },
     {
@@ -8672,7 +8672,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/context/DesktopContext.tsx",
-      "source_location": "L802",
+      "source_location": "L816",
       "weight": 1.0
     },
     {
@@ -9774,5 +9774,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "f49e45a0aabc2d251eafe0e0436d57ca0a1dc185"
+  "built_at_commit": "6df329101b3335318b19fe823daf8a9508a71115"
 }

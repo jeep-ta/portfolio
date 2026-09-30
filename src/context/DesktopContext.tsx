@@ -173,7 +173,15 @@ export const DesktopProvider: React.FC<{ children: ReactNode }> = ({ children })
   const [activeWindowId, setActiveWindowId] = useState<WindowId | null>('about');
   const [theme, setThemeState] = useState<Theme>('dark');
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
-  const [scanlinesEnabled, setScanlinesEnabled] = useState<boolean>(true);
+  const [scanlinesEnabled, setScanlinesEnabled] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('portfolio_scanlines');
+      if (saved !== null) {
+        return saved === 'true';
+      }
+    }
+    return false; // OFF by default
+  });
   const [ambientPlaying, setAmbientPlaying] = useState<boolean>(false);
   const [isCrashed, setIsCrashed] = useState<boolean>(false);
   const [isRebooting, setIsRebooting] = useState<boolean>(false);
@@ -415,7 +423,13 @@ export const DesktopProvider: React.FC<{ children: ReactNode }> = ({ children })
 
   const toggleScanlines = useCallback(() => {
     soundFx.playClick();
-    setScanlinesEnabled((prev) => !prev);
+    setScanlinesEnabled((prev) => {
+      const next = !prev;
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('portfolio_scanlines', String(next));
+      }
+      return next;
+    });
   }, []);
 
   const toggleAmbientMusic = useCallback(() => {
