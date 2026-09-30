@@ -54,10 +54,10 @@
     "semantic_hash": "3f8c448f2c6a383e33e4bcf7545ca23b"
   },
   "src/components/apps/TerminalApp.tsx": {
-    "mtime": 1790595895.916786,
-    "seen": 1790696860.1536589,
-    "ast_hash": "eedf2896fecf0581d1848834721998a9",
-    "semantic_hash": "eedf2896fecf0581d1848834721998a9"
+    "mtime": 1790730359.4359903,
+    "seen": 1790730443.0427432,
+    "ast_hash": "76d5e9bf7657b82da86040ad38e593a7",
+    "semantic_hash": ""
   },
   "src/components/common/BrandIcons.tsx": {
     "mtime": 1790567811.2805567,
@@ -102,10 +102,10 @@
     "semantic_hash": "3e0bfc7e01a63be7edbdc0a74ee5b161"
   },
   "src/components/desktop/KeyboardShortcutsModal.tsx": {
-    "mtime": 1790606128.4682262,
-    "seen": 1790696860.1536589,
-    "ast_hash": "8444b6a6d853dbfccf71832025ce8b2b",
-    "semantic_hash": "8444b6a6d853dbfccf71832025ce8b2b"
+    "mtime": 1790730368.2211566,
+    "seen": 1790730443.0427432,
+    "ast_hash": "8d9c58e2f6c1de0a7d9926317f0755ae",
+    "semantic_hash": ""
   },
   "src/components/desktop/MusicPopover.tsx": {
     "mtime": 1790694299.8663845,
@@ -114,16 +114,16 @@
     "semantic_hash": "0a6f4806172baaf7c10444198cb9d5d7"
   },
   "src/components/desktop/TopBar.tsx": {
-    "mtime": 1790694012.0718012,
-    "seen": 1790696860.1536589,
-    "ast_hash": "dc0a97aa0b90cb6540f9fb1d07d8e5e3",
-    "semantic_hash": "dc0a97aa0b90cb6540f9fb1d07d8e5e3"
+    "mtime": 1790730398.0199435,
+    "seen": 1790730443.0427432,
+    "ast_hash": "fc14595625ccef65760c3baaa1167119",
+    "semantic_hash": ""
   },
   "src/components/desktop/Window.tsx": {
-    "mtime": 1790694625.8189335,
-    "seen": 1790696860.1536589,
-    "ast_hash": "5d8e17da01139c1093a1a165331674f6",
-    "semantic_hash": "5d8e17da01139c1093a1a165331674f6"
+    "mtime": 1790730350.6951337,
+    "seen": 1790730443.0427432,
+    "ast_hash": "06c644131ab3ddc07b9b432a155df186",
+    "semantic_hash": ""
   },
   "src/context/DesktopContext.tsx": {
     "mtime": 1790606268.6776333,
@@ -263,52 +263,16 @@
     "ast_hash": "a831cf3669f1e6ab85d8a80ebe655f99",
     "semantic_hash": ""
   },
-  "2nd_UI_improvement.md": {
-    "mtime": 1790693744.5081172,
-    "seen": 1790729781.3874567,
-    "ast_hash": "509b1fe5b9b57bd331dcbe4027a056d6",
-    "semantic_hash": ""
-  },
-  "2nd_improvement.md": {
-    "mtime": 1790604585.0396423,
-    "seen": 1790729781.3874567,
-    "ast_hash": "e02bd5dd0197092e746f65ccc3ff78bb",
-    "semantic_hash": ""
-  },
   "README.md": {
     "mtime": 1790610358.1476219,
     "seen": 1790729781.3874567,
     "ast_hash": "9d1d7205ac456ae5b1eed8b8475a1728",
     "semantic_hash": ""
   },
-  "UI_IMPROVEMENTS.md": {
-    "mtime": 1790603013.6188107,
-    "seen": 1790729781.3874567,
-    "ast_hash": "5efe15a9db4a4bbed78e5f648daf2426",
-    "semantic_hash": ""
-  },
-  "fix_redundancy.md": {
-    "mtime": 1790605939.7655823,
-    "seen": 1790729781.3874567,
-    "ast_hash": "911364ab552abc84ada8f58992cb782a",
-    "semantic_hash": ""
-  },
-  "improve.md": {
-    "mtime": 1790581733.630999,
-    "seen": 1790729781.3874567,
-    "ast_hash": "8bd26b360cea8030410a5394982900a6",
-    "semantic_hash": ""
-  },
   "index.html": {
     "mtime": 1790567514.3362503,
     "seen": 1790729781.3874567,
     "ast_hash": "8e18adb865df8a531a20935fed4dfeac",
-    "semantic_hash": ""
-  },
-  "prompt.md": {
-    "mtime": 1790567170.9236374,
-    "seen": 1790729781.3874567,
-    "ast_hash": "4e506ff601241fbda887b66956def837",
     "semantic_hash": ""
   },
   "public/favicon.svg": {

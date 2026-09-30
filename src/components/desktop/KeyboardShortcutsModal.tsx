@@ -129,7 +129,9 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({ 
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-gray-300">Audio Utility & Chapters</span>
-                <span className="text-gray-400 font-sans text-[11px]">Dock → [ ♪ Music ]</span>
+                <span className="text-gray-400 font-mono text-[11px] flex items-center gap-1.5">
+                  Dock → <Music className="w-3 h-3 text-pink-400" /> Music
+                </span>
               </div>
             </div>
           </div>

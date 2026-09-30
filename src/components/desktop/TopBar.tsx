@@ -8,6 +8,7 @@ import {
   BatteryMedium, 
   Sparkles,
   Command,
+  Music,
 } from 'lucide-react';
 
 export const TopBar: React.FC = () => {
@@ -71,7 +72,7 @@ export const TopBar: React.FC = () => {
               <span className="w-0.5 bg-pink-400 h-3 animate-bounce delay-150" />
             </div>
           ) : (
-            <span className="font-mono text-gray-500 text-[10px] px-0.5">ılı</span>
+            <Music className="w-3 h-3 text-gray-400" />
           )}
           <span className="text-[10px] font-mono tracking-wider">
             {ambientPlaying ? 'STREAMING' : 'AUDIO IDLE'}

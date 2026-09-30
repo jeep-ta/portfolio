@@ -2,6 +2,7 @@ import React, { useRef, useState, useCallback } from 'react';
 import type { ReactNode } from 'react';
 import type { WindowId } from '../../types';
 import { useDesktop } from '../../context/DesktopContext';
+import { Minus, Square, Copy, X } from 'lucide-react';
 
 interface WindowProps {
   id: WindowId;
@@ -211,7 +212,7 @@ export const Window: React.FC<WindowProps> = ({ id, children, icon }) => {
               title="Minimize window"
               className="w-5 h-5 flex items-center justify-center rounded bg-white/5 hover:bg-white/15 border border-white/10 text-gray-400 hover:text-white transition-colors"
             >
-              <span>—</span>
+              <Minus className="w-2.5 h-2.5 stroke-[2.5]" />
             </button>
             <button
               onClick={(e) => {
@@ -219,9 +220,13 @@ export const Window: React.FC<WindowProps> = ({ id, children, icon }) => {
                 maximizeWindow(id);
               }}
               title={win.isMaximized ? 'Restore window' : 'Maximize window'}
-              className="w-5 h-5 flex items-center justify-center rounded bg-white/5 hover:bg-white/15 border border-white/10 text-gray-400 hover:text-white transition-colors text-[10px]"
+              className="w-5 h-5 flex items-center justify-center rounded bg-white/5 hover:bg-white/15 border border-white/10 text-gray-400 hover:text-white transition-colors"
             >
-              <span>{win.isMaximized ? '❐' : '□'}</span>
+              {win.isMaximized ? (
+                <Copy className="w-2.5 h-2.5 stroke-[2.5]" />
+              ) : (
+                <Square className="w-2.5 h-2.5 stroke-[2.5]" />
+              )}
             </button>
             <button
               onClick={(e) => {
@@ -231,7 +236,7 @@ export const Window: React.FC<WindowProps> = ({ id, children, icon }) => {
               title="Close window (Esc)"
               className="w-5 h-5 flex items-center justify-center rounded bg-white/5 hover:bg-red-500/20 hover:border-red-500/40 border border-white/10 text-gray-400 hover:text-red-300 transition-colors"
             >
-              <span>✕</span>
+              <X className="w-2.5 h-2.5 stroke-[2.5]" />
             </button>
           </div>
         </div>

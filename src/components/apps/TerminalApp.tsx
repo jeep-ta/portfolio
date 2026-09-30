@@ -513,7 +513,7 @@ export const TerminalApp: React.FC = () => {
           type: 'success',
           content: ambientPlaying
             ? 'Lo-Fi House audio stream paused.'
-            : 'Streaming "lofi house vol.1 🌆 chill music to vibe to" via Web Audio Analyser.',
+            : 'Streaming "lofi house vol.1 // chill music to vibe to" via Web Audio Analyser.',
         });
         break;
       }
