@@ -2,7 +2,6 @@ import React, { useRef, useState, useCallback } from 'react';
 import type { ReactNode } from 'react';
 import type { WindowId } from '../../types';
 import { useDesktop } from '../../context/DesktopContext';
-import { Minus, Square, X, Copy } from 'lucide-react';
 
 interface WindowProps {
   id: WindowId;
@@ -178,63 +177,63 @@ export const Window: React.FC<WindowProps> = ({ id, children, icon }) => {
             : 'bg-black/40 border-[var(--border-color)] text-[var(--text-muted)]'
         }`}
       >
-        {/* Left: Window controls */}
-        <div className="flex items-center gap-2">
-          {/* Close */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              closeWindow(id);
-            }}
-            title="Close (Esc)"
-            className="w-3.5 h-3.5 rounded-full bg-red-500/80 hover:bg-red-400 border border-red-600/50 flex items-center justify-center transition-all group"
-          >
-            <X className="w-2.5 h-2.5 text-black/80 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </button>
-
-          {/* Minimize */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              minimizeWindow(id);
-            }}
-            title="Minimize"
-            className="w-3.5 h-3.5 rounded-full bg-amber-500/80 hover:bg-amber-400 border border-amber-600/50 flex items-center justify-center transition-all group"
-          >
-            <Minus className="w-2.5 h-2.5 text-black/80 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </button>
-
-          {/* Maximize */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              maximizeWindow(id);
-            }}
-            title={win.isMaximized ? 'Restore' : 'Maximize'}
-            className="w-3.5 h-3.5 rounded-full bg-emerald-500/80 hover:bg-emerald-400 border border-emerald-600/50 flex items-center justify-center transition-all group"
-          >
-            {win.isMaximized ? (
-              <Copy className="w-2 h-2 text-black/80 opacity-0 group-hover:opacity-100 transition-opacity" />
-            ) : (
-              <Square className="w-2 h-2 text-black/80 opacity-0 group-hover:opacity-100 transition-opacity" />
-            )}
-          </button>
+        {/* Left: Title & Semantic Identity */}
+        <div className="flex items-center gap-2 font-mono font-medium tracking-wider truncate text-xs">
+          {icon && <span className="opacity-80 shrink-0">{icon}</span>}
+          <span className="uppercase text-[var(--accent)] font-semibold">{id}</span>
+          <span className="text-white/20 hidden sm:inline">//</span>
+          <span className="truncate text-white/90">{win.title}</span>
         </div>
 
-        {/* Center: Title & Icon */}
-        <div className="flex items-center gap-2 font-medium tracking-wide truncate px-2">
-          {icon && <span className="opacity-80">{icon}</span>}
-          <span className="truncate">{win.title}</span>
-        </div>
+        {/* Right: Window TTY, Status & TUI Window Controls */}
+        <div className="flex items-center gap-2 font-mono text-[11px] shrink-0">
+          <span className="hidden sm:inline font-mono text-[10px] px-1.5 py-0.5 rounded bg-black/40 border border-white/10 text-gray-400">
+            TTY{Object.keys(windows).indexOf(id) + 1}
+          </span>
+          <div className="hidden sm:flex items-center gap-1.5 text-[10px] text-[var(--text-muted)] mr-0.5">
+            <span
+              className={`w-1.5 h-1.5 rounded-full transition-all ${
+                isActive ? 'bg-[var(--accent)] shadow-sm shadow-[var(--accent)]/50' : 'bg-gray-600'
+              }`}
+            />
+            <span>{isActive ? 'ACTIVE' : 'IDLE'}</span>
+          </div>
 
-        {/* Right: Window Status pill */}
-        <div className="flex items-center gap-1.5 text-[10px] uppercase font-semibold text-[var(--text-muted)] tracking-wider">
-          <span
-            className={`w-1.5 h-1.5 rounded-full ${
-              isActive ? 'bg-[var(--accent)] ring-1 ring-[var(--accent)]/40' : 'bg-gray-600'
-            }`}
-          />
-          <span className="hidden sm:inline">{isActive ? 'ACTIVE' : 'IDLE'}</span>
+          <div className="w-[1px] h-3.5 bg-white/10 hidden sm:block mx-0.5" />
+
+          {/* TUI Window Chrome Controls */}
+          <div className="flex items-center gap-1">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                minimizeWindow(id);
+              }}
+              title="Minimize window"
+              className="w-5 h-5 flex items-center justify-center rounded bg-white/5 hover:bg-white/15 border border-white/10 text-gray-400 hover:text-white transition-colors"
+            >
+              <span>—</span>
+            </button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                maximizeWindow(id);
+              }}
+              title={win.isMaximized ? 'Restore window' : 'Maximize window'}
+              className="w-5 h-5 flex items-center justify-center rounded bg-white/5 hover:bg-white/15 border border-white/10 text-gray-400 hover:text-white transition-colors text-[10px]"
+            >
+              <span>{win.isMaximized ? '❐' : '□'}</span>
+            </button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                closeWindow(id);
+              }}
+              title="Close window (Esc)"
+              className="w-5 h-5 flex items-center justify-center rounded bg-white/5 hover:bg-red-500/20 hover:border-red-500/40 border border-white/10 text-gray-400 hover:text-red-300 transition-colors"
+            >
+              <span>✕</span>
+            </button>
+          </div>
         </div>
       </div>
 

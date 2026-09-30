@@ -22,9 +22,11 @@ export const AboutApp: React.FC = () => {
       <div className="flex items-center justify-between px-3 py-1.5 bg-[#161b22] border-b border-white/10 select-none">
         <div className="flex items-center gap-2">
           <FileCode className="w-3.5 h-3.5 text-sky-400" />
-          <span className="font-semibold text-gray-200">About.txt</span>
-          <span className="text-[10px] text-gray-400 bg-white/5 px-1.5 py-0.5 rounded border border-white/5">
-            Read-Only
+          <span className="text-[11px] font-mono text-gray-400">
+            SYSTEM // BIO_DATA
+          </span>
+          <span className="text-[10px] text-emerald-400/80 bg-emerald-500/10 px-1.5 py-0.2 rounded border border-emerald-500/20">
+            SYNCED
           </span>
         </div>
 
@@ -40,7 +42,7 @@ export const AboutApp: React.FC = () => {
                 activeTab === 'editor' ? 'bg-[var(--accent)] text-black font-semibold' : 'text-gray-400 hover:text-white'
               }`}
             >
-              Raw Editor
+              Raw Text
             </button>
             <button
               onClick={() => {
@@ -51,7 +53,7 @@ export const AboutApp: React.FC = () => {
                 activeTab === 'rendered' ? 'bg-[var(--accent)] text-black font-semibold' : 'text-gray-400 hover:text-white'
               }`}
             >
-              Formatted View
+              Profile View
             </button>
           </div>
 
@@ -91,10 +93,12 @@ export const AboutApp: React.FC = () => {
           {/* Code Text Content */}
           <div className="flex-1 whitespace-pre-wrap text-gray-300">
             {lines.map((line, i) => {
-              // Syntax colorizing logic for nice editor feel
+              // Syntax colorizing logic for clean markdown feel
               let lineClass = 'text-gray-300';
-              if (line.startsWith('//')) {
-                lineClass = 'text-emerald-500 font-medium italic';
+              if (line.startsWith('# ')) {
+                lineClass = 'text-emerald-400 font-bold text-[14px]';
+              } else if (line.startsWith('Role:') || line.startsWith('Specialization:') || line.startsWith('Location:')) {
+                lineClass = 'text-cyan-300 font-medium';
               } else if (line.match(/^[0-9]\./)) {
                 lineClass = 'text-sky-400 font-bold';
               } else if (line.startsWith('---') || line.startsWith('===')) {

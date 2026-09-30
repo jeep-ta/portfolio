@@ -30,7 +30,7 @@ export const DesktopIcon: React.FC<DesktopIconProps> = ({ id, label, icon }) => 
       onDoubleClick={handleClick}
       onClick={handleClick}
       aria-label={`${label} (${isOpen ? (isFocused ? 'Active' : 'Running') : 'Closed'})`}
-      className={`group relative flex flex-col items-center justify-center p-2 rounded-xl border text-center w-20 sm:w-24 select-none focus:outline-none transition-all duration-150 ${
+      className={`group relative flex flex-col items-center justify-center p-2 rounded-xl border text-center min-w-[72px] sm:min-w-[80px] w-auto max-w-[96px] select-none focus:outline-none transition-all duration-150 ${
         isFocused
           ? 'bg-[var(--accent)]/15 border-[var(--accent)]/50 shadow-md shadow-[var(--accent)]/20 text-white'
           : isOpen
@@ -67,7 +67,7 @@ export const DesktopIcon: React.FC<DesktopIconProps> = ({ id, label, icon }) => 
 
       {/* Label */}
       <span
-        className={`mt-1.5 text-[11px] font-mono px-1.5 py-0.5 rounded truncate max-w-full transition-colors duration-150 ${
+        className={`mt-1.5 text-[11px] font-mono px-2 py-0.5 rounded whitespace-nowrap tracking-wide transition-colors duration-150 ${
           isFocused
             ? 'bg-[var(--accent)]/20 text-white font-semibold'
             : isOpen

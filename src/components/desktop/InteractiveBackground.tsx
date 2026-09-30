@@ -136,9 +136,13 @@ export const InteractiveBackground: React.FC = () => {
     toggleAmbientMusic,
     particleDensity,
     animationIntensity,
-    particlesEnabled
+    particlesEnabled,
+    windows
   } = useDesktop();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
+  // Smooth visualizer depth layering alpha (1.0 idle -> 0.18 when windows open)
+  const visualizerAlphaRef = useRef(1.0);
 
   // Equalizer hover interaction state
   const [isHoveringEq, setIsHoveringEq] = useState(false);
@@ -255,6 +259,14 @@ export const InteractiveBackground: React.FC = () => {
       // 1. NCS Circular Audio Equalizer Visualizer
       // ==========================================
       if (visualizerEnabled) {
+        ctx.save();
+
+        // State-Aware Depth Layering: smoothly dim visualizer to 18% when windows are active
+        const hasOpenWin = Object.values(windows).some((w) => w.isOpen && !w.isMinimized);
+        const targetVizAlpha = hasOpenWin ? 0.18 : 1.0;
+        visualizerAlphaRef.current += (targetVizAlpha - visualizerAlphaRef.current) * 0.08;
+        ctx.globalAlpha = visualizerAlphaRef.current;
+
         const isMobile = width < 768;
         const centerX = width / 2;
         const centerY = (height - 40) / 2; // subtle offset above dock
@@ -655,7 +667,8 @@ export const InteractiveBackground: React.FC = () => {
           }
         }
 
-        ctx.restore();
+        ctx.restore(); // Restore visualizer depth layering transform
+        ctx.restore(); // Restore visualizer root state
       }
 
       // ==========================================
@@ -736,6 +749,7 @@ export const InteractiveBackground: React.FC = () => {
       // 4. Constellation Particles & Mouse Gravity
       // ==========================================
       if (particlesEnabled) {
+        const bassPulse = smoothedBassRef.current;
         for (let i = 0; i < particles.length; i++) {
           for (let j = i + 1; j < particles.length; j++) {
             const dx = particles[i].x - particles[j].x;
@@ -778,18 +792,21 @@ export const InteractiveBackground: React.FC = () => {
             particles[i].y += (dyMouse / distMouse) * force;
           }
 
-          // Particle position update
+          // Particle position update with low-frequency audio reactive pulse
           const p = particles[i];
-          p.x += p.vx;
-          p.y += p.vy;
+          p.x += p.vx * (1 + bassPulse * 0.5);
+          p.y += p.vy * (1 + bassPulse * 0.5);
 
           // Bounce off canvas boundaries
           if (p.x < 0 || p.x > width) p.vx *= -1;
           if (p.y < 0 || p.y > height) p.vy *= -1;
 
+          // Pulse particle radius slightly to the audio kick rhythm
+          const currentRadius = p.baseRadius * (1 + bassPulse * 0.35);
+
           ctx.save();
           ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.arc(p.x, p.y, currentRadius, 0, Math.PI * 2);
           ctx.fillStyle = distMouseSq < 19600 ? eqColors.primary : themeCol.secondary;
           ctx.globalAlpha = distMouseSq < 19600 ? 0.60 : 0.20;
           ctx.shadowColor = eqColors.primary;

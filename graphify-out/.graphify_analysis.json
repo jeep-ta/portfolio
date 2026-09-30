@@ -1,0 +1,384 @@
+{
+  "communities": {
+    "0": [
+      "src_components_apps_terminalapp_terminalapp",
+      "src_components_desktop_musicpopover_musicpopover",
+      "src_utils_audio_soundeffects",
+      "src_utils_audio_soundeffects_constructor",
+      "src_utils_audio_soundeffects_getcurrenttrack",
+      "src_utils_audio_soundeffects_getcurrenttracktime",
+      "src_utils_audio_soundeffects_getfrequencydata",
+      "src_utils_audio_soundeffects_getmuted",
+      "src_utils_audio_soundeffects_getplaylist",
+      "src_utils_audio_soundeffects_gettrackindex",
+      "src_utils_audio_soundeffects_getvolume",
+      "src_utils_audio_soundeffects_initaudioelement",
+      "src_utils_audio_soundeffects_initctx",
+      "src_utils_audio_soundeffects_isambientplaying",
+      "src_utils_audio_soundeffects_nexttrack",
+      "src_utils_audio_soundeffects_playalarm",
+      "src_utils_audio_soundeffects_playclick",
+      "src_utils_audio_soundeffects_playerror",
+      "src_utils_audio_soundeffects_playfanfare",
+      "src_utils_audio_soundeffects_playfood",
+      "src_utils_audio_soundeffects_playkeypress",
+      "src_utils_audio_soundeffects_playsuccess",
+      "src_utils_audio_soundeffects_playwindowclose",
+      "src_utils_audio_soundeffects_playwindowopen",
+      "src_utils_audio_soundeffects_prevtrack",
+      "src_utils_audio_soundeffects_seektrack",
+      "src_utils_audio_soundeffects_selecttrack",
+      "src_utils_audio_soundeffects_setmuted",
+      "src_utils_audio_soundeffects_setupaudioanalyser",
+      "src_utils_audio_soundeffects_setvolume",
+      "src_utils_audio_soundeffects_startambient",
+      "src_utils_audio_soundeffects_stopambient",
+      "src_utils_audio_soundeffects_subscribetimeupdate",
+      "src_utils_audio_soundeffects_toggleambient"
+    ],
+    "1": [
+      "package",
+      "package_dependencies",
+      "package_dependencies_lucide_react",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_dependencies_tailwindcss",
+      "package_dependencies_tailwindcss_vite",
+      "package_name",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_preview",
+      "package_type",
+      "package_version",
+      "ref_oxlint",
+      "ref_react_dom",
+      "ref_tailwindcss",
+      "ref_tailwindcss_vite",
+      "ref_types_node",
+      "ref_types_react",
+      "ref_types_react_dom",
+      "ref_typescript",
+      "ref_vite",
+      "ref_vitejs_plugin_react",
+      "src_app",
+      "src_app_app",
+      "src_context_desktopcontext_desktopprovider",
+      "src_index",
+      "src_main",
+      "vite_config"
+    ],
+    "2": [
+      "ref_react",
+      "src_components_desktop_appearancepopover",
+      "src_components_desktop_appearancepopover_accent_presets",
+      "src_components_desktop_appearancepopover_accentpreset",
+      "src_components_desktop_appearancepopover_appearancepopoverprops",
+      "src_components_desktop_appearancepopover_eq_color_presets",
+      "src_components_desktop_desktopicon",
+      "src_components_desktop_desktopicon_desktopiconprops",
+      "src_components_desktop_window",
+      "src_components_desktop_window_resizedirection",
+      "src_components_desktop_window_windowprops",
+      "src_context_desktopcontext",
+      "src_context_desktopcontext_desktopcontext",
+      "src_context_desktopcontext_desktopcontexttype",
+      "src_context_desktopcontext_initial_windows",
+      "src_types_index",
+      "src_types_index_animationintensity",
+      "src_types_index_position",
+      "src_types_index_projectbenchmark",
+      "src_types_index_size",
+      "src_types_index_theme",
+      "src_types_index_visualizercolorpreset",
+      "src_types_index_visualizerstyle",
+      "src_types_index_windowid",
+      "src_types_index_windowstate",
+      "src_utils_audio_audiotrack"
+    ],
+    "3": [
+      "src_components_desktop_appearancepopover_appearancepopover",
+      "src_components_desktop_contextmenu",
+      "src_components_desktop_contextmenu_contextmenu",
+      "src_components_desktop_contextmenu_contextmenuprops",
+      "src_components_desktop_desktop",
+      "src_components_desktop_desktop_aboutapp",
+      "src_components_desktop_desktop_apploader",
+      "src_components_desktop_desktop_contactapp",
+      "src_components_desktop_desktop_desktop",
+      "src_components_desktop_desktop_projectsapp",
+      "src_components_desktop_desktop_skillsapp",
+      "src_components_desktop_desktop_snakeapp",
+      "src_components_desktop_desktop_taskmanagerapp",
+      "src_components_desktop_desktop_terminalapp",
+      "src_components_desktop_desktopicon_desktopicon",
+      "src_components_desktop_dock_dock",
+      "src_components_desktop_interactivebackground_interactivebackground",
+      "src_components_desktop_keyboardshortcutsmodal_keyboardshortcutsmodal",
+      "src_components_desktop_topbar",
+      "src_components_desktop_topbar_topbar",
+      "src_components_desktop_window_window",
+      "src_context_desktopcontext_usedesktop"
+    ],
+    "4": [
+      "ref_lucide_react",
+      "src_components_apps_skillsapp",
+      "src_components_apps_skillsapp_skillsapp",
+      "src_components_apps_snakeapp",
+      "src_components_apps_snakeapp_initial_dir",
+      "src_components_apps_snakeapp_initial_snake",
+      "src_components_apps_snakeapp_snakeapp",
+      "src_components_apps_taskmanagerapp",
+      "src_components_apps_taskmanagerapp_initial_processes",
+      "src_components_apps_taskmanagerapp_taskmanagerapp",
+      "src_components_desktop_dock",
+      "src_components_desktop_keyboardshortcutsmodal",
+      "src_components_desktop_keyboardshortcutsmodal_keyboardshortcutsmodalprops",
+      "src_components_desktop_musicpopover",
+      "src_components_desktop_musicpopover_musicpopoverprops",
+      "src_data_portfoliodata_skill_categories",
+      "src_types_index_processitem",
+      "src_types_index_skillitem",
+      "src_utils_audio",
+      "src_utils_audio_audio_playlist",
+      "src_utils_audio_soundfx"
+    ],
+    "5": [
+      "src_components_apps_aboutapp",
+      "src_components_apps_aboutapp_aboutapp",
+      "src_components_apps_contactapp",
+      "src_components_apps_contactapp_contactapp",
+      "src_components_apps_projectsapp",
+      "src_components_apps_projectsapp_projectsapp",
+      "src_components_apps_terminalapp",
+      "src_components_apps_terminalapp_all_commands",
+      "src_components_apps_terminalapp_all_files",
+      "src_components_apps_terminalapp_initial_output",
+      "src_components_common_brandicons",
+      "src_components_common_brandicons_githubicon",
+      "src_components_common_brandicons_linkedinicon",
+      "src_components_common_brandicons_twittericon",
+      "src_data_portfoliodata",
+      "src_data_portfoliodata_about_file_content",
+      "src_data_portfoliodata_personal_info",
+      "src_data_portfoliodata_projects",
+      "src_types_index_project",
+      "src_types_index_skillcategory",
+      "src_types_index_terminalentry"
+    ],
+    "6": [
+      "tsconfig_app",
+      "tsconfig_app_compileroptions",
+      "tsconfig_app_compileroptions_allowarbitraryextensions",
+      "tsconfig_app_compileroptions_allowimportingtsextensions",
+      "tsconfig_app_compileroptions_erasablesyntaxonly",
+      "tsconfig_app_compileroptions_jsx",
+      "tsconfig_app_compileroptions_lib",
+      "tsconfig_app_compileroptions_module",
+      "tsconfig_app_compileroptions_moduledetection",
+      "tsconfig_app_compileroptions_moduleresolution",
+      "tsconfig_app_compileroptions_noemit",
+      "tsconfig_app_compileroptions_nofallthroughcasesinswitch",
+      "tsconfig_app_compileroptions_nounusedlocals",
+      "tsconfig_app_compileroptions_nounusedparameters",
+      "tsconfig_app_compileroptions_skiplibcheck",
+      "tsconfig_app_compileroptions_target",
+      "tsconfig_app_compileroptions_tsbuildinfofile",
+      "tsconfig_app_compileroptions_types",
+      "tsconfig_app_compileroptions_verbatimmodulesyntax",
+      "tsconfig_app_include"
+    ],
+    "7": [
+      "src_components_desktop_interactivebackground",
+      "src_components_desktop_interactivebackground_barprecalc",
+      "src_components_desktop_interactivebackground_createbarprecalctable",
+      "src_components_desktop_interactivebackground_createwaveringtable",
+      "src_components_desktop_interactivebackground_particle",
+      "src_components_desktop_interactivebackground_precalc_desktop",
+      "src_components_desktop_interactivebackground_precalc_mobile",
+      "src_components_desktop_interactivebackground_ripple",
+      "src_components_desktop_interactivebackground_spark",
+      "src_components_desktop_interactivebackground_theme_colors",
+      "src_components_desktop_interactivebackground_trailparticle",
+      "src_components_desktop_interactivebackground_wave_ring_desktop",
+      "src_components_desktop_interactivebackground_wave_ring_mobile",
+      "src_components_desktop_interactivebackground_waveringprecalc",
+      "src_data_visualizerpresets",
+      "src_data_visualizerpresets_resolvedvisualizercolors",
+      "src_data_visualizerpresets_resolvevisualizercolors",
+      "src_data_visualizerpresets_visualizer_presets",
+      "src_data_visualizerpresets_visualizerpreset"
+    ],
+    "8": [
+      "tsconfig_node",
+      "tsconfig_node_compileroptions",
+      "tsconfig_node_compileroptions_allowimportingtsextensions",
+      "tsconfig_node_compileroptions_erasablesyntaxonly",
+      "tsconfig_node_compileroptions_lib",
+      "tsconfig_node_compileroptions_module",
+      "tsconfig_node_compileroptions_moduledetection",
+      "tsconfig_node_compileroptions_noemit",
+      "tsconfig_node_compileroptions_nofallthroughcasesinswitch",
+      "tsconfig_node_compileroptions_nounusedlocals",
+      "tsconfig_node_compileroptions_nounusedparameters",
+      "tsconfig_node_compileroptions_skiplibcheck",
+      "tsconfig_node_compileroptions_target",
+      "tsconfig_node_compileroptions_tsbuildinfofile",
+      "tsconfig_node_compileroptions_types",
+      "tsconfig_node_compileroptions_verbatimmodulesyntax",
+      "tsconfig_node_include"
+    ],
+    "9": [
+      "package_devdependencies",
+      "package_devdependencies_oxlint",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_typescript",
+      "package_devdependencies_vite",
+      "package_devdependencies_vitejs_plugin_react"
+    ],
+    "10": [
+      "oxlintrc",
+      "oxlintrc_plugins",
+      "oxlintrc_rules",
+      "oxlintrc_rules_react_only_export_components",
+      "oxlintrc_rules_react_rules_of_hooks",
+      "oxlintrc_schema"
+    ],
+    "11": [
+      "tsconfig",
+      "tsconfig_files",
+      "tsconfig_references"
+    ]
+  },
+  "cohesion": {
+    "0": 0.1051693404634581,
+    "1": 0.07056451612903226,
+    "2": 0.16307692307692306,
+    "3": 0.2077922077922078,
+    "4": 0.15714285714285714,
+    "5": 0.1761904761904762,
+    "6": 0.1,
+    "7": 0.1111111111111111,
+    "8": 0.11764705882352941,
+    "9": 0.25,
+    "10": 0.3333333333333333,
+    "11": 0.6666666666666666
+  },
+  "gods": [
+    {
+      "id": "src_utils_audio_soundeffects",
+      "label": "SoundEffects",
+      "degree": 32
+    },
+    {
+      "id": "ref_react",
+      "label": "react",
+      "degree": 21
+    },
+    {
+      "id": "src_context_desktopcontext_usedesktop",
+      "label": "useDesktop()",
+      "degree": 21
+    },
+    {
+      "id": "src_components_desktop_desktop_desktop",
+      "label": "Desktop()",
+      "degree": 19
+    },
+    {
+      "id": "tsconfig_app_compileroptions",
+      "label": "compilerOptions",
+      "degree": 18
+    },
+    {
+      "id": "src_utils_audio_soundfx",
+      "label": "soundFx",
+      "degree": 15
+    },
+    {
+      "id": "tsconfig_node_compileroptions",
+      "label": "compilerOptions",
+      "degree": 15
+    },
+    {
+      "id": "ref_lucide_react",
+      "label": "lucide-react",
+      "degree": 14
+    },
+    {
+      "id": "src_components_desktop_musicpopover_musicpopover",
+      "label": "MusicPopover()",
+      "degree": 9
+    },
+    {
+      "id": "src_context_desktopcontext_desktopcontexttype",
+      "label": "DesktopContextType",
+      "degree": 9
+    }
+  ],
+  "surprises": [
+    {
+      "source": "App()",
+      "target": "Desktop()",
+      "source_files": [
+        "src/App.tsx",
+        "src/components/desktop/Desktop.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "ProjectsApp()",
+      "target": "GithubIcon()",
+      "source_files": [
+        "src/components/apps/ProjectsApp.tsx",
+        "src/components/common/BrandIcons.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `ProjectsApp()` unexpectedly reaches hub `GithubIcon()`"
+    },
+    {
+      "source": "TerminalApp()",
+      "target": "useDesktop()",
+      "source_files": [
+        "src/components/apps/TerminalApp.tsx",
+        "src/context/DesktopContext.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "AccentPreset",
+      "target": "Theme",
+      "source_files": [
+        "src/components/desktop/AppearancePopover.tsx",
+        "src/types/index.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "peripheral node `AccentPreset` unexpectedly reaches hub `Theme`"
+    },
+    {
+      "source": "DesktopIconProps",
+      "target": "WindowId",
+      "source_files": [
+        "src/components/desktop/DesktopIcon.tsx",
+        "src/types/index.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "peripheral node `DesktopIconProps` unexpectedly reaches hub `WindowId`"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

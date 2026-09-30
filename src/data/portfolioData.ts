@@ -244,11 +244,10 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   }
 ];
 
-export const ABOUT_FILE_CONTENT = `// =============================================================================
-// FILE: About.txt
-// AUTHOR: Jeptha (Senior Software Engineer)
-// KERNEL: JepthaOS 2.4.0 (x86_64-retro-web)
-// =============================================================================
+export const ABOUT_FILE_CONTENT = `# ENGINEERING PROFILE // JEPTHA
+Role: Senior Software Engineer (Systems & Full-Stack)
+Specialization: Low-Latency Systems, Distributed State & Frontend Architecture
+Location: Singapore (UTC+8) • Remote Worldwide
 
 1. TECHNICAL OVERVIEW
 --------------------------------------------------------------------------------
@@ -292,5 +291,5 @@ and write code that reads like well-authored literature."
 5. STATUS & AVAILABILITY
 --------------------------------------------------------------------------------
 [ONLINE] Available for select high-impact engineering roles and technical advisory.
-Type 'contact' in the terminal or run Contact.sh to initiate communications.
+Type 'contact' in the terminal or open the Contact app to initiate communications.
 `;

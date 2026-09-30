@@ -67,22 +67,32 @@ export const Dock: React.FC = () => {
   };
 
   return (
-    <nav
-      ref={dockRef}
-      aria-label="JEPTHA // OS — UTILITY DOCK"
-      className="fixed bottom-3.5 left-1/2 -translate-x-1/2 z-40 select-none pointer-events-auto"
-    >
-      {/* Popovers Layer */}
-      {activePopover === 'music' && (
-        <MusicPopover onClose={() => setActivePopover(null)} />
+    <>
+      {/* Backdrop Scrim to dismiss popovers cleanly on outside click */}
+      {activePopover && (
+        <div
+          className="fixed inset-0 z-35 bg-black/25 backdrop-blur-[1px] transition-opacity"
+          onClick={() => setActivePopover(null)}
+          aria-hidden="true"
+        />
       )}
 
-      {activePopover === 'appearance' && (
-        <AppearancePopover onClose={() => setActivePopover(null)} />
-      )}
+      <nav
+        ref={dockRef}
+        aria-label="JEPTHA // OS — UTILITY DOCK"
+        className="fixed bottom-3.5 left-1/2 -translate-x-1/2 z-40 select-none pointer-events-auto"
+      >
+        {/* Popovers Layer */}
+        {activePopover === 'music' && (
+          <MusicPopover onClose={() => setActivePopover(null)} />
+        )}
 
-      {/* Dock Bar Shell */}
-      <div className="relative flex items-center px-3 py-1.5 rounded-2xl bg-[#0c121e]/90 backdrop-blur-2xl border border-white/15 shadow-2xl shadow-black/90">
+        {activePopover === 'appearance' && (
+          <AppearancePopover onClose={() => setActivePopover(null)} />
+        )}
+
+        {/* Dock Bar Shell (Frosted Shelf Styling) */}
+        <div className="relative flex items-center px-3.5 py-1.5 rounded-[12px] bg-[#0e121b]/80 backdrop-blur-[16px] border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.6)]">
         {/* Terminal Utility Item */}
         <button
           onClick={handleTerminalClick}
@@ -170,5 +180,6 @@ export const Dock: React.FC = () => {
         </button>
       </div>
     </nav>
+  </>
   );
 };

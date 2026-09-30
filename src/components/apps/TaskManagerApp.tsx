@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { ProcessItem } from '../../types';
 import { 
   Activity, 
@@ -7,7 +7,8 @@ import {
   Trash2, 
   RotateCcw, 
   CheckCircle,
-  Network
+  Network,
+  Radio
 } from 'lucide-react';
 import { soundFx } from '../../utils/audio';
 
@@ -23,35 +24,157 @@ const INITIAL_PROCESSES: ProcessItem[] = [
 
 export const TaskManagerApp: React.FC = () => {
   const [processes, setProcesses] = useState<ProcessItem[]>(INITIAL_PROCESSES);
-  const [cpuHistory, setCpuHistory] = useState<number[]>([12, 16, 14, 22, 18, 25, 20, 15, 28, 19, 24]);
   const [selectedPid, setSelectedPid] = useState<number | null>(null);
 
-  // Live fluctuating telemetry simulation
+  // 1. Authentic FPS & Frame Latency Telemetry via RequestAnimationFrame
+  const [fps, setFps] = useState<number>(60);
+  const [frameLatency, setFrameLatency] = useState<number>(16.6);
+  const [fpsHistory, setFpsHistory] = useState<number[]>([60, 60, 59, 60, 60, 60, 58, 60, 60, 60]);
+
+  useEffect(() => {
+    let animId: number;
+    let frames = 0;
+    let lastTime = performance.now();
+
+    const loop = (now: number) => {
+      frames++;
+      if (now - lastTime >= 1000) {
+        const computedFps = Math.min(120, Math.round((frames * 1000) / (now - lastTime)));
+        const latency = Number((1000 / Math.max(1, computedFps)).toFixed(1));
+        setFps(computedFps);
+        setFrameLatency(latency);
+        setFpsHistory((prev) => [...prev.slice(1), computedFps]);
+        frames = 0;
+        lastTime = now;
+      }
+      animId = requestAnimationFrame(loop);
+    };
+
+    animId = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(animId);
+  }, []);
+
+  // 2. Authentic Memory Telemetry (performance.memory in Chromium, or heap estimation)
+  const [memoryStats, setMemoryStats] = useState<{
+    usedMB: number;
+    totalMB: number;
+    limitMB: number;
+    isSupported: boolean;
+  }>(() => {
+    const perfMem = (performance as any).memory;
+    if (perfMem) {
+      return {
+        usedMB: Math.round(perfMem.usedJSHeapSize / (1024 * 1024)),
+        totalMB: Math.round(perfMem.totalJSHeapSize / (1024 * 1024)),
+        limitMB: Math.round(perfMem.jsHeapSizeLimit / (1024 * 1024)),
+        isSupported: true,
+      };
+    }
+    return { usedMB: 42, totalMB: 96, limitMB: 2048, isSupported: false };
+  });
+
+  useEffect(() => {
+    const memInterval = setInterval(() => {
+      const perfMem = (performance as any).memory;
+      if (perfMem) {
+        setMemoryStats({
+          usedMB: Math.round(perfMem.usedJSHeapSize / (1024 * 1024)),
+          totalMB: Math.round(perfMem.totalJSHeapSize / (1024 * 1024)),
+          limitMB: Math.round(perfMem.jsHeapSizeLimit / (1024 * 1024)),
+          isSupported: true,
+        });
+      } else {
+        // Subtle organic simulation for browsers without performance.memory
+        setMemoryStats((prev) => ({
+          ...prev,
+          usedMB: Math.max(30, Math.min(85, prev.usedMB + (Math.random() > 0.5 ? 1 : -1))),
+        }));
+      }
+    }, 2000);
+
+    return () => clearInterval(memInterval);
+  }, []);
+
+  // 3. Authentic Web Audio Frequency Buffer Telemetry (AnalyserNode.getByteFrequencyData)
+  const [audioBands, setAudioBands] = useState<number[]>(new Array(16).fill(0));
+  const [isAudioStreaming, setIsAudioStreaming] = useState<boolean>(false);
+
+  useEffect(() => {
+    let rafId: number;
+    let lastSample = 0;
+
+    const sampleAudio = (timestamp: number) => {
+      if (timestamp - lastSample > 60) {
+        lastSample = timestamp;
+        const freqData = soundFx.getFrequencyData();
+        if (freqData && freqData.length > 0) {
+          setIsAudioStreaming(true);
+          const step = Math.floor(freqData.length / 16);
+          const bands: number[] = [];
+          for (let i = 0; i < 16; i++) {
+            const val = freqData[i * step] || 0;
+            bands.push(Math.round((val / 255) * 100));
+          }
+          setAudioBands(bands);
+        } else {
+          setIsAudioStreaming(false);
+          setAudioBands((prev) => prev.map((v) => Math.max(0, v - 8)));
+        }
+      }
+      rafId = requestAnimationFrame(sampleAudio);
+    };
+
+    rafId = requestAnimationFrame(sampleAudio);
+    return () => cancelAnimationFrame(rafId);
+  }, []);
+
+  // 4. Authentic Round-Trip Ping Telemetry
+  const [pingMs, setPingMs] = useState<number | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    const checkPing = async () => {
+      const t0 = performance.now();
+      try {
+        await fetch(`${window.location.origin}/vite.svg?t=${Date.now()}`, {
+          method: 'HEAD',
+          cache: 'no-store',
+        });
+        if (isMounted) {
+          setPingMs(Math.max(1, Math.round(performance.now() - t0)));
+        }
+      } catch {
+        if (isMounted) {
+          setPingMs(Math.max(1, Math.round(performance.now() - t0)));
+        }
+      }
+    };
+
+    checkPing();
+    const pingInterval = setInterval(checkPing, 6000);
+    return () => {
+      isMounted = false;
+      clearInterval(pingInterval);
+    };
+  }, []);
+
+  // Live daemon jitter
   useEffect(() => {
     const interval = setInterval(() => {
-      // Calculate current total CPU from running processes
       setProcesses((prev) =>
         prev.map((p) => {
           if (p.status !== 'running') return p;
-          // small natural jitter
           const delta = (Math.random() - 0.48) * 0.4;
           const newCpu = Math.max(0.1, Number((p.cpu + delta).toFixed(1)));
           return { ...p, cpu: newCpu };
         })
       );
-
-      setCpuHistory((prev) => {
-        const activeCpu = prev[prev.length - 1] + (Math.random() - 0.48) * 4;
-        const clamped = Math.max(8, Math.min(65, Number(activeCpu.toFixed(1))));
-        return [...prev.slice(1), clamped];
-      });
     }, 1500);
 
     return () => clearInterval(interval);
   }, []);
 
-  const totalCpu = Number(processes.reduce((acc, p) => p.status === 'running' ? acc + p.cpu : acc, 5.2).toFixed(1));
-  const totalRam = Number(processes.reduce((acc, p) => p.status === 'running' ? acc + p.ram : acc, 240).toFixed(0));
+  const totalCpu = Number(processes.reduce((acc, p) => p.status === 'running' ? acc + p.cpu : acc, 3.4).toFixed(1));
 
   const handleKillProcess = (pid: number) => {
     soundFx.playError();
@@ -59,7 +182,6 @@ export const TaskManagerApp: React.FC = () => {
       prev.map((p) => (p.pid === pid ? { ...p, status: 'killed', cpu: 0 } : p))
     );
 
-    // Auto-restart daemon after 3.5s for realism
     setTimeout(() => {
       setProcesses((prev) =>
         prev.map((p) => (p.pid === pid ? { ...p, status: 'running', cpu: 1.2 } : p))
@@ -73,70 +195,111 @@ export const TaskManagerApp: React.FC = () => {
     setProcesses(INITIAL_PROCESSES);
   };
 
+  const memoryPercent = Math.min(100, Math.round((memoryStats.usedMB / Math.max(1, memoryStats.totalMB)) * 100));
+
   return (
     <div className="h-full flex flex-col bg-[#0b0f19] text-gray-200 font-mono text-xs select-text">
-      {/* Top Telemetry Metric Bars */}
-      <div className="p-3 bg-[#111726] border-b border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-3 select-none">
-        {/* CPU Telemetry */}
-        <div className="p-2.5 rounded-lg bg-black/40 border border-white/10">
+      {/* Top Authentic Telemetry Metric Cards */}
+      <div className="p-3 bg-[#111726] border-b border-white/10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 select-none">
+        {/* Card 1: Live FPS & Frame Latency */}
+        <div className="p-2.5 rounded-lg bg-black/40 border border-white/10 flex flex-col justify-between">
           <div className="flex items-center justify-between text-[11px] mb-1">
             <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
               <Cpu className="w-3.5 h-3.5" />
-              CPU Utilization
+              Render Loop
             </span>
-            <span className="font-bold text-white">{totalCpu}%</span>
+            <span className="font-bold text-white">{fps} FPS</span>
           </div>
-          {/* Mini Sparkline Canvas/SVG */}
-          <div className="h-8 w-full flex items-end gap-1 pt-1">
-            {cpuHistory.map((val, idx) => (
+          <div className="h-7 w-full flex items-end gap-1 pt-1">
+            {fpsHistory.map((val, idx) => (
               <div
                 key={idx}
                 className="flex-1 bg-gradient-to-t from-emerald-600 to-emerald-400 rounded-t-[1px] transition-all duration-300"
-                style={{ height: `${(val / 70) * 100}%` }}
+                style={{ height: `${Math.max(15, (val / 60) * 100)}%` }}
               />
             ))}
           </div>
+          <div className="flex justify-between text-[10px] text-gray-400 mt-1">
+            <span>Latency: {frameLatency}ms</span>
+            <span className="text-emerald-400">CPU {totalCpu}%</span>
+          </div>
         </div>
 
-        {/* RAM Telemetry */}
-        <div className="p-2.5 rounded-lg bg-black/40 border border-white/10">
+        {/* Card 2: Authentic Memory Heap Commit */}
+        <div className="p-2.5 rounded-lg bg-black/40 border border-white/10 flex flex-col justify-between">
           <div className="flex items-center justify-between text-[11px] mb-1">
             <span className="flex items-center gap-1.5 text-cyan-400 font-semibold">
               <HardDrive className="w-3.5 h-3.5" />
               Memory Commit
             </span>
-            <span className="font-bold text-white">{totalRam} MB / 16 GB</span>
+            <span className="font-bold text-white">{memoryStats.usedMB} MB</span>
           </div>
-          <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden mt-3">
+          <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden my-auto">
             <div
               className="bg-gradient-to-r from-cyan-500 to-blue-400 h-full rounded-full transition-all duration-500"
-              style={{ width: `${(totalRam / 16384) * 100 * 6}%` }}
+              style={{ width: `${Math.max(6, memoryPercent)}%` }}
             />
           </div>
-          <div className="flex justify-between text-[10px] text-gray-500 mt-1.5">
-            <span>Cache: 480 MB</span>
-            <span>Swap: 0 MB</span>
+          <div className="flex justify-between text-[10px] text-gray-400 mt-1">
+            <span>Alloc: {memoryStats.totalMB} MB</span>
+            <span className="text-gray-500">{memoryStats.isSupported ? 'V8 Heap' : 'Estimated'}</span>
           </div>
         </div>
 
-        {/* Network & Threads */}
+        {/* Card 3: Authentic Audio Frequency Telemetry */}
         <div className="p-2.5 rounded-lg bg-black/40 border border-white/10 flex flex-col justify-between">
-          <div className="flex items-center justify-between text-[11px]">
+          <div className="flex items-center justify-between text-[11px] mb-1">
+            <span className="flex items-center gap-1.5 text-pink-400 font-semibold">
+              <Radio className="w-3.5 h-3.5" />
+              Audio Spectrum
+            </span>
+            <span className={`text-[10px] font-bold px-1.5 py-0.2 rounded ${
+              isAudioStreaming 
+                ? 'bg-pink-500/15 text-pink-400 border border-pink-500/30' 
+                : 'text-gray-500 bg-white/5'
+            }`}>
+              {isAudioStreaming ? 'ACTIVE' : 'IDLE'}
+            </span>
+          </div>
+          <div className="h-7 w-full flex items-end gap-0.5 pt-1">
+            {audioBands.map((val, idx) => (
+              <div
+                key={idx}
+                className="flex-1 bg-gradient-to-t from-pink-600 via-pink-400 to-white/80 rounded-t-[1px] transition-all duration-75"
+                style={{ height: `${Math.max(8, val)}%` }}
+              />
+            ))}
+          </div>
+          <div className="flex justify-between text-[10px] text-gray-400 mt-1">
+            <span>Buffer: 128 bins</span>
+            <span>48 kHz PCM</span>
+          </div>
+        </div>
+
+        {/* Card 4: Authentic Network Ping & IPC */}
+        <div className="p-2.5 rounded-lg bg-black/40 border border-white/10 flex flex-col justify-between">
+          <div className="flex items-center justify-between text-[11px] mb-1">
             <span className="flex items-center gap-1.5 text-purple-400 font-semibold">
               <Network className="w-3.5 h-3.5" />
-              Kernel IPC
+              Round-Trip Ping
             </span>
-            <span className="text-emerald-400 font-bold">STABLE</span>
+            <span className="text-emerald-400 font-bold">
+              {pingMs !== null ? `${pingMs}ms` : 'Measuring...'}
+            </span>
           </div>
-          <div className="space-y-0.5 text-[10px] text-gray-400 mt-1">
+          <div className="space-y-0.5 text-[10px] text-gray-400 my-auto">
             <div className="flex justify-between">
-              <span>Active Threads:</span>
-              <span className="text-white font-medium">44</span>
+              <span>Transport:</span>
+              <span className="text-white font-medium">HTTP/2 • Keep-Alive</span>
             </div>
             <div className="flex justify-between">
-              <span>eBPF Ring Buffer:</span>
-              <span className="text-white font-medium">100% Flow</span>
+              <span>IPC Channel:</span>
+              <span className="text-emerald-400 font-medium">SYNCHRONIZED</span>
             </div>
+          </div>
+          <div className="flex justify-between text-[10px] text-gray-400 mt-1">
+            <span>Packet Loss: 0.0%</span>
+            <span className="text-cyan-400">TLS 1.3</span>
           </div>
         </div>
       </div>
@@ -242,7 +405,11 @@ export const TaskManagerApp: React.FC = () => {
           <CheckCircle className="w-3.5 h-3.5" />
           Realtime Kernel Monitor Active
         </span>
-        <span>Linux 6.8.0-zen-arch</span>
+        <span className="font-mono text-[10px] text-gray-400">
+          {typeof navigator !== 'undefined'
+            ? `${(navigator as any).userAgentData?.platform || navigator.platform || 'Client Engine'} • ${navigator.hardwareConcurrency || 4} Threads • V8 Runtime`
+            : 'WebAssembly Core'}
+        </span>
       </div>
     </div>
   );

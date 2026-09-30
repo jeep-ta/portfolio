@@ -65,9 +65,9 @@ export const Desktop: React.FC = () => {
         isCrashed ? 'system-glitch' : ''
       }`}
     >
-      {/* Subtle CRT Scanlines Overlay */}
+      {/* Authentic Retro CRT Scanlines & Monitor Vignette Overlay */}
       {scanlinesEnabled && (
-        <div className="scanlines absolute inset-0 z-30 pointer-events-none opacity-40" />
+        <div className="scanlines absolute inset-0 z-30 pointer-events-none transition-opacity duration-200" />
       )}
 
       {/* Interactive Constellation & Shockwave Wallpaper Canvas */}
@@ -78,36 +78,36 @@ export const Desktop: React.FC = () => {
 
       {/* Desktop Main Workspace Area */}
       <main className="relative flex-1 w-full h-full pt-10 pb-16 px-4 overflow-hidden pointer-events-none">
-        {/* Desktop Shortcuts Column */}
-        <div className="grid grid-flow-row auto-rows-max gap-2.5 z-10 w-fit pointer-events-auto">
+        {/* Desktop Shortcuts Column - Structured Vertical Rail */}
+        <div className="flex flex-col gap-3.5 z-10 w-fit pointer-events-auto select-none">
           <DesktopIcon
             id="about"
-            label="About.txt"
+            label="About"
             icon={<FileText className="w-6 h-6 text-sky-400" />}
           />
           <DesktopIcon
             id="projects"
-            label="Projects.app"
+            label="Projects"
             icon={<FolderGit2 className="w-6 h-6 text-emerald-400" />}
           />
           <DesktopIcon
             id="skills"
-            label="Skills.conf"
+            label="Skills"
             icon={<Cpu className="w-6 h-6 text-purple-400" />}
           />
           <DesktopIcon
             id="taskmgr"
-            label="TaskMgr.app"
+            label="Process Monitor"
             icon={<Activity className="w-6 h-6 text-emerald-400" />}
           />
           <DesktopIcon
             id="contact"
-            label="Contact.sh"
+            label="Contact"
             icon={<Send className="w-6 h-6 text-amber-400" />}
           />
           <DesktopIcon
             id="snake"
-            label="Snake.game"
+            label="Arcade"
             icon={<Gamepad2 className="w-6 h-6 text-pink-400" />}
           />
         </div>
@@ -168,18 +168,8 @@ export const Desktop: React.FC = () => {
             </Suspense>
           </Window>
         )}
-
-        {/* Watermark / Quick Helper Info on bottom right */}
-        <div className="hidden sm:block absolute bottom-20 right-6 text-right pointer-events-none select-none z-0">
-          <div className="text-xl font-bold font-mono tracking-widest text-white/[0.07]">
-            JEPTHA // WORKSTATION
-          </div>
-          <div className="text-[11px] font-mono text-white/[0.2] space-y-0.5 mt-1">
-            <p>Right-click desktop for Quick Actions</p>
-            <p>Press [Ctrl+K] for CLI &bull; [Esc] to Close</p>
-          </div>
-        </div>
       </main>
+
 
       {/* Dock Bar */}
       <Dock />

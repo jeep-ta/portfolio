@@ -7,7 +7,7 @@ import {
   Wifi, 
   BatteryMedium, 
   Sparkles,
-  Music,
+  Command,
 } from 'lucide-react';
 
 export const TopBar: React.FC = () => {
@@ -17,6 +17,7 @@ export const TopBar: React.FC = () => {
     ambientPlaying,
     toggleAmbientMusic,
     volume,
+    setShowShortcutsModal,
   } = useDesktop();
 
   const [timeStr, setTimeStr] = useState<string>('');
@@ -41,48 +42,61 @@ export const TopBar: React.FC = () => {
 
   return (
     <header className="h-9 w-full bg-black/60 backdrop-blur-md border-b border-[var(--border-color)] px-3 flex items-center justify-between text-xs text-[var(--text-primary)] z-50 fixed top-0 left-0 select-none">
-      {/* Left: Brand Logo & Lo-Fi Audio Player pill */}
+      {/* Left: Brand Logo & Minimal Three-Bar Equalizer Status */}
       <div className="flex items-center gap-2 sm:gap-2.5">
         <div className="flex items-center gap-2 font-mono font-bold tracking-wider text-[var(--accent)] hover:opacity-80 cursor-pointer">
           <Sparkles className="w-3.5 h-3.5 text-[var(--accent)]" />
           <span className="hidden sm:inline">JEPTHA // OS</span>
           <span className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/30 font-normal">
-            v2.4
+            v2.5
           </span>
         </div>
 
         <div className="h-3.5 w-px bg-white/10 hidden sm:block" />
 
-        {/* Lo-Fi Music Player Status & Toggle Button */}
+        {/* Animated Three-Bar Equalizer Glyph & Audio Status Button */}
         <button
           onClick={toggleAmbientMusic}
-          title={ambientPlaying ? 'Pause: lofi house vol.1 🌆 chill music to vibe to' : 'Play: lofi house vol.1 🌆 chill music to vibe to'}
+          title={ambientPlaying ? 'Pause Audio Stream (Click to toggle)' : 'Resume Audio Stream (Click to toggle)'}
           className={`flex items-center gap-1.5 px-2 py-0.5 rounded border transition-all ${
             ambientPlaying
               ? 'bg-pink-500/20 text-pink-300 border-pink-500/30 shadow-sm'
               : 'bg-white/5 border-white/10 text-gray-400 hover:text-gray-200 hover:bg-white/10'
           }`}
         >
-          <Music className={`w-3 h-3 ${ambientPlaying ? 'text-pink-400 animate-spin' : 'text-gray-400'}`} />
-          <span className="text-[10px] font-mono">Lo-Fi House 🌆</span>
-          {ambientPlaying && (
-            <div className="flex items-end gap-0.5 h-2.5">
-              <span className="w-0.5 bg-pink-400 h-2 animate-bounce" />
+          {ambientPlaying ? (
+            <div className="flex items-end gap-0.5 h-3 px-0.5">
+              <span className="w-0.5 bg-pink-400 h-2.5 animate-bounce" />
               <span className="w-0.5 bg-pink-400 h-1.5 animate-bounce delay-75" />
-              <span className="w-0.5 bg-pink-400 h-2.5 animate-bounce delay-150" />
+              <span className="w-0.5 bg-pink-400 h-3 animate-bounce delay-150" />
             </div>
+          ) : (
+            <span className="font-mono text-gray-500 text-[10px] px-0.5">ılı</span>
           )}
+          <span className="text-[10px] font-mono tracking-wider">
+            {ambientPlaying ? 'STREAMING' : 'AUDIO IDLE'}
+          </span>
         </button>
       </div>
 
-      {/* Center: System status ticker (aesthetic world-building) */}
-      <div className="hidden xl:flex items-center gap-2 font-mono text-[10px] text-white/30 tracking-wider">
-        <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400/80" />
-        <span>KERNEL: OK</span>
-        <span>•</span>
-        <span>eBPF: ACTIVE</span>
-        <span>•</span>
-        <span>NET: 12ms</span>
+      {/* Center: Quick Actions Command Badge & System telemetry */}
+      <div className="flex items-center gap-2">
+        <button
+          onClick={() => setShowShortcutsModal(true)}
+          title="Open Quick Actions & Shortcuts (Ctrl+K)"
+          className="hidden sm:flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-[10px] font-mono text-gray-300 hover:text-white transition-all shadow-sm active:scale-95"
+        >
+          <Command className="w-3 h-3 text-[var(--accent)]" />
+          <span>Ctrl+K Quick Actions</span>
+        </button>
+
+        <div className="hidden xl:flex items-center gap-2 font-mono text-[10px] text-white/30 tracking-wider">
+          <span>•</span>
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400/80" />
+          <span>KERNEL: OK</span>
+          <span>•</span>
+          <span>eBPF: ACTIVE</span>
+        </div>
       </div>
 
       {/* Right: Quick Mute Toggle, Network, Battery, Live Clock */}

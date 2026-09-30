@@ -21,3 +21,7 @@ dist-ssr
 
 # Ignore large media in project root
 /*.mp3
+
+# Graphify local cache & environment
+graphify-out/cache/
+graphify-out/.graphify_python

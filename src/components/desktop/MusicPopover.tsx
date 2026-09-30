@@ -73,9 +73,15 @@ export const MusicPopover: React.FC<MusicPopoverProps> = ({ onClose }) => {
     <div 
       role="dialog"
       aria-label="Lo-Fi Music Player Utility"
-      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 w-80 sm:w-88 rounded-2xl bg-[#0b101d]/95 backdrop-blur-2xl border border-white/15 p-4 shadow-2xl text-gray-200 font-mono text-xs select-none z-50 animate-in fade-in slide-in-from-bottom-2 duration-150"
+      className="absolute bottom-full mb-3.5 left-1/2 -translate-x-1/2 w-80 sm:w-88 rounded-[12px] bg-[#0e121b]/95 backdrop-blur-[20px] border border-white/10 p-4 shadow-[0_16px_48px_rgba(0,0,0,0.7)] text-gray-200 font-mono text-xs select-none z-50 animate-in fade-in slide-in-from-bottom-2 duration-150"
       onClick={(e) => e.stopPropagation()}
     >
+      {/* Anchored Pointer Caret */}
+      <div 
+        className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#0e121b] border-r border-b border-white/10 rotate-45 pointer-events-none" 
+        aria-hidden="true"
+      />
+
       {/* Header */}
       <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-white/10">
         <div className="flex items-center gap-2">
